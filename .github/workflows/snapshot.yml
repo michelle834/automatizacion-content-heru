@@ -1,0 +1,72 @@
+name: Snapshot del pool
+
+# Lee la API de Apps Script y guarda el resultado en datos.json.
+# Esto es lo que hace que la página funcione sin tu computadora y
+# sin que el navegador tenga que hablar con Google: GitHub lo hace
+# server-to-server y deja el JSON listo en el repo.
+#
+# De paso queda historial: cada commit es una foto del pool ese día,
+# así que se puede ver cómo se movió un candidato con el tiempo.
+
+on:
+  schedule:
+    # Cada hora en punto. La hora que importa es la de las 6:30 de
+    # México, cuando el marcador ya recalculó: 12:30 UTC en horario
+    # de verano, 13:30 en invierno. Correr cada hora cubre las dos.
+    - cron: '5 * * * *'
+  workflow_dispatch:        # también se puede correr a mano
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Leer la API
+        env:
+          API_URL: ${{ secrets.APPS_SCRIPT_URL }}
+        run: |
+          if [ -z "$API_URL" ]; then
+            echo "Falta el secret APPS_SCRIPT_URL. Se conserva el datos.json que ya está."
+            exit 0
+          fi
+          # Apps Script redirige a googleusercontent, por eso -L
+          curl -sSL --fail --max-time 60 "$API_URL" -o nuevo.json
+
+          # Si no es JSON válido, no se pisa el archivo bueno
+          if ! python3 -c "import json,sys; json.load(open('nuevo.json'))" 2>/dev/null; then
+            echo "La respuesta no es JSON. No se toca datos.json."
+            head -c 400 nuevo.json
+            exit 1
+          fi
+
+          python3 - <<'PY'
+          import json
+          d = json.load(open('nuevo.json'))
+          # Guardarrail: si el pool viene vacío, casi siempre es un error
+          # de permisos, no que se hayan acabado los candidatos.
+          if not d.get('pool'):
+              raise SystemExit('El pool vino vacío. No se sobrescribe.')
+          json.dump(d, open('datos.json','w'), ensure_ascii=False, indent=1)
+          print('pool:', len(d['pool']), '· bloqueados:',
+                sum(1 for p in d['pool'] if p.get('bloqueo')))
+          PY
+
+      - name: Guardar si cambió
+        run: |
+          if git diff --quiet -- datos.json; then
+            echo "Sin cambios."
+            exit 0
+          fi
+          git config user.name  "marcador heru"
+          git config user.email "actions@users.noreply.github.com"
+          git add datos.json
+          git commit -m "pool $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
