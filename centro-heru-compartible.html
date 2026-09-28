@@ -1,0 +1,1710 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Centro de operaciones heru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;700&display=swap">
+<style>
+/* Mismo lenguaje del Content Dash: sidebar con emoji, pastillas de red arriba,
+   tarjetas con borde de estado (gris idea · ámbar en proceso · verde listo · azul publicado). */
+:root{
+  --cream:#F5EFE3; --grid:#EEE9DF; --azul:#1790EC; --cian:#15D1FE;
+  --negro:#111; --gris:#7C7468; --gris2:#B3ABA0; --blanco:#fff; --linea:#E6E0D4;
+  --verde:#16A34A; --ambar:#D97706; --rojo:#DC2626;
+  --titulo:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --cuerpo:'Lexend Deca','Helvetica Neue',Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--negro);font-family:var(--cuerpo);font-size:14px;line-height:1.55;
+  font-variant-numeric:tabular-nums}
+button{font:inherit;cursor:pointer}
+a{color:var(--azul)}
+
+.app{display:grid;grid-template-columns:232px 1fr;gap:0;min-height:100vh;max-width:1400px;margin:0 auto}
+
+/* sidebar */
+.lado{background:var(--blanco);border-right:1px solid var(--linea);padding:18px 0 40px;
+  position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto}
+.marca{padding:0 18px 16px;display:flex;align-items:baseline;gap:8px}
+.marca .logo{font-family:var(--titulo);font-weight:700;font-size:23px;color:var(--azul);letter-spacing:-.03em}
+.marca .txt{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris2)}
+.nav{display:flex;flex-direction:column}
+.nav button{background:transparent;border:none;text-align:left;padding:9px 18px;font-size:14px;
+  color:var(--negro);display:flex;align-items:center;gap:9px;border-left:3px solid transparent}
+.nav button:hover{background:var(--cream)}
+.nav button[aria-current="true"]{background:var(--cream);border-left-color:var(--azul);font-weight:500}
+.nav .cuenta{margin-left:auto;font-size:11px;color:var(--blanco);background:var(--azul);
+  border-radius:999px;padding:1px 7px;min-width:20px;text-align:center}
+.nav .cuenta.apagada{background:var(--linea);color:var(--gris)}
+.leyenda{margin:22px 18px 0;padding-top:16px;border-top:1px solid var(--linea);font-size:11.5px;color:var(--gris);line-height:1.9}
+.leyenda b{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris2);margin-bottom:6px}
+.leyenda i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;font-style:normal}
+.i-gris{background:var(--gris2)} .i-ambar{background:var(--ambar)}
+.i-verde{background:var(--verde)} .i-azul{background:var(--azul)}
+
+/* contenido */
+.main{padding:22px 26px 70px;min-width:0}
+.cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+h1{font-family:var(--titulo);font-weight:700;font-size:24px;letter-spacing:-.02em;margin:0}
+.conex{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--gris)}
+.pt{width:8px;height:8px;border-radius:50%;background:var(--gris2)} .pt.vivo{background:var(--verde)}
+.dice{color:var(--gris);font-size:14px;margin:0 0 18px;max-width:74ch}
+
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.pill{background:var(--blanco);border:1px solid var(--linea);border-radius:999px;padding:5px 13px;font-size:13px;color:var(--gris)}
+.pill[aria-pressed="true"]{background:var(--negro);border-color:var(--negro);color:#fff}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin-bottom:24px}
+.card{background:var(--blanco);border:1px solid var(--linea);border-radius:10px;padding:13px 14px}
+.card .n{font-family:var(--titulo);font-weight:700;font-size:28px;line-height:1;display:block}
+.card .l{font-size:11.5px;color:var(--gris);margin-top:6px;display:block;line-height:1.35}
+.card.v .n{color:var(--verde)} .card.a .n{color:var(--ambar)} .card.r .n{color:var(--rojo)}
+
+h2{font-family:var(--titulo);font-weight:700;font-size:16px;margin:26px 0 4px}
+.h2n{color:var(--gris);font-weight:400;font-family:var(--cuerpo);font-size:13px}
+.h2sub{color:var(--gris);font-size:13px;margin:0 0 14px}
+
+/* pieza */
+.pieza{background:var(--blanco);border:1px solid var(--linea);border-left:5px solid var(--gris2);
+  border-radius:10px;margin-bottom:12px;overflow:hidden}
+.pieza.e-verde{border-left-color:var(--verde)}
+.pieza.e-ambar{border-left-color:var(--ambar)}
+.pieza.e-azul{border-left-color:var(--azul)}
+.p-top{padding:13px 16px;display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.p-top .izq{flex:1;min-width:200px}
+.p-top .tema{font-size:16px;font-weight:500;margin:0 0 4px;line-height:1.3}
+.p-top .kw{font-size:12.5px;color:var(--gris);margin:0}
+.p-top .der{text-align:right;white-space:nowrap}
+.p-top .pts{font-family:var(--titulo);font-weight:700;font-size:22px;display:block;line-height:1}
+.p-top .pts small{font-size:11px;color:var(--gris2);font-weight:400}
+.tags{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 12px}
+.tag{font-size:11.5px;padding:2px 9px;border-radius:999px;background:var(--cream);color:var(--gris)}
+.tag.red{background:#EAF4FE;color:#0B5FA5}
+.tag.cuando{background:#EAF4FE;color:#0B5FA5}
+.estado-linea{padding:9px 16px;font-size:13px;border-top:1px solid var(--linea);background:#FBF9F5}
+.estado-linea b{font-weight:500}
+.estado-linea.ok{color:var(--verde)} .estado-linea.esp{color:var(--ambar)}
+
+details{border-top:1px solid var(--linea)}
+summary{padding:10px 16px;font-size:13px;color:var(--azul);cursor:pointer;list-style:none;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸ ';color:var(--gris2)}
+details[open] summary::before{content:'▾ '}
+.det{padding:4px 16px 16px}
+.seccion{padding:14px 0;border-top:1px dashed var(--linea)}
+.seccion:first-child{border-top:none;padding-top:6px}
+.seccion h3{font-family:var(--titulo);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--gris2);margin:0 0 9px}
+.par{display:grid;grid-template-columns:132px 1fr;gap:5px 14px;font-size:13.5px;margin:0}
+.par dt{color:var(--gris);font-size:12.5px} .par dd{margin:0}
+.puntos-lista{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gris);margin:0 0 9px}
+.puntos-lista b{color:var(--negro);font-weight:500}
+.caption{background:var(--cream);border-radius:8px;padding:13px 14px;white-space:pre-wrap;font-size:14px;line-height:1.6;margin:0 0 9px}
+.caption .cierre{display:block;margin-top:12px;font-weight:500}
+.compuerta{display:flex;gap:10px;padding:8px 0;font-size:13px;align-items:flex-start}
+.compuerta .marca-v{width:16px;flex:0 0 auto;font-weight:700}
+.v-pasa{color:var(--verde)} .v-no{color:var(--rojo)} .v-pend{color:var(--ambar)}
+.compuerta .qn{font-size:11.5px;color:var(--gris2)}
+.compuerta .nt{color:var(--gris);font-size:12.5px;margin-top:2px}
+.arte{border:1px dashed var(--gris2);border-radius:8px;padding:12px;background:#FBF9F5}
+.arte.puesto{border-style:solid;border-color:var(--verde);background:#F4FBF6}
+.arte input{width:100%;margin-top:7px;font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--linea);border-radius:6px;background:#fff}
+.acc{padding:14px 16px;border-top:1px solid var(--linea);display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.acc.listo{background:#F4FBF6}
+.acc p{margin:0;font-size:13px;color:var(--gris);flex:1;min-width:180px}
+.btn{background:var(--azul);color:#fff;border:none;border-radius:999px;padding:8px 18px;font-weight:500;font-size:13.5px}
+.btn:hover:not(:disabled){filter:brightness(.93)}
+.btn:disabled{background:var(--linea);color:var(--gris2);cursor:not-allowed}
+.btn.verde{background:var(--verde)} .btn.ghost{background:transparent;color:var(--negro);border:1px solid var(--linea)}
+.btn.chico{padding:5px 13px;font-size:12.5px}
+.btn:focus-visible,summary:focus-visible,.pill:focus-visible,.nav button:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+
+.tabla-wrap{overflow-x:auto;background:var(--blanco);border:1px solid var(--linea);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:13px}
+th{background:#FBF9F5;color:var(--gris);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  text-align:left;padding:9px 11px;border-bottom:1px solid var(--linea);white-space:nowrap}
+td{padding:9px 11px;border-bottom:1px solid var(--linea)}
+tr:last-child td{border-bottom:none}
+td.num{text-align:right;white-space:nowrap}
+td.tot{text-align:right;font-weight:700;font-family:var(--titulo)}
+tr.bloq td:first-child{border-left:3px solid var(--rojo)}
+.vacio{background:var(--blanco);border:1px dashed var(--gris2);border-radius:10px;padding:26px 20px;text-align:center;color:var(--gris)}
+.vacio strong{display:block;font-family:var(--titulo);font-size:15px;color:var(--negro);margin-bottom:6px}
+.conf{background:var(--blanco);border:1px solid var(--linea);border-radius:10px;padding:16px;max-width:620px}
+.conf label{display:block;font-size:12.5px;font-weight:500;margin:12px 0 4px}
+.conf input{width:100%;font:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--linea);border-radius:6px;background:#FBF9F5}
+.pie{font-size:12px;color:var(--gris);margin-top:12px;line-height:1.5}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:var(--cream);padding:1px 5px;border-radius:3px}
+
+@media (max-width:820px){
+  .app{grid-template-columns:1fr}
+  .lado{position:static;height:auto;border-right:none;border-bottom:1px solid var(--linea);padding-bottom:14px}
+  .nav{flex-direction:row;overflow-x:auto;padding:0 12px}
+  .nav button{border-left:none;border-bottom:3px solid transparent;white-space:nowrap;padding:8px 12px}
+  .nav button[aria-current="true"]{border-left-color:transparent;border-bottom-color:var(--azul)}
+  .leyenda{display:none}
+  .main{padding:18px 16px 60px}
+  .par{grid-template-columns:1fr;gap:2px 0}
+  .par dt{margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="lado">
+    <div class="marca"><span class="logo">heru</span><span class="txt">operaciones</span></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="leyenda">
+      <b>Cómo leer el borde</b>
+      <div><i class="i-gris"></i>idea, en el pool</div>
+      <div><i class="i-ambar"></i>en proceso, con los agentes</div>
+      <div><i class="i-verde"></i>lista, te toca aprobar</div>
+      <div><i class="i-azul"></i>aprobada y programada</div>
+    </div>
+  </aside>
+
+  <main class="main" id="main"></main>
+</div>
+
+<script id="datos-heru" type="application/json">{
+ "generado": "2026-09-28T06:30:00-06:00",
+ "fuente_datos": "semilla",
+ "pesos": {
+  "demanda": 30,
+  "ventana": 25,
+  "evidencia": 20,
+  "encaje": 15,
+  "whatsapp": 10
+ },
+ "cupo_diario": {
+  "TikTok": 1,
+  "Instagram": 1,
+  "Facebook": 1,
+  "YouTube": 1,
+  "LinkedIn": 1
+ },
+ "redes": {
+  "TikTok": {
+   "trabajo": "Descubrimiento en frío: que nos encuentre quien no nos conoce.",
+   "volumen": 5,
+   "kpi": "Retención y comentarios",
+   "publicacion": "manual",
+   "nota_publicacion": "Su API prohíbe apps de uso interno y sin auditoría todo queda en privado.",
+   "a_donde": "Bio + video «Respuesta a @»"
+  },
+  "Instagram": {
+   "trabajo": "Convertir al que ya nos vio en alguien que sigue y guarda.",
+   "volumen": 4,
+   "kpi": "Guardados y DMs",
+   "publicacion": "automatica",
+   "nota_publicacion": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública.",
+   "a_donde": "Respuesta automática por DM y link en bio"
+  },
+  "Facebook": {
+   "trabajo": "Escuchar a conductores y repartidores donde ya están.",
+   "volumen": 3,
+   "kpi": "Preguntas nuevas traídas al pool",
+   "publicacion": "manual",
+   "nota_publicacion": "Se entra como persona, no como página. Meta quitó el permiso de publicar en grupos en abril de 2024.",
+   "a_donde": "Conversación directa, nunca link pegado"
+  },
+  "YouTube": {
+   "trabajo": "Autoridad y SEO permanente.",
+   "volumen": 4,
+   "kpi": "Impresiones de búsqueda",
+   "publicacion": "bloqueada",
+   "nota_publicacion": "Sin la auditoría, videos.insert sube el video en privado. El trámite es gratuito.",
+   "a_donde": "Link en la descripción del largo"
+  },
+  "LinkedIn": {
+   "trabajo": "Alianzas, talento, prensa y el canal del contador.",
+   "volumen": 2,
+   "kpi": "Guardados y DMs al perfil",
+   "publicacion": "bloqueada",
+   "nota_publicacion": "Falta el Development tier. LinkedIn lo evalúa caso por caso, sin plazo publicado.",
+   "a_donde": "Alianzas y prensa, no la comunidad"
+  }
+ },
+ "horarios": {
+  "TikTok": "20:00",
+  "Instagram": "19:00",
+  "Facebook": "13:00",
+  "YouTube": "18:00",
+  "LinkedIn": "08:30"
+ },
+ "pool": [
+  {
+   "id": "P10",
+   "fuente": "search console",
+   "tema": "Declaración mensual del SAT, paso a paso",
+   "keyword": "declaracion mensual sat",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 30,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 78,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · tiene fecha límite dentro de tres semanas · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": true
+  },
+  {
+   "id": "P05",
+   "fuente": "blog",
+   "tema": "Saldo a favor del SAT y cómo pedir la devolución",
+   "keyword": "saldo a favor sat devolucion",
+   "pilar": "deducciones",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "estacional",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "LISR Art. 152",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 25,
+   "ven": 10,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P14",
+   "fuente": "search console",
+   "tema": "Opinión de cumplimiento para cobrarle a una empresa",
+   "keyword": "opinion de cumplimiento",
+   "pilar": "facturacion",
+   "audiencia": "quien busca un como-se-hace",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "YouTube",
+   "formato": "video largo",
+   "hecho_citable": "CFF Art. 32-D",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 30,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con YouTube porque le habla a quien busca un como-se-hace · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P16",
+   "fuente": "calendario fiscal",
+   "tema": "Recordatorio: el 17 de octubre va la mensual de septiembre",
+   "keyword": "fecha limite declaracion mensual octubre",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Instagram",
+   "formato": "estatico",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": true
+  },
+  {
+   "id": "P22",
+   "fuente": "grupos de facebook",
+   "tema": "Respuesta: si no facturé este mes, ¿tengo que declarar?",
+   "keyword": "si no facture tengo que declarar",
+   "pilar": "fechas limite",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Facebook",
+   "formato": "comentario",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con Facebook porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": true
+  },
+  {
+   "id": "P11",
+   "fuente": "search console + blog",
+   "tema": "Cómo saber cuál es mi régimen fiscal",
+   "keyword": "como saber cual es mi regimen fiscal",
+   "pilar": "regimen",
+   "audiencia": "quien busca un como-se-hace",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "YouTube",
+   "formato": "video largo",
+   "hecho_citable": "Ficha de trámite SAT 6/CFF",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "comentar palabra clave",
+   "dem": 30,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 7,
+   "score": 65,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con YouTube porque le habla a quien busca un como-se-hace",
+   "en_produccion": false
+  },
+  {
+   "id": "P15",
+   "fuente": "calendario fiscal",
+   "tema": "Qué pasa si no declaras antes del 17",
+   "keyword": "que pasa si no declaro antes del 17",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "CFF Art. 82 fr. I",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 12,
+   "wa": 10,
+   "score": 65,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con TikTok porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": true
+  },
+  {
+   "id": "P17",
+   "fuente": "blog",
+   "tema": "Cuánto es realmente la multa por no declarar",
+   "keyword": "multa por no declarar sat cuanto es",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "estacional",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "CFF Art. 82 fr. I · Anexo 5 RMF 2026",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "comentar palabra clave",
+   "dem": 25,
+   "ven": 10,
+   "evi": 8,
+   "enc": 15,
+   "wa": 7,
+   "score": 65,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista",
+   "en_produccion": true
+  },
+  {
+   "id": "P01",
+   "fuente": "blog",
+   "tema": "Uso de CFDI 2026: qué clave elegir",
+   "keyword": "uso de cfdi 2026 cual elegir",
+   "pilar": "facturacion",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "CFF Art. 29-A",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 63,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P02",
+   "fuente": "blog",
+   "tema": "Impuestos para repartidores: Rappi, Uber Eats, DiDi Food",
+   "keyword": "impuestos para repartidores mexico",
+   "pilar": "regimen",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "LISR Art. 113-A",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 63,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con TikTok porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P06",
+   "fuente": "creator search insights",
+   "tema": "Desglose semanal de ganancias DiDi, explicado",
+   "keyword": "explicacion del desglose semanal de ganancias didi conductor",
+   "pilar": "regimen",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "LISR Art. 113-A",
+   "senal_demanda": "sale en creator search insights con hueco",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 63,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con TikTok porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P08",
+   "fuente": "creator search insights",
+   "tema": "Tabulador para la mensual de un conductor de Uber",
+   "keyword": "tabulador declaracion mensual sat conductor uber",
+   "pilar": "fechas limite",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "LISR Art. 113-A",
+   "senal_demanda": "sale en creator search insights con hueco",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 63,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con TikTok porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P09",
+   "fuente": "paginas discover tiktok",
+   "tema": "¿heru es confiable? contestado por nosotros",
+   "keyword": "heru es confiable",
+   "pilar": "mito vs realidad",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "Aviso de privacidad heru",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "comentar palabra clave",
+   "dem": 30,
+   "ven": 5,
+   "evi": 8,
+   "enc": 12,
+   "wa": 7,
+   "score": 62,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con TikTok porque le habla a freelancer y profesionista",
+   "en_produccion": false
+  },
+  {
+   "id": "P07",
+   "fuente": "creator search insights",
+   "tema": "Qué es una deducción si manejas para DiDi",
+   "keyword": "que es deduccion didi conductor",
+   "pilar": "deducciones",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "LISR Art. 113-A",
+   "senal_demanda": "sale en creator search insights con hueco",
+   "cierre": "comentar palabra clave",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 7,
+   "score": 60,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con TikTok porque le habla a conductores y repartidores",
+   "en_produccion": false
+  },
+  {
+   "id": "P12",
+   "fuente": "search console",
+   "tema": "Cómo actualizar mi RFC en 2026",
+   "keyword": "como actualizar mi rfc",
+   "pilar": "regimen",
+   "audiencia": "quien busca un como-se-hace",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "YouTube",
+   "formato": "video largo",
+   "hecho_citable": "Ficha de trámite SAT 77/CFF",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "comentar palabra clave",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 7,
+   "score": 60,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con YouTube porque le habla a quien busca un como-se-hace",
+   "en_produccion": false
+  },
+  {
+   "id": "P19",
+   "fuente": "comentarios propios",
+   "tema": "Gastos deducibles si eres profesionista",
+   "keyword": "gastos deducibles profesionista",
+   "pilar": "deducciones",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "LISR Art. 27",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 58,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "la pregunta se repite en comentarios y comunidad · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P21",
+   "fuente": "grupos de facebook",
+   "tema": "Respuesta: manejo para Uber y DiDi a la vez, ¿cómo declaro?",
+   "keyword": "uber y didi al mismo tiempo como declaro",
+   "pilar": "regimen",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "Facebook",
+   "formato": "comentario",
+   "hecho_citable": "LISR Art. 113-A",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 58,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "la pregunta se repite en comentarios y comunidad · es perenne, así que puede esperar su turno · encaja con Facebook porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P23",
+   "fuente": "estudio propio",
+   "tema": "El 38% de las facturas deducibles no se aprovecha",
+   "keyword": "facturas deducibles no aprovechadas mexico",
+   "pilar": "deducciones",
+   "audiencia": "contador, empresa o alianza",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "LinkedIn",
+   "formato": "texto",
+   "hecho_citable": "Estudio heru 2023-2025, 275,207 partidas",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "no aplica, su destino es otro",
+   "dem": 30,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 0,
+   "score": 58,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con LinkedIn porque le habla a contador, empresa o alianza · su destino no es la comunidad",
+   "en_produccion": true
+  },
+  {
+   "id": "P25",
+   "fuente": "blog",
+   "tema": "3 cosas que cambian en tu declaración si eres repartidor",
+   "keyword": "impuestos repartidor rappi 2026",
+   "pilar": "regimen",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "LISR Art. 113-A",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 10,
+   "wa": 10,
+   "score": 58,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P18",
+   "fuente": "blog",
+   "tema": "Recargos: cómo se calcula el 2.07% mensual",
+   "keyword": "recargos sat como se calculan",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "LIF 2026 Art. 11 fr. I · CFF Art. 21",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "solo guardar o compartir",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 3,
+   "score": 56,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista",
+   "en_produccion": false
+  },
+  {
+   "id": "P24",
+   "fuente": "blog",
+   "tema": "Qué cambia en RESICO para una flotilla",
+   "keyword": "resico flotillas plataformas",
+   "pilar": "regimen",
+   "audiencia": "contador, empresa o alianza",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "LinkedIn",
+   "formato": "texto",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "no aplica, su destino es otro",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 0,
+   "score": 53,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con LinkedIn porque le habla a contador, empresa o alianza · su destino no es la comunidad",
+   "en_produccion": false
+  },
+  {
+   "id": "P20",
+   "fuente": "comunidad whatsapp",
+   "tema": "Por qué en RESICO no deduces tus gastos",
+   "keyword": "resico no deduce gastos",
+   "pilar": "mito vs realidad",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "comentar palabra clave",
+   "dem": 20,
+   "ven": 5,
+   "evi": 8,
+   "enc": 12,
+   "wa": 7,
+   "score": 52,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "nuevo",
+   "porque": "la pregunta se repite en comentarios y comunidad · es perenne, así que puede esperar su turno · encaja con TikTok porque le habla a freelancer y profesionista",
+   "en_produccion": false
+  },
+  {
+   "id": "P13",
+   "fuente": "search console + blog",
+   "tema": "Constancia de situación fiscal sin ir al SAT",
+   "keyword": "constancia de situacion fiscal",
+   "pilar": "facturacion",
+   "audiencia": "quien busca un como-se-hace",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "Ficha de trámite SAT 5/CFF",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "solo guardar o compartir",
+   "dem": 25,
+   "ven": 5,
+   "evi": 8,
+   "enc": 8,
+   "wa": 3,
+   "score": 49,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a quien busca un como-se-hace",
+   "en_produccion": false
+  },
+  {
+   "id": "P03",
+   "fuente": "blog",
+   "tema": "Declaración anual RESICO 2026: se eliminó, pero hay excepciones",
+   "keyword": "declaracion anual resico 2026",
+   "pilar": "regimen",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "estacional",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "comentar palabra clave",
+   "dem": 25,
+   "ven": 10,
+   "evi": 8,
+   "enc": 15,
+   "wa": 7,
+   "score": 0,
+   "bloqueo": "sin hecho citable",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista",
+   "en_produccion": false
+  },
+  {
+   "id": "P04",
+   "fuente": "noticias",
+   "tema": "Paquete Económico 2027: qué cambia en RESICO",
+   "keyword": "paquete economico 2027 resico",
+   "pilar": "noticias",
+   "audiencia": "noticia fiscal del dia",
+   "ventana_tipo": "tendencia del dia",
+   "fecha_limite": null,
+   "red": "LinkedIn",
+   "formato": "texto",
+   "hecho_citable": "",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "no aplica, su destino es otro",
+   "dem": 30,
+   "ven": 20,
+   "evi": 8,
+   "enc": 12,
+   "wa": 0,
+   "score": 0,
+   "bloqueo": "sin hecho citable",
+   "carril": "rapido",
+   "estado": "nuevo",
+   "porque": "hay búsquedas reales y todavía no aparecemos · tiene fecha límite dentro de tres semanas · encaja con LinkedIn porque le habla a noticia fiscal del dia · su destino no es la comunidad",
+   "en_produccion": false
+  }
+ ],
+ "piezas": [
+  {
+   "id": "P10",
+   "fuente": "search console",
+   "tema": "Declaración mensual del SAT, paso a paso",
+   "keyword": "declaracion mensual sat",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 30,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 78,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "lista para aprobacion",
+   "produccion": {
+    "como": "Carrusel de 7 slides a 1080×1440. Portada foto cómica oscurecida, cuerpo cream con cuadrícula, cierre de guardar.",
+    "skill": "carousel + branding-heru",
+    "quien": "Sale sin Mich",
+    "arte_link": "",
+    "arte_nota": "Pega aquí el link del diseño de Canva cuando esté listo."
+   },
+   "caption": {
+    "hook": "el 17 no se mueve, pero tu calendario sí.",
+    "texto": "el 17 no se mueve, pero tu calendario sí.\n\ncada mes tienes que presentar tu declaración antes del día 17 del mes siguiente. aunque no hayas facturado nada.\n\nsi se te pasa, la multa va de $2,050 a $25,360 por cada obligación que dejaste sin presentar.\n\nlo que casi nadie sabe: si la presentas tú, por tu cuenta, antes de que te busquen, no hay multa. solo recargos.\n\ndesliza para ver los cuatro pasos 👆",
+    "cierre": "[guarda este post] para la próxima vez que se te acerque el 17.",
+    "fuentes": "LISR Art. 113-E · CFF Art. 73 · Anexo 5 RMF 2026",
+    "hashtags": "#heru #impuestos #freelance #resico",
+    "link": "wa.me con código P10"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, carrusel es formato nativo de Instagram, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "El hook no usa palabra gatillo. Los montos van en el cuerpo como dato legal, en texto normal. Sin dinero visible en el arte."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Multa $2,050–$25,360 confirmada en el Anexo 5 RMF 2026, DOF 28-dic-2025. Día 17 por LISR Art. 113-E. Espontáneo sin multa por CFF Art. 73."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "1080×1440, cream #F5EFE3 con cuadrícula, Helvetica en títulos y Lexend Deca en cuerpo, heru en minúscula, cierre de guardar."
+    }
+   ],
+   "porque": "hay búsquedas reales y todavía no aparecemos · tiene fecha límite dentro de tres semanas · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-29",
+    "hora": "19:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "automatica",
+    "nota": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P22",
+   "fuente": "grupos de facebook",
+   "tema": "Respuesta: si no facturé este mes, ¿tengo que declarar?",
+   "keyword": "si no facture tengo que declarar",
+   "pilar": "fechas limite",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Facebook",
+   "formato": "comentario",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "lista para aprobacion",
+   "produccion": {
+    "como": "Respuesta escrita dentro del comentario del grupo. Sin link pegado, sin captura, sin mención de heru.",
+    "skill": "heru-guionista",
+    "quien": "Publica Mich desde su perfil personal",
+    "arte_link": "",
+    "arte_nota": "No lleva arte. Es texto dentro del grupo."
+   },
+   "caption": {
+    "hook": "sí, tienes que declarar aunque no hayas facturado.",
+    "texto": "sí, tienes que declarar aunque no hayas facturado.\n\nla declaración mensual es una obligación de calendario, no de ingresos. si estás dado de alta, va aunque el mes te haya salido en ceros.\n\nse llama declaración en ceros y se presenta igual, antes del 17 del mes siguiente.\n\nlo que sí cambia: no pagas nada. pero si no la presentas, la multa corre igual.",
+    "cierre": "si te sirve, la dejo por acá y cualquier duda pregunta.",
+    "fuentes": "LISR Art. 113-E",
+    "hashtags": "—",
+    "link": "ninguno · la primera respuesta nunca lleva link"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, comentario es el formato nativo de un grupo, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Sin link, sin promoción, sin mención de marca. Es lo que evita que el grupo lo lea como spam."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "La obligación mensual y la declaración en ceros están en LISR Art. 113-E."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Voz de amigo contador, sin tecnicismos, el villano es el calendario."
+    }
+   ],
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con Facebook porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-29",
+    "hora": "13:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "manual",
+    "nota": "Se entra como persona, no como página. Meta quitó el permiso de publicar en grupos en abril de 2024."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P16",
+   "fuente": "calendario fiscal",
+   "tema": "Recordatorio: el 17 de octubre va la mensual de septiembre",
+   "keyword": "fecha limite declaracion mensual octubre",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Instagram",
+   "formato": "estatico",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "lista para aprobacion",
+   "produccion": {
+    "como": "Estático 1080×1440 en modo Cream con cuadrícula. Una sola idea: la fecha.",
+    "skill": "branding-heru §8E",
+    "quien": "Sale sin Mich",
+    "arte_link": "",
+    "arte_nota": "Pega aquí el link del diseño de Canva cuando esté listo."
+   },
+   "caption": {
+    "hook": "faltan 19 días.",
+    "texto": "faltan 19 días.\n\nel 17 de octubre vence la declaración de septiembre. no la de octubre — la de septiembre. esa es la parte que confunde a todos.\n\nla mensual siempre va un mes atrás.",
+    "cierre": "[comparte este post] con quien siempre lo confunde.",
+    "fuentes": "LISR Art. 113-E",
+    "hashtags": "#heru #impuestos #freelance",
+    "link": "wa.me con código P16"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, estático nativo de Instagram, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Hook sin palabra gatillo, sin urgencia falsa, sin alarma."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Fecha y periodo confirmados en LISR Art. 113-E."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Cream con cuadrícula, logo azul arriba a la derecha, cierre de compartir."
+    }
+   ],
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-29",
+    "hora": "19:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "automatica",
+    "nota": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P23",
+   "fuente": "estudio propio",
+   "tema": "El 38% de las facturas deducibles no se aprovecha",
+   "keyword": "facturas deducibles no aprovechadas mexico",
+   "pilar": "deducciones",
+   "audiencia": "contador, empresa o alianza",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "LinkedIn",
+   "formato": "texto",
+   "hecho_citable": "Estudio heru 2023-2025, 275,207 partidas",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "no aplica, su destino es otro",
+   "dem": 30,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 0,
+   "score": 58,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "en compuertas",
+   "produccion": {
+    "como": "Texto largo de 1,200 a 1,500 caracteres, firmado por Stiven. Sin enlace en el cuerpo.",
+    "skill": "heru-guionista",
+    "quien": "Redacta el pipeline, firma Stiven",
+    "arte_link": "",
+    "arte_nota": "Sin arte. Si se le agrega carrusel PDF, va a 1080×1440."
+   },
+   "caption": {
+    "hook": "revisamos 275,207 partidas y encontramos algo incómodo.",
+    "texto": "revisamos 275,207 partidas y encontramos algo incómodo.\n\nel 38% de las facturas con potencial deducible no se aprovecha.\n\nno porque la gente no quiera. porque el sistema pide que sepas de antemano qué cuenta y qué no, y eso nadie te lo enseña.",
+    "cierre": "¿qué porcentaje ves tú en tus clientes?",
+    "fuentes": "Estudio heru 2023–2025, 275,207 partidas, más de 20,000 contribuyentes",
+    "hashtags": "—",
+    "link": "ninguno en el cuerpo · va al primer comentario"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar deducciones, texto largo nativo de LinkedIn, destino alianzas y contadores."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "LinkedIn no tiene el perfil de riesgo de TikTok. Sin promesa de rendimiento."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "NO PASA",
+     "nota": "El 38% es de las facturas CON POTENCIAL deducible dentro de la muestra, no del total de facturas ni de los gastos de cada persona. Redactado así generaliza el estudio. Reescribir la frase antes de volver a pasar."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Voz correcta, sin venta, cierre de pregunta."
+    }
+   ],
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con LinkedIn porque le habla a contador, empresa o alianza · su destino no es la comunidad",
+   "programacion": {
+    "fecha": "2026-09-30",
+    "hora": "08:30",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "bloqueada",
+    "nota": "Falta el Development tier. LinkedIn lo evalúa caso por caso, sin plazo publicado."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P17",
+   "fuente": "blog",
+   "tema": "Cuánto es realmente la multa por no declarar",
+   "keyword": "multa por no declarar sat cuanto es",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "estacional",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "CFF Art. 82 fr. I · Anexo 5 RMF 2026",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "comentar palabra clave",
+   "dem": 25,
+   "ven": 10,
+   "evi": 8,
+   "enc": 15,
+   "wa": 7,
+   "score": 65,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "en compuertas",
+   "produccion": {
+    "como": "Carrusel de 7 slides. Portada de foto cómica, cuerpo con listicle de los tres escenarios.",
+    "skill": "carousel + branding-heru",
+    "quien": "Sale sin Mich",
+    "arte_link": "",
+    "arte_nota": "Pega aquí el link del diseño de Canva cuando esté listo."
+   },
+   "caption": {
+    "hook": "la cifra que circula está vieja.",
+    "texto": "la cifra que circula está vieja.\n\ncasi todos los blogs siguen diciendo $1,810. ese monto cambió el 1 de enero de 2026.\n\nhoy la multa por no presentar una declaración va de $2,050 a $25,360, y es por cada obligación que dejaste sin presentar. no una sola vez.\n\ndeslízate para ver cuándo aplica cada extremo 👆",
+    "cierre": "[guarda este post] antes de que te toque comprobarlo.",
+    "fuentes": "CFF Art. 82 fr. I · Anexo 5 RMF 2026, DOF 28-dic-2025",
+    "hashtags": "#heru #impuestos #freelance #resico",
+    "link": "wa.me con código P17"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, carrusel nativo, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PENDIENTE",
+     "nota": "Revisando el tono: hablar de multas roza lo alarmista. Propuesta: que la portada sea la corrección del dato, no la amenaza."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Montos vigentes confirmados en el Anexo 5 RMF 2026."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PENDIENTE",
+     "nota": "Esperando el arte para revisar paleta y tipografía."
+    }
+   ],
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista",
+   "programacion": {
+    "fecha": "2026-09-30",
+    "hora": "19:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "automatica",
+    "nota": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P15",
+   "fuente": "calendario fiscal",
+   "tema": "Qué pasa si no declaras antes del 17",
+   "keyword": "que pasa si no declaro antes del 17",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "CFF Art. 82 fr. I",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 12,
+   "wa": 10,
+   "score": 65,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "en compuertas",
+   "produccion": {
+    "como": "Talking head 9:16, 30 a 40 segundos, subtítulos quemados en Helvetica Bold, hook escrito en pantalla en los primeros 2 segundos.",
+    "skill": "heru-guionista + branding-heru §8G",
+    "quien": "Graba Mich · bloque del jueves",
+    "arte_link": "",
+    "arte_nota": "Aquí va el link del guión editable y, después, el del archivo editado."
+   },
+   "caption": {
+    "hook": "el calendario no perdona, pero la ley sí.",
+    "texto": "el calendario no perdona, pero la ley sí.\n\nsi se te pasó el 17 y lo presentas tú, por tu cuenta, antes de que te busquen: no hay multa. solo recargos, que son 2.07% al mes.\n\nsi te buscan primero, ahí sí entra la multa completa.\n\nla diferencia entre las dos cosas es quién dio el primer paso.",
+    "cierre": "comenta ESPONTÁNEO y te paso cómo se presenta.",
+    "fuentes": "CFF Art. 73 · LIF 2026 Art. 11 fr. I",
+    "hashtags": "#heru #impuestos #freelance",
+    "link": "wa.me con código P15 en la bio"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, talking head es el formato que gana en TikTok, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "El hook no dice SAT ni multa. El villano es el calendario. Sin dinero en pantalla."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Cumplimiento espontáneo por CFF Art. 73. Recargos 2.07% = 1.38% de LIF 2026 Art. 11 fr. I incrementado 50% por CFF Art. 21."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PENDIENTE",
+     "nota": "Se revisa al terminar la grabación: zona segura, heru en minúscula en subtítulos, logo los últimos 3 segundos."
+    }
+   ],
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con TikTok porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-30",
+    "hora": "20:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "manual",
+    "nota": "Su API prohíbe apps de uso interno y sin auditoría todo queda en privado."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  }
+ ],
+ "aprendizajes": []
+}</script>
+<script>
+const REDES=['TikTok','Instagram','Facebook','YouTube','LinkedIn'];
+const SECCIONES=[
+  {k:'aprobar',    e:'✅', t:'Por aprobar'},
+  {k:'programado', e:'🗓️', t:'Programado'},
+  {k:'proceso',    e:'🧪', t:'Con los agentes'},
+  {k:'grabacion',  e:'🎬', t:'Cola de grabación'},
+  {k:'ideas',      e:'💡', t:'Ideas en el pool'},
+  {k:'aprendizajes',e:'📊', t:'Aprendizajes'},
+  {k:'conexion',   e:'⚙️', t:'Conexión'}
+];
+const COMP=[['dem','demanda',30],['ven','ventana',25],['evi','evidencia',20],['enc','encaje',15],['wa','whatsapp',10]];
+
+let DATOS=null, SEC='aprobar', RED='Todas';
+
+const cfgLeer=()=>{try{return JSON.parse(localStorage.getItem('heru_cfg')||'{}')}catch(e){return{}}};
+const cfgGuardar=c=>{try{localStorage.setItem('heru_cfg',JSON.stringify(c))}catch(e){}};
+const arteLeer=()=>{try{return JSON.parse(localStorage.getItem('heru_arte')||'{}')}catch(e){return{}}};
+const arteGuardar=a=>{try{localStorage.setItem('heru_arte',JSON.stringify(a))}catch(e){}};
+const aprLeer=()=>{try{return JSON.parse(localStorage.getItem('heru_aprob')||'{}')}catch(e){return{}}};
+const aprGuardar=a=>{try{localStorage.setItem('heru_aprob',JSON.stringify(a))}catch(e){}};
+
+async function cargar(){
+  const cfg=cfgLeer(); let vivo=false, txt='';
+  if(cfg.api){
+    try{ const r=await fetch(cfg.api,{cache:'no-store'}); if(!r.ok) throw 0;
+      DATOS=await r.json(); vivo=true; txt='en vivo · '+hora(DATOS.generado);
+    }catch(e){ txt='no se pudo leer la API · '; }
+  }
+  if(!DATOS||!vivo){
+    try{ DATOS=JSON.parse(document.getElementById('datos-heru').textContent);
+      txt+='copia del '+hora(DATOS.generado);
+    }catch(e){ DATOS={pool:[],piezas:[],aprendizajes:[],redes:{}}; txt='sin datos'; }
+  }
+  window._conex={vivo,txt}; pintar();
+}
+const hora=iso=>{const d=new Date(iso);return isNaN(d)?'—':d.toLocaleString('es-MX',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// ── selección ───────────────────────────────────────────────────
+const piezas=()=>DATOS.piezas||[];
+const poolVivo=()=>(DATOS.pool||[]).filter(p=>!['publicado','cerrado','muerto'].includes(p.estado));
+const idsProd=()=>new Set(piezas().map(p=>p.id));
+const verde=p=>(p.compuertas||[]).length===4&&p.compuertas.every(c=>c.veredicto==='PASA');
+const aprobada=p=>aprLeer()[p.id]==='aprobada';
+const porRed=l=>RED==='Todas'?l:l.filter(p=>p.red===RED);
+
+const gAprobar   =()=>porRed(piezas().filter(p=>verde(p)&&!aprobada(p)));
+const gProgramado=()=>porRed(piezas().filter(p=>aprobada(p)));
+const gProceso   =()=>porRed(piezas().filter(p=>!verde(p)));
+const gGrabacion =()=>porRed(poolVivo().filter(p=>p.carril==='con camara'&&!p.bloqueo&&!idsProd().has(p.id)));
+const gIdeas     =()=>porRed(poolVivo().filter(p=>!idsProd().has(p.id)));
+
+// ── pintar ──────────────────────────────────────────────────────
+function pintar(){
+  const n=gAprobar().length;
+  document.getElementById('nav').innerHTML=SECCIONES.map(s=>{
+    let c='';
+    if(s.k==='aprobar')    c=cuenta(piezas().filter(p=>verde(p)&&!aprobada(p)).length,true);
+    if(s.k==='proceso')    c=cuenta(piezas().filter(p=>!verde(p)).length);
+    if(s.k==='programado') c=cuenta(piezas().filter(aprobada).length);
+    if(s.k==='grabacion')  c=cuenta(poolVivo().filter(p=>p.carril==='con camara'&&!p.bloqueo&&!idsProd().has(p.id)).length);
+    if(s.k==='ideas')      c=cuenta(poolVivo().filter(p=>!idsProd().has(p.id)).length);
+    return `<button data-sec="${s.k}" aria-current="${SEC===s.k}"><span>${s.e}</span>${s.t}${c}</button>`;
+  }).join('');
+  document.getElementById('main').innerHTML=({
+    aprobar:vAprobar, programado:vProgramado, proceso:vProceso,
+    grabacion:vGrabacion, ideas:vIdeas, aprendizajes:vAprendizajes, conexion:vConexion
+  })[SEC]();
+  if(SEC==='conexion') montarConexion();
+}
+const cuenta=(n,fuerte)=>n?`<span class="cuenta${fuerte?'':' apagada'}">${n}</span>`:'';
+
+function cabecera(titulo, dice){
+  const c=window._conex||{};
+  return `<div class="cab"><h1>${titulo}</h1>
+    <span class="conex"><span class="pt ${c.vivo?'vivo':''}"></span>${esc(c.txt||'')}</span></div>
+    <p class="dice">${dice}</p>` + pills();
+}
+function pills(){
+  return `<div class="pills">${['Todas'].concat(REDES).map(r=>
+    `<button class="pill" data-red="${r}" aria-pressed="${RED===r}">${r}</button>`).join('')}</div>`;
+}
+
+// ── vistas ──────────────────────────────────────────────────────
+function vAprobar(){
+  const l=gAprobar();
+  let h=cabecera('✅ Por aprobar',
+    'Ya pasaron las cuatro revisiones. Eres el último filtro: nada se publica hasta que le des aprobar.');
+  h+=l.length? l.map((p,i)=>ficha(p,i===0)).join('')
+    : `<div class="vacio"><strong>Nada esperando</strong>Cuando una pieza pase las cuatro revisiones aparece aquí.</div>`;
+  return h;
+}
+function vProgramado(){
+  const l=gProgramado();
+  return cabecera('🗓️ Programado','Lo que ya aprobaste. Sale solo el día y la hora que dice cada tarjeta.')
+    + (l.length? l.map(p=>ficha(p,false)).join('')
+    : `<div class="vacio"><strong>Todavía no apruebas nada</strong>Lo que apruebes se pasa para acá.</div>`);
+}
+function vProceso(){
+  const l=gProceso();
+  return cabecera('🧪 Con los agentes','Piezas escritas que todavía no pasan las cuatro revisiones. Aquí ves quién las frenó y por qué.')
+    + (l.length? l.map(p=>ficha(p,false)).join('')
+    : `<div class="vacio"><strong>Nada atorado</strong>Todo lo que se escribió ya pasó.</div>`);
+}
+function vGrabacion(){
+  const l=gGrabacion().sort((a,b)=>b.score-a.score);
+  return cabecera('🎬 Cola de grabación',
+    'Lo que necesita tu cara. Se graba en bloque el jueves y sale la semana que entra — nunca el mismo día.')
+    + (l.length? tabla(l) : `<div class="vacio"><strong>Cola vacía</strong></div>`);
+}
+function vIdeas(){
+  const l=gIdeas().sort((a,b)=>b.score-a.score);
+  return cabecera('💡 Ideas en el pool',
+    'Todo lo que las diez fuentes trajeron. Se reordena solo cada mañana: un tema viejo sube cuando se acerca su fecha.')
+    + `<div style="margin-bottom:12px"><button class="btn ghost chico" id="exportar">Exportar a CSV</button></div>`
+    + (l.length? tabla(l,true) : `<div class="vacio"><strong>Pool vacío</strong></div>`);
+}
+
+function vAprendizajes(){
+  const a=DATOS.aprendizajes||[];
+  let h=cabecera('📊 Aprendizajes','Cada pieza se cierra a los siete días y dice si el marcador le atinó.');
+  if(!a.length) return h+`<div class="vacio"><strong>Todavía no hay piezas cerradas</strong>
+    La primera aparece siete días después de la primera publicación.</div>`;
+  const rep=a.filter(x=>x.veredicto==='REPLICAR').length;
+  const wa=a.reduce((s,x)=>s+(Number(x.entradas_whatsapp)||0),0);
+  h+=`<div class="cards">
+    <div class="card"><span class="n">${a.length}</span><span class="l">piezas cerradas</span></div>
+    <div class="card v"><span class="n">${rep}</span><span class="l">para repetir</span></div>
+    <div class="card"><span class="n">${wa}</span><span class="l">entraron a WhatsApp</span></div></div>
+    <div class="tabla-wrap"><table><thead><tr><th>Pieza</th><th>Red</th><th>Formato</th>
+    <th>Predicho</th><th>Vistas</th><th>A WhatsApp</th><th>Veredicto</th></tr></thead><tbody>`
+    +a.map(x=>`<tr><td>${esc(x.codigo)}</td><td>${esc(x.red)}</td><td>${esc(x.formato)}</td>
+      <td class="num">${esc(x.score_predicho)}</td><td class="num">${esc(x.vistas)}</td>
+      <td class="num">${esc(x.entradas_whatsapp)}</td><td>${esc(x.veredicto||'abierta')}</td></tr>`).join('')
+    +`</tbody></table></div>`;
+  return h;
+}
+
+function vConexion(){
+  const c=cfgLeer();
+  return `<div class="cab"><h1>⚙️ Conexión</h1></div>
+  <p class="dice">Esta página no tiene servidor. Lee de Apps Script, que vive pegado a la hoja y corre solo en Google.</p>
+  <div class="conf">
+    <label for="api">URL de la API</label>
+    <input id="api" type="url" placeholder="https://script.google.com/macros/s/…/exec" value="${esc(c.api||'')}">
+    <label for="token">Token</label>
+    <input id="token" type="text" placeholder="el mismo de api.gs" value="${esc(c.token||'')}">
+    <p class="pie">Se guardan solo en este navegador. Vacío = se muestra <code>datos.json</code>, la semilla del repo.</p>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="guardar">Guardar y reconectar</button>
+      <button class="btn ghost" id="limpiar">Volver a la semilla</button>
+    </div>
+  </div>`;
+}
+function montarConexion(){
+  document.getElementById('guardar').onclick=()=>{
+    cfgGuardar({api:document.getElementById('api').value.trim(),token:document.getElementById('token').value.trim()});
+    DATOS=null; cargar();
+  };
+  document.getElementById('limpiar').onclick=()=>{cfgGuardar({});DATOS=null;cargar();};
+}
+
+// ── ficha de pieza ──────────────────────────────────────────────
+function ficha(p, abierta){
+  const ap=aprobada(p), listo=verde(p);
+  const clase=ap?'e-azul':listo?'e-verde':'e-ambar';
+  const faltan=(p.compuertas||[]).filter(c=>c.veredicto!=='PASA');
+  const arte=arteLeer()[p.id]||'';
+
+  let estado;
+  if(ap) estado=`<div class="estado-linea ok"><b>Aprobada.</b> Sale el ${esc(p.programacion.fecha)} a las ${esc(p.programacion.hora)}.</div>`;
+  else if(listo) estado=`<div class="estado-linea ok"><b>Las cuatro revisiones pasaron.</b> Falta tu visto bueno.</div>`;
+  else estado=`<div class="estado-linea esp"><b>Falta que cierre ${faltan.map(c=>c.nombre.toLowerCase()).join(' y ')}.</b> Los detalles están abajo.</div>`;
+
+  return `<article class="pieza ${clase}">
+    <div class="p-top">
+      <div class="izq">
+        <p class="tema">${esc(p.tema)}</p>
+        <p class="kw">La gente lo busca así: “${esc(p.keyword)}”</p>
+      </div>
+      <div class="der"><span class="pts">${p.score}<small>/100</small></span></div>
+    </div>
+    <div class="tags">
+      <span class="tag red">${esc(p.red)}</span>
+      <span class="tag">${esc(p.formato)}</span>
+      <span class="tag">${esc(p.pilar)}</span>
+      ${p.programacion?`<span class="tag cuando">${esc(p.programacion.fecha)} · ${esc(p.programacion.hora)}</span>`:''}
+    </div>
+    ${estado}
+
+    <details ${abierta?'open':''}>
+      <summary>Ver todo: caption, por qué se eligió, cómo se hace y qué dijo cada agente</summary>
+      <div class="det">
+
+        <div class="seccion"><h3>Qué se publica</h3>
+          <p class="caption">${esc(p.caption.texto)}<span class="cierre">${esc(p.caption.cierre)}</span></p>
+          <dl class="par">
+            <dt>Hashtags</dt><dd>${esc(p.caption.hashtags)}</dd>
+            <dt>Link</dt><dd>${esc(p.caption.link)}</dd>
+            <dt>Ley citada</dt><dd>${esc(p.caption.fuentes)}</dd>
+          </dl>
+          <div style="margin-top:9px"><button class="btn ghost chico" data-copiar="${esc(p.id)}">Copiar caption</button></div>
+        </div>
+
+        <div class="seccion"><h3>Por qué se eligió</h3>
+          <p class="puntos-lista">${COMP.map(([k,n,m])=>`<span>${n} <b>${p[k]||0}</b> de ${m}</span>`).join('')}</p>
+          <p style="margin:0 0 9px">${esc(p.porque||'')}</p>
+          <dl class="par">
+            <dt>Salió de</dt><dd>${esc(p.fuente)}</dd>
+            <dt>Le habla a</dt><dd>${esc(p.audiencia)}</dd>
+            <dt>Vence</dt><dd>${p.fecha_limite?esc(p.fecha_limite):'no vence, es tema perenne'}</dd>
+            <dt>Respaldo legal</dt><dd>${esc(p.hecho_citable)}</dd>
+          </dl>
+        </div>
+
+        <div class="seccion"><h3>Cómo se hace</h3>
+          <dl class="par">
+            <dt>El proceso</dt><dd>${esc(p.produccion.como)}</dd>
+            <dt>Quién</dt><dd>${esc(p.produccion.quien)}</dd>
+            <dt>Cómo se sube</dt><dd>${esc(p.publicacion.nota)}</dd>
+          </dl>
+          <div class="arte ${arte?'puesto':''}" style="margin-top:11px">
+            <strong style="font-size:13px">Arte editable</strong>
+            <div style="font-size:12.5px;color:var(--gris)">${esc(p.produccion.arte_nota)}</div>
+            <input type="url" data-arte="${esc(p.id)}" placeholder="https://www.canva.com/design/…" value="${esc(arte)}">
+            <div style="margin-top:8px;display:flex;gap:7px;flex-wrap:wrap">
+              <button class="btn chico" data-guardarte="${esc(p.id)}">Guardar link</button>
+              ${arte?`<a class="btn ghost chico" style="text-decoration:none" href="${esc(arte)}" target="_blank" rel="noopener">Abrir diseño</a>`:''}
+            </div>
+          </div>
+        </div>
+
+        <div class="seccion"><h3>Qué dijo cada agente</h3>
+          ${p.compuertas.map(c=>`<div class="compuerta">
+            <span class="marca-v ${c.veredicto==='PASA'?'v-pasa':c.veredicto==='NO PASA'?'v-no':'v-pend'}">${c.veredicto==='PASA'?'✓':c.veredicto==='NO PASA'?'✕':'•'}</span>
+            <div><div><b>${esc(c.nombre)}</b> <span class="qn">${esc(c.agente)}</span></div>
+            <div class="nt">${esc(c.nota)}</div></div></div>`).join('')}
+        </div>
+
+      </div>
+    </details>
+
+    <div class="acc ${listo&&!ap?'listo':''}">
+      ${ap?`<p>Ya está aprobada y en cola.</p><button class="btn ghost chico" data-desaprobar="${esc(p.id)}">Quitar aprobación</button>`
+        :listo?`<p>Nadie publica esto hasta que tú digas.</p><button class="btn verde" data-aprobar="${esc(p.id)}">Aprobar y publicar</button>`
+        :`<p>Se desbloquea cuando cierren las revisiones que faltan.</p><button class="btn" disabled>Aprobar y publicar</button>`}
+    </div>
+  </article>`;
+}
+
+function tabla(l, conFuente){
+  return `<div class="tabla-wrap"><table><thead><tr>
+    <th>Tema</th>${conFuente?'<th>De dónde</th>':''}<th>Red</th><th>Formato</th>
+    <th>Demanda</th><th>Ventana</th><th>Total</th><th>Estado</th></tr></thead><tbody>`
+    +l.map(p=>`<tr class="${p.bloqueo?'bloq':''}">
+      <td>${esc(p.tema)}<div style="font-size:11.5px;color:var(--gris)">${esc(p.pilar)}</div></td>
+      ${conFuente?`<td>${esc(p.fuente)}</td>`:''}
+      <td>${esc(p.red)}</td><td>${esc(p.formato)}</td>
+      <td class="num">${p.dem}</td><td class="num">${p.ven}</td><td class="tot">${p.score}</td>
+      <td>${p.bloqueo?`<span style="color:var(--rojo)">${esc(p.bloqueo)}</span>`:'en el pool'}</td></tr>`).join('')
+    +`</tbody></table></div>`;
+}
+
+// ── eventos ─────────────────────────────────────────────────────
+document.addEventListener('click',async e=>{
+  const s=e.target.closest('[data-sec]');   if(s){SEC=s.dataset.sec; pintar(); window.scrollTo(0,0); return;}
+  const r=e.target.closest('[data-red]');   if(r){RED=r.dataset.red; pintar(); return;}
+  const a=e.target.closest('[data-aprobar]');
+  if(a){ const o=aprLeer(); o[a.dataset.aprobar]='aprobada'; aprGuardar(o);
+         mandar({accion:'aprobacion',id:a.dataset.aprobar,decision:'aprobada'}); pintar(); return; }
+  const d=e.target.closest('[data-desaprobar]');
+  if(d){ const o=aprLeer(); delete o[d.dataset.desaprobar]; aprGuardar(o);
+         mandar({accion:'aprobacion',id:d.dataset.desaprobar,decision:'revertida'}); pintar(); return; }
+  const g=e.target.closest('[data-guardarte]');
+  if(g){ const id=g.dataset.guardarte;
+         const inp=document.querySelector(`[data-arte="${id}"]`);
+         const o=arteLeer(); o[id]=inp.value.trim(); arteGuardar(o);
+         mandar({accion:'arte',id,url:o[id]}); pintar(); return; }
+  const c=e.target.closest('[data-copiar]');
+  if(c){ const p=piezas().find(x=>x.id===c.dataset.copiar);
+         const t=p.caption.texto+'\n\n'+p.caption.cierre+'\n\n'+p.caption.fuentes+'\n'+p.caption.hashtags;
+         try{ await navigator.clipboard.writeText(t); c.textContent='Copiado'; }
+         catch(err){ c.textContent='No se pudo copiar'; }
+         setTimeout(()=>c.textContent='Copiar caption',2000); return; }
+  if(e.target.id==='exportar') exportar();
+});
+
+async function mandar(payload){
+  const cfg=cfgLeer(); if(!cfg.api) return;
+  try{ await fetch(cfg.api,{method:'POST',mode:'no-cors',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(Object.assign({token:cfg.token||''},payload))}); }catch(e){}
+}
+
+function exportar(){
+  const cols=['id','tema','fuente','keyword','pilar','audiencia','red','formato','carril',
+    'hecho_citable','dem','ven','evi','enc','wa','score','bloqueo','estado'];
+  const q=s=>'"'+String(s==null?'':s).replace(/"/g,'""')+'"';
+  const csv=[cols.map(q).join(',')].concat(
+    poolVivo().sort((a,b)=>b.score-a.score).map(p=>cols.map(c=>q(p[c])).join(','))).join('\n');
+  try{ navigator.clipboard.writeText(csv); }catch(e){}
+  const b=document.getElementById('exportar');
+  if(b){ b.textContent='Copiado al portapapeles'; setTimeout(()=>b.textContent='Exportar a CSV',2200); }
+}
+
+cargar();
+</script>
+</body>
+</html>
