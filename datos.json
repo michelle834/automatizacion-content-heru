@@ -1,5 +1,5 @@
 {
- "generado": "2026-09-28T17:29:27-06:00",
+ "generado": "2026-09-28T17:35:39-06:00",
  "fuente_datos": "apps script",
  "pesos": {
   "demanda": 30,
@@ -15,6 +15,561 @@
   "Facebook": 3,
   "YouTube": 4,
   "LinkedIn": 2
+ },
+ "piezas": [
+  {
+   "id": "P10",
+   "fuente": "search console",
+   "tema": "Declaración mensual del SAT, paso a paso",
+   "keyword": "declaracion mensual sat",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 30,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 78,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "lista para aprobacion",
+   "produccion": {
+    "como": "Carrusel de 7 slides a 1080×1440. Portada foto cómica oscurecida, cuerpo cream con cuadrícula, cierre de guardar.",
+    "skill": "carousel + branding-heru",
+    "quien": "Sale sin Mich",
+    "arte_link": "",
+    "arte_nota": "Pega aquí el link del diseño de Canva cuando esté listo."
+   },
+   "caption": {
+    "hook": "el 17 no se mueve, pero tu calendario sí.",
+    "texto": "el 17 no se mueve, pero tu calendario sí.\n\ncada mes tienes que presentar tu declaración antes del día 17 del mes siguiente. aunque no hayas facturado nada.\n\nsi se te pasa, la multa va de $2,050 a $25,360 por cada obligación que dejaste sin presentar.\n\nlo que casi nadie sabe: si la presentas tú, por tu cuenta, antes de que te busquen, no hay multa. solo recargos.\n\ndesliza para ver los cuatro pasos 👆",
+    "cierre": "[guarda este post] para la próxima vez que se te acerque el 17.",
+    "fuentes": "LISR Art. 113-E · CFF Art. 73 · Anexo 5 RMF 2026",
+    "hashtags": "#heru #impuestos #freelance #resico",
+    "link": "wa.me con código P10"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, carrusel es formato nativo de Instagram, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "El hook no usa palabra gatillo. Los montos van en el cuerpo como dato legal, en texto normal. Sin dinero visible en el arte."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Multa $2,050–$25,360 confirmada en el Anexo 5 RMF 2026, DOF 28-dic-2025. Día 17 por LISR Art. 113-E. Espontáneo sin multa por CFF Art. 73."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "1080×1440, cream #F5EFE3 con cuadrícula, Helvetica en títulos y Lexend Deca en cuerpo, heru en minúscula, cierre de guardar."
+    }
+   ],
+   "porque": "hay búsquedas reales y todavía no aparecemos · tiene fecha límite dentro de tres semanas · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-29",
+    "hora": "19:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "automatica",
+    "nota": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P22",
+   "fuente": "grupos de facebook",
+   "tema": "Respuesta: si no facturé este mes, ¿tengo que declarar?",
+   "keyword": "si no facture tengo que declarar",
+   "pilar": "fechas limite",
+   "audiencia": "conductores y repartidores",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Facebook",
+   "formato": "comentario",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "lista para aprobacion",
+   "produccion": {
+    "como": "Respuesta escrita dentro del comentario del grupo. Sin link pegado, sin captura, sin mención de heru.",
+    "skill": "heru-guionista",
+    "quien": "Publica Mich desde su perfil personal",
+    "arte_link": "",
+    "arte_nota": "No lleva arte. Es texto dentro del grupo."
+   },
+   "caption": {
+    "hook": "sí, tienes que declarar aunque no hayas facturado.",
+    "texto": "sí, tienes que declarar aunque no hayas facturado.\n\nla declaración mensual es una obligación de calendario, no de ingresos. si estás dado de alta, va aunque el mes te haya salido en ceros.\n\nse llama declaración en ceros y se presenta igual, antes del 17 del mes siguiente.\n\nlo que sí cambia: no pagas nada. pero si no la presentas, la multa corre igual.",
+    "cierre": "si te sirve, la dejo por acá y cualquier duda pregunta.",
+    "fuentes": "LISR Art. 113-E",
+    "hashtags": "—",
+    "link": "ninguno · la primera respuesta nunca lleva link"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, comentario es el formato nativo de un grupo, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Sin link, sin promoción, sin mención de marca. Es lo que evita que el grupo lo lea como spam."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "La obligación mensual y la declaración en ceros están en LISR Art. 113-E."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Voz de amigo contador, sin tecnicismos, el villano es el calendario."
+    }
+   ],
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con Facebook porque le habla a conductores y repartidores · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-29",
+    "hora": "13:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "manual",
+    "nota": "Se entra como persona, no como página. Meta quitó el permiso de publicar en grupos en abril de 2024."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P16",
+   "fuente": "calendario fiscal",
+   "tema": "Recordatorio: el 17 de octubre va la mensual de septiembre",
+   "keyword": "fecha limite declaracion mensual octubre",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "Instagram",
+   "formato": "estatico",
+   "hecho_citable": "LISR Art. 113-E",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 15,
+   "wa": 10,
+   "score": 68,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "lista para aprobacion",
+   "produccion": {
+    "como": "Estático 1080×1440 en modo Cream con cuadrícula. Una sola idea: la fecha.",
+    "skill": "branding-heru §8E",
+    "quien": "Sale sin Mich",
+    "arte_link": "",
+    "arte_nota": "Pega aquí el link del diseño de Canva cuando esté listo."
+   },
+   "caption": {
+    "hook": "faltan 19 días.",
+    "texto": "faltan 19 días.\n\nel 17 de octubre vence la declaración de septiembre. no la de octubre — la de septiembre. esa es la parte que confunde a todos.\n\nla mensual siempre va un mes atrás.",
+    "cierre": "[comparte este post] con quien siempre lo confunde.",
+    "fuentes": "LISR Art. 113-E",
+    "hashtags": "#heru #impuestos #freelance",
+    "link": "wa.me con código P16"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, estático nativo de Instagram, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Hook sin palabra gatillo, sin urgencia falsa, sin alarma."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Fecha y periodo confirmados en LISR Art. 113-E."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Cream con cuadrícula, logo azul arriba a la derecha, cierre de compartir."
+    }
+   ],
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con Instagram porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-29",
+    "hora": "19:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "automatica",
+    "nota": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P23",
+   "fuente": "estudio propio",
+   "tema": "El 38% de las facturas deducibles no se aprovecha",
+   "keyword": "facturas deducibles no aprovechadas mexico",
+   "pilar": "deducciones",
+   "audiencia": "contador, empresa o alianza",
+   "ventana_tipo": "perenne",
+   "fecha_limite": null,
+   "red": "LinkedIn",
+   "formato": "texto",
+   "hecho_citable": "Estudio heru 2023-2025, 275,207 partidas",
+   "senal_demanda": "hay busquedas y no aparecemos en ningun lado",
+   "cierre": "no aplica, su destino es otro",
+   "dem": 30,
+   "ven": 5,
+   "evi": 8,
+   "enc": 15,
+   "wa": 0,
+   "score": 58,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "en compuertas",
+   "produccion": {
+    "como": "Texto largo de 1,200 a 1,500 caracteres, firmado por Stiven. Sin enlace en el cuerpo.",
+    "skill": "heru-guionista",
+    "quien": "Redacta el pipeline, firma Stiven",
+    "arte_link": "",
+    "arte_nota": "Sin arte. Si se le agrega carrusel PDF, va a 1080×1440."
+   },
+   "caption": {
+    "hook": "revisamos 275,207 partidas y encontramos algo incómodo.",
+    "texto": "revisamos 275,207 partidas y encontramos algo incómodo.\n\nel 38% de las facturas con potencial deducible no se aprovecha.\n\nno porque la gente no quiera. porque el sistema pide que sepas de antemano qué cuenta y qué no, y eso nadie te lo enseña.",
+    "cierre": "¿qué porcentaje ves tú en tus clientes?",
+    "fuentes": "Estudio heru 2023–2025, 275,207 partidas, más de 20,000 contribuyentes",
+    "hashtags": "—",
+    "link": "ninguno en el cuerpo · va al primer comentario"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar deducciones, texto largo nativo de LinkedIn, destino alianzas y contadores."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "LinkedIn no tiene el perfil de riesgo de TikTok. Sin promesa de rendimiento."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "NO PASA",
+     "nota": "El 38% es de las facturas CON POTENCIAL deducible dentro de la muestra, no del total de facturas ni de los gastos de cada persona. Redactado así generaliza el estudio. Reescribir la frase antes de volver a pasar."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "Voz correcta, sin venta, cierre de pregunta."
+    }
+   ],
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con LinkedIn porque le habla a contador, empresa o alianza · su destino no es la comunidad",
+   "programacion": {
+    "fecha": "2026-09-30",
+    "hora": "08:30",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "bloqueada",
+    "nota": "Falta el Development tier. LinkedIn lo evalúa caso por caso, sin plazo publicado."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P17",
+   "fuente": "blog",
+   "tema": "Cuánto es realmente la multa por no declarar",
+   "keyword": "multa por no declarar sat cuanto es",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "estacional",
+   "fecha_limite": null,
+   "red": "Instagram",
+   "formato": "carrusel",
+   "hecho_citable": "CFF Art. 82 fr. I · Anexo 5 RMF 2026",
+   "senal_demanda": "el blog rankea pero no existe el video",
+   "cierre": "comentar palabra clave",
+   "dem": 25,
+   "ven": 10,
+   "evi": 8,
+   "enc": 15,
+   "wa": 7,
+   "score": 65,
+   "bloqueo": "",
+   "carril": "rapido",
+   "estado": "en compuertas",
+   "produccion": {
+    "como": "Carrusel de 7 slides. Portada de foto cómica, cuerpo con listicle de los tres escenarios.",
+    "skill": "carousel + branding-heru",
+    "quien": "Sale sin Mich",
+    "arte_link": "",
+    "arte_nota": "Pega aquí el link del diseño de Canva cuando esté listo."
+   },
+   "caption": {
+    "hook": "la cifra que circula está vieja.",
+    "texto": "la cifra que circula está vieja.\n\ncasi todos los blogs siguen diciendo $1,810. ese monto cambió el 1 de enero de 2026.\n\nhoy la multa por no presentar una declaración va de $2,050 a $25,360, y es por cada obligación que dejaste sin presentar. no una sola vez.\n\ndeslízate para ver cuándo aplica cada extremo 👆",
+    "cierre": "[guarda este post] antes de que te toque comprobarlo.",
+    "fuentes": "CFF Art. 82 fr. I · Anexo 5 RMF 2026, DOF 28-dic-2025",
+    "hashtags": "#heru #impuestos #freelance #resico",
+    "link": "wa.me con código P17"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, carrusel nativo, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PENDIENTE",
+     "nota": "Revisando el tono: hablar de multas roza lo alarmista. Propuesta: que la portada sea la corrección del dato, no la amenaza."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Montos vigentes confirmados en el Anexo 5 RMF 2026."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PENDIENTE",
+     "nota": "Esperando el arte para revisar paleta y tipografía."
+    }
+   ],
+   "porque": "hay búsquedas reales y todavía no aparecemos · es perenne, así que puede esperar su turno · encaja con Instagram porque le habla a freelancer y profesionista",
+   "programacion": {
+    "fecha": "2026-09-30",
+    "hora": "19:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "automatica",
+    "nota": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  },
+  {
+   "id": "P15",
+   "fuente": "calendario fiscal",
+   "tema": "Qué pasa si no declaras antes del 17",
+   "keyword": "que pasa si no declaro antes del 17",
+   "pilar": "fechas limite",
+   "audiencia": "freelancer y profesionista",
+   "ventana_tipo": "vence esta semana",
+   "fecha_limite": "2026-10-17",
+   "red": "TikTok",
+   "formato": "video con cara",
+   "hecho_citable": "CFF Art. 82 fr. I",
+   "senal_demanda": "pregunta repetida 3+ veces esta semana",
+   "cierre": "algo concreto en la comunidad",
+   "dem": 20,
+   "ven": 15,
+   "evi": 8,
+   "enc": 12,
+   "wa": 10,
+   "score": 65,
+   "bloqueo": "",
+   "carril": "con camara",
+   "estado": "en compuertas",
+   "produccion": {
+    "como": "Talking head 9:16, 30 a 40 segundos, subtítulos quemados en Helvetica Bold, hook escrito en pantalla en los primeros 2 segundos.",
+    "skill": "heru-guionista + branding-heru §8G",
+    "quien": "Graba Mich · bloque del jueves",
+    "arte_link": "",
+    "arte_nota": "Aquí va el link del guión editable y, después, el del archivo editado."
+   },
+   "caption": {
+    "hook": "el calendario no perdona, pero la ley sí.",
+    "texto": "el calendario no perdona, pero la ley sí.\n\nsi se te pasó el 17 y lo presentas tú, por tu cuenta, antes de que te busquen: no hay multa. solo recargos, que son 2.07% al mes.\n\nsi te buscan primero, ahí sí entra la multa completa.\n\nla diferencia entre las dos cosas es quién dio el primer paso.",
+    "cierre": "comenta ESPONTÁNEO y te paso cómo se presenta.",
+    "fuentes": "CFF Art. 73 · LIF 2026 Art. 11 fr. I",
+    "hashtags": "#heru #impuestos #freelance",
+    "link": "wa.me con código P15 en la bio"
+   },
+   "compuertas": [
+    {
+     "n": 0,
+     "nombre": "Propósito",
+     "agente": "Orquestador",
+     "veredicto": "PASA",
+     "nota": "Pilar fechas límite, talking head es el formato que gana en TikTok, destino declarado."
+    },
+    {
+     "n": 1,
+     "nombre": "Riesgo de baneo",
+     "agente": "Centinela",
+     "veredicto": "PASA",
+     "nota": "El hook no dice SAT ni multa. El villano es el calendario. Sin dinero en pantalla."
+    },
+    {
+     "n": 2,
+     "nombre": "Dato",
+     "agente": "Verificador",
+     "veredicto": "PASA",
+     "nota": "Cumplimiento espontáneo por CFF Art. 73. Recargos 2.07% = 1.38% de LIF 2026 Art. 11 fr. I incrementado 50% por CFF Art. 21."
+    },
+    {
+     "n": 3,
+     "nombre": "Marca",
+     "agente": "Centinela",
+     "veredicto": "PENDIENTE",
+     "nota": "Se revisa al terminar la grabación: zona segura, heru en minúscula en subtítulos, logo los últimos 3 segundos."
+    }
+   ],
+   "porque": "la pregunta se repite en comentarios y comunidad · tiene fecha límite dentro de tres semanas · encaja con TikTok porque le habla a freelancer y profesionista · puede cerrar ofreciendo algo concreto en la comunidad",
+   "programacion": {
+    "fecha": "2026-09-30",
+    "hora": "20:00",
+    "zona": "America/Mexico_City",
+    "nota": "Horario de convención interna de heru, no un benchmark de mercado. Se ajusta cuando haya datos propios."
+   },
+   "publicacion": {
+    "via": "manual",
+    "nota": "Su API prohíbe apps de uso interno y sin auditoría todo queda en privado."
+   },
+   "aprobacion_mich": {
+    "estado": "pendiente",
+    "cuando": null
+   }
+  }
+ ],
+ "redes": {
+  "TikTok": {
+   "trabajo": "Descubrimiento en frío: que nos encuentre quien no nos conoce.",
+   "volumen": 5,
+   "kpi": "Retención y comentarios",
+   "publicacion": "manual",
+   "nota_publicacion": "Su API prohíbe apps de uso interno y sin auditoría todo queda en privado.",
+   "a_donde": "Bio + video «Respuesta a @»"
+  },
+  "Instagram": {
+   "trabajo": "Convertir al que ya nos vio en alguien que sigue y guarda.",
+   "volumen": 4,
+   "kpi": "Guardados y DMs",
+   "publicacion": "automatica",
+   "nota_publicacion": "Graph API desde Apps Script. Solo acepta JPEG y la imagen va en una URL pública.",
+   "a_donde": "Respuesta automática por DM y link en bio"
+  },
+  "Facebook": {
+   "trabajo": "Escuchar a conductores y repartidores donde ya están.",
+   "volumen": 3,
+   "kpi": "Preguntas nuevas traídas al pool",
+   "publicacion": "manual",
+   "nota_publicacion": "Se entra como persona, no como página. Meta quitó el permiso de publicar en grupos en abril de 2024.",
+   "a_donde": "Conversación directa, nunca link pegado"
+  },
+  "YouTube": {
+   "trabajo": "Autoridad y SEO permanente.",
+   "volumen": 4,
+   "kpi": "Impresiones de búsqueda",
+   "publicacion": "bloqueada",
+   "nota_publicacion": "Sin la auditoría, videos.insert sube el video en privado. El trámite es gratuito.",
+   "a_donde": "Link en la descripción del largo"
+  },
+  "LinkedIn": {
+   "trabajo": "Alianzas, talento, prensa y el canal del contador.",
+   "volumen": 2,
+   "kpi": "Guardados y DMs al perfil",
+   "publicacion": "bloqueada",
+   "nota_publicacion": "Falta el Development tier. LinkedIn lo evalúa caso por caso, sin plazo publicado.",
+   "a_donde": "Alianzas y prensa, no la comunidad"
+  }
+ },
+ "horarios": {
+  "TikTok": "20:00",
+  "Instagram": "19:00",
+  "Facebook": "13:00",
+  "YouTube": "18:00",
+  "LinkedIn": "08:30"
  },
  "pool": [
   {
