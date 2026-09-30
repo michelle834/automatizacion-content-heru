@@ -141,6 +141,44 @@ tr.bloq td:first-child{border-left:3px solid var(--rojo)}
 .pie{font-size:12px;color:var(--gris);margin-top:12px;line-height:1.5}
 code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:var(--cream);padding:1px 5px;border-radius:3px}
 
+/* investigación */
+.busca{margin-bottom:18px}
+.busca input{width:100%;max-width:520px;font:inherit;font-size:14px;padding:10px 14px;
+  border:1px solid var(--linea);border-radius:999px;background:var(--blanco)}
+.busca input:focus{outline:2px solid var(--azul);outline-offset:1px}
+.docs{display:grid;gap:8px}
+.doc{display:flex;gap:14px;align-items:flex-start;text-align:left;width:100%;
+  background:var(--blanco);border:1px solid var(--linea);border-radius:10px;padding:13px 16px}
+.doc:hover{border-color:var(--azul)}
+.doc .nm{font-family:var(--titulo);font-weight:700;font-size:13px;color:var(--gris2);
+  flex:0 0 26px;padding-top:2px}
+.doc .ti{display:block;font-size:15px;font-weight:500;margin-bottom:3px}
+.doc .re{display:block;font-size:12.5px;color:var(--gris);line-height:1.45}
+.hit{background:var(--blanco);border:1px solid var(--linea);border-radius:10px;padding:13px 16px;margin-bottom:8px}
+.hit .lnk{background:none;border:none;color:var(--azul);font-size:14.5px;font-weight:500;padding:0}
+.hit .cnt{font-size:11px;color:var(--gris);background:var(--cream);border-radius:999px;padding:1px 8px;margin-left:8px}
+.frag{font-size:12.5px;color:var(--gris);margin:7px 0 0;line-height:1.5}
+mark{background:var(--cian);color:var(--negro);padding:0 2px}
+
+/* lector: medida corta, que es lo que hace legible un texto largo */
+.lee{max-width:72ch;font-size:15px;line-height:1.7}
+.lee h2{font-size:21px;margin:30px 0 10px}
+.lee h3{font-family:var(--titulo);font-weight:700;font-size:17px;margin:24px 0 8px}
+.lee h4,.lee h5{font-family:var(--titulo);font-weight:700;font-size:14px;margin:20px 0 6px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--gris)}
+.lee p{margin:0 0 13px}
+.lee ul,.lee ol{margin:0 0 13px;padding-left:22px}
+.lee li{margin-bottom:5px}
+.lee blockquote{margin:0 0 13px;padding:2px 0 2px 16px;border-left:3px solid var(--cian);color:var(--gris)}
+.lee hr{border:none;border-top:1px solid var(--linea);margin:26px 0}
+.lee pre{background:var(--blanco);border:1px solid var(--linea);border-radius:8px;
+  padding:13px 15px;overflow-x:auto;margin:0 0 13px}
+.lee pre code{background:none;padding:0;font-size:12.5px;line-height:1.5}
+.lee .tabla-wrap{margin:0 0 16px;max-width:none}
+.lee table{min-width:0}
+.lee td{vertical-align:top}
+.lee strong{font-weight:600}
+
 @media (max-width:820px){
   .app{grid-template-columns:1fr}
   .lado{position:static;height:auto;border-right:none;border-bottom:1px solid var(--linea);padding-bottom:14px}
@@ -181,11 +219,44 @@ const SECCIONES=[
   {k:'grabacion',  e:'🎬', t:'Cola de grabación'},
   {k:'ideas',      e:'💡', t:'Ideas en el pool'},
   {k:'aprendizajes',e:'📊', t:'Aprendizajes'},
+  {k:'investigacion',e:'📚', t:'Investigación'},
   {k:'conexion',   e:'⚙️', t:'Conexión'}
+];
+
+/* Las 24 secciones del mastermind. Viven como .md en el repo, al lado
+   de esta página, así que se leen del mismo origen sin depender de nada.
+   El título y el resumen van aquí para que la lista pinte al instante:
+   el documento completo se baja solo cuando lo abres. */
+const DOCS=[
+ ['00-indice','Índice','El mapa completo: qué contesta cada sección y en qué orden leerlas.'],
+ ['01-algoritmos','Cómo funcionan los algoritmos','Lo que las propias plataformas documentaron en 2026: originalidad con sanción, frescura del mismo día, y qué penaliza cada red.'],
+ ['02-que-impulsar','Qué impulsar en cada red','Un agente por red. La conclusión compartida: heru sobreproduce piezas cortas y parecidas en todos lados.'],
+ ['03-manual-de-ejecucion','Manual de ejecución por red','Formato, duración, cadencia, tono, estructura de post y banco de hooks. Para producir sin volver a preguntar.'],
+ ['04-competencia','Competencia y qué se viraliza','Los dos tipos de contenido fiscal que conviven en TikTok, y cuál gana.'],
+ ['05-estructura-y-hooks','Estructura de contenido por red','Cómo se arma un post que funcione en cada plataforma, con ejemplos.'],
+ ['06-sistema-de-ideas','Sistema de ideas','El banco de 120 ideas de Alan Villagrán, adaptado a heru.'],
+ ['07-prefiltro-marca-y-riesgo','Prefiltro de marca y riesgo','El filtro entre encontrar información y publicarla. Lo que nos puede costar un baneo.'],
+ ['08-pipeline-y-agentes','Pipeline y agentes','Qué hace cada uno de los siete agentes y por qué el humano sigue en medio.'],
+ ['09-herramientas-y-medicion','Herramientas y medición','Qué se puede automatizar hoy, qué cuesta, y qué está bloqueado por permisos de API.'],
+ ['10-medicion-por-red','Medición por red','Cinco cosas que dimos por buenas y no lo eran. Si lees una sola sección, que sea esta.'],
+ ['11-produccion-y-archivo','Producción y archivo','De la extracción al archivo final: cómo se produce una pieza de punta a punta.'],
+ ['12-limites-de-ia-por-red','Límites de IA por red','Qué detecta cada plataforma, qué penaliza, y por qué los metadatos sí importan.'],
+ ['13-seo-social-por-red','SEO social por red','Lo que la gente ya busca en Google decide qué publicamos.'],
+ ['14-publicacion-automatica','Publicación automática','Se puede publicar solo en las cinco redes a costo cero, pero no por una sola vía.'],
+ ['15-que-impulsa-tiktok','Qué impulsa TikTok','El tamaño de la cuenta no es el problema. TikTok lo dice literal.'],
+ ['16-value-ladder','Value ladder','El marco del "valor antes del valor": qué se da gratis y en qué orden.'],
+ ['17-comunidad-de-whatsapp','Comunidad de WhatsApp','Tres hallazgos que cambian el planteamiento del funnel.'],
+ ['18-tendencias-al-dia','Tendencias al día','Automatizar la capa de Google y comprimir la captura manual a 15 minutos.'],
+ ['19-newsletters','Newsletters','Cinco correos vivos, no diez. El eje es el día 17 y la métrica es el clic.'],
+ ['20-seo-del-sitio','SEO del sitio','heru no tiene problema de rankings: posición 6.3 con CTR de 1.26%. El problema es otro.'],
+ ['21-inspo-competencia','Inspo competencia','Los referentes de impuestos y finanzas en México, red por red, y qué se les puede replicar.'],
+ ['22-branding-heru','Branding heru','La fuente de verdad de la marca, completa: paleta, tipografía, logo, formatos y prohibiciones.'],
+ ['23-plan-de-ejecucion-diario','Plan de ejecución diario','Cómo el sistema decide cada día qué se publica, lo produce, lo revisa y aprende del resultado.']
 ];
 const COMP=[['dem','demanda',30],['ven','ventana',25],['evi','evidencia',20],['enc','encaje',15],['wa','whatsapp',10]];
 
 let DATOS=null, SEC='aprobar', RED='Todas';
+let DOC=null, BUSCA='', CACHE={}, TODO=null;   // investigación
 
 const cfgLeer=()=>{try{return JSON.parse(localStorage.getItem('heru_cfg')||'{}')}catch(e){return{}}};
 const cfgGuardar=c=>{try{localStorage.setItem('heru_cfg',JSON.stringify(c))}catch(e){}};
@@ -239,9 +310,11 @@ function pintar(){
   }).join('');
   document.getElementById('main').innerHTML=({
     aprobar:vAprobar, programado:vProgramado, proceso:vProceso,
-    grabacion:vGrabacion, ideas:vIdeas, aprendizajes:vAprendizajes, conexion:vConexion
+    grabacion:vGrabacion, ideas:vIdeas, aprendizajes:vAprendizajes,
+    investigacion:vInvestigacion, conexion:vConexion
   })[SEC]();
   if(SEC==='conexion') montarConexion();
+  if(SEC==='investigacion') montarInvestigacion();
 }
 const cuenta=(n,fuerte)=>n?`<span class="cuenta${fuerte?'':' apagada'}">${n}</span>`:'';
 
@@ -423,6 +496,143 @@ function ficha(p, abierta){
   </article>`;
 }
 
+// ── investigación ───────────────────────────────────────────────
+/* Un renderizador de markdown chico y propio. No traigo una librería
+   de un CDN por dos razones: la página es autocontenida a propósito, y
+   estos documentos solo usan encabezados, listas, tablas, citas y
+   énfasis. Tablas incluidas, que aquí son la mitad del contenido. */
+function md(src){
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const linea=s=>esc(s)
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+    .replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<em>$2</em>')
+    .replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/(^|\s)(https?:\/\/[^\s<]+)/g,'$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+
+  const ls=src.replace(/\r/g,'').split('\n');
+  let h='', i=0, enCodigo=false, buf=[];
+  const cerrarLista=()=>{ if(buf.length){ h+=`<${buf.tipo}>`+buf.join('')+`</${buf.tipo}>`; buf=[]; } };
+
+  while(i<ls.length){
+    const l=ls[i];
+
+    if(/^```/.test(l)){                       // bloque de código
+      cerrarLista();
+      if(!enCodigo){ enCodigo=true; h+='<pre><code>'; }
+      else { enCodigo=false; h+='</code></pre>'; }
+      i++; continue;
+    }
+    if(enCodigo){ h+=esc(l)+'\n'; i++; continue; }
+
+    if(/^\|/.test(l) && /^\|[\s:|-]+\|?\s*$/.test(ls[i+1]||'')){   // tabla
+      cerrarLista();
+      const fila=r=>r.replace(/^\||\|$/g,'').split('|').map(c=>c.trim());
+      const cab=fila(l); i+=2;
+      let cuerpo='';
+      while(i<ls.length && /^\|/.test(ls[i])){
+        cuerpo+='<tr>'+fila(ls[i]).map(c=>`<td>${linea(c)}</td>`).join('')+'</tr>'; i++;
+      }
+      h+=`<div class="tabla-wrap"><table><thead><tr>`
+        +cab.map(c=>`<th>${linea(c)}</th>`).join('')+`</tr></thead><tbody>${cuerpo}</tbody></table></div>`;
+      continue;
+    }
+
+    const enc=/^(#{1,4})\s+(.*)$/.exec(l);
+    if(enc){ cerrarLista(); const n=Math.min(enc[1].length+1,5);
+             h+=`<h${n}>${linea(enc[2])}</h${n}>`; i++; continue; }
+
+    if(/^\s*([-*•])\s+/.test(l)){ if(buf.tipo!=='ul'){cerrarLista(); buf.tipo='ul';}
+      buf.push(`<li>${linea(l.replace(/^\s*[-*•]\s+/,''))}</li>`); i++; continue; }
+    if(/^\s*\d+[.)]\s+/.test(l)){ if(buf.tipo!=='ol'){cerrarLista(); buf.tipo='ol';}
+      buf.push(`<li>${linea(l.replace(/^\s*\d+[.)]\s+/,''))}</li>`); i++; continue; }
+
+    if(/^>\s?/.test(l)){ cerrarLista(); h+=`<blockquote>${linea(l.replace(/^>\s?/,''))}</blockquote>`; i++; continue; }
+    if(/^\s*(---|___|\*\*\*)\s*$/.test(l)){ cerrarLista(); h+='<hr>'; i++; continue; }
+    if(!l.trim()){ cerrarLista(); i++; continue; }
+
+    cerrarLista();
+    let p=[l]; i++;
+    while(i<ls.length && ls[i].trim() && !/^(#{1,4}\s|\||>|\s*[-*•]\s|\s*\d+[.)]\s|```)/.test(ls[i])){ p.push(ls[i]); i++; }
+    h+=`<p>${linea(p.join(' '))}</p>`;
+  }
+  cerrarLista();
+  return h;
+}
+
+async function traer(f){
+  if(CACHE[f]) return CACHE[f];
+  const r=await fetch(`investigacion/${f}.md`);
+  if(!r.ok) throw new Error('no se pudo leer '+f);
+  return CACHE[f]=await r.text();
+}
+
+function vInvestigacion(){
+  const cab=`<div class="cab"><h1>📚 Investigación</h1></div>
+    <p class="dice">Las 24 secciones del mastermind, completas. Todo lo que decide el sistema sale de aquí.</p>`;
+
+  if(DOC){
+    const d=DOCS.find(x=>x[0]===DOC);
+    return `<div class="cab"><h1>${esc(d[1])}</h1></div>
+      <div style="margin:0 0 16px"><button class="btn ghost chico" id="volver">← Todas las secciones</button></div>
+      <article class="lee" id="lee"><p style="color:var(--gris)">Cargando…</p></article>`;
+  }
+
+  if(BUSCA){
+    return cab+cajaBusca()+`<div id="result"><p style="color:var(--gris)">Buscando en las 24…</p></div>`;
+  }
+
+  return cab+cajaBusca()+`<div class="docs">`+DOCS.map((d,i)=>
+    `<button class="doc" data-doc="${d[0]}">
+       <span class="nm">${String(i).padStart(2,'0')}</span>
+       <span class="cu"><span class="ti">${esc(d[1])}</span><span class="re">${esc(d[2])}</span></span>
+     </button>`).join('')+`</div>`;
+}
+const cajaBusca=()=>`<div class="busca"><input id="q" type="search" placeholder="Buscar en toda la investigación…" value="${esc(BUSCA)}"></div>`;
+
+async function montarInvestigacion(){
+  const q=document.getElementById('q');
+  if(q){
+    q.oninput=e=>{ clearTimeout(window._t);
+      window._t=setTimeout(()=>{ BUSCA=e.target.value.trim(); pintar();
+        const n=document.getElementById('q'); if(n){n.focus(); n.setSelectionRange(n.value.length,n.value.length);} },350); };
+  }
+  if(DOC){
+    const c=document.getElementById('lee');
+    // el H1 del documento se quita: el título ya está en la cabecera
+    try{ c.innerHTML=md((await traer(DOC)).replace(/^#\s+.*\n/,'')); }
+    catch(e){ c.innerHTML=`<div class="vacio"><strong>No se pudo abrir</strong>Revisa que la carpeta <code>investigacion</code> esté publicada.</div>`; }
+    return;
+  }
+  if(BUSCA) mostrarBusqueda();
+}
+
+async function mostrarBusqueda(){
+  const caja=document.getElementById('result'); if(!caja) return;
+  if(!TODO) TODO=await Promise.all(DOCS.map(async d=>[d, await traer(d[0]).catch(()=>'')]));
+  const t=BUSCA.toLowerCase();
+  const hits=[];
+  for(const [d,txt] of TODO){
+    const low=txt.toLowerCase(); let p=low.indexOf(t), n=0;
+    const frags=[];
+    // el fragmento es vista previa, no markdown: se le quitan pipes de
+    // tabla, asteriscos y almohadillas para que se lea como una frase
+    const limpiar=s=>s.replace(/\s*\|\s*/g,' · ').replace(/[*#`]/g,'')
+                      .replace(/\s{2,}/g,' ').trim();
+    while(p>-1 && n<3){
+      frags.push(esc(limpiar(txt.slice(Math.max(0,p-90),p+110))).replace(
+        new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'ig'),m=>`<mark>${m}</mark>`));
+      p=low.indexOf(t,p+t.length); n++;
+    }
+    if(frags.length) hits.push({d,frags,total:low.split(t).length-1});
+  }
+  caja.innerHTML = hits.length
+    ? `<p class="h2sub">${hits.reduce((a,h)=>a+h.total,0)} coincidencias en ${hits.length} secciones</p>`
+      +hits.map(h=>`<div class="hit"><button class="lnk" data-doc="${h.d[0]}">${esc(h.d[1])}</button>
+        <span class="cnt">${h.total}</span>${h.frags.map(f=>`<p class="frag">…${f}…</p>`).join('')}</div>`).join('')
+    : `<div class="vacio"><strong>Sin coincidencias</strong>Nada con “${esc(BUSCA)}” en las 24 secciones.</div>`;
+}
+
 function tabla(l, conFuente){
   return `<div class="tabla-wrap"><table><thead><tr>
     <th>Tema</th>${conFuente?'<th>De dónde</th>':''}<th>Red</th><th>Formato</th>
@@ -438,7 +648,11 @@ function tabla(l, conFuente){
 
 // ── eventos ─────────────────────────────────────────────────────
 document.addEventListener('click',async e=>{
-  const s=e.target.closest('[data-sec]');   if(s){SEC=s.dataset.sec; pintar(); window.scrollTo(0,0); return;}
+  const s=e.target.closest('[data-sec]');
+  if(s){SEC=s.dataset.sec; if(SEC!=='investigacion'){DOC=null;BUSCA='';} pintar(); window.scrollTo(0,0); return;}
+  const doc=e.target.closest('[data-doc]');
+  if(doc){ DOC=doc.dataset.doc; pintar(); window.scrollTo(0,0); return; }
+  if(e.target.id==='volver'){ DOC=null; pintar(); window.scrollTo(0,0); return; }
   const r=e.target.closest('[data-red]');   if(r){RED=r.dataset.red; pintar(); return;}
   const a=e.target.closest('[data-aprobar]');
   if(a){ const o=aprLeer(); o[a.dataset.aprobar]='aprobada'; aprGuardar(o);
