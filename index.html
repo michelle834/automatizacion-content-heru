@@ -223,7 +223,7 @@ const SECCIONES=[
   {k:'conexion',   e:'⚙️', t:'Conexión'}
 ];
 
-/* Las 24 secciones del mastermind. Viven como .md en el repo, al lado
+/* Las secciones del mastermind. Viven como .md en el repo, al lado
    de esta página, así que se leen del mismo origen sin depender de nada.
    El título y el resumen van aquí para que la lista pinte al instante:
    el documento completo se baja solo cuando lo abres. */
@@ -251,7 +251,8 @@ const DOCS=[
  ['20-seo-del-sitio','SEO del sitio','heru no tiene problema de rankings: posición 6.3 con CTR de 1.26%. El problema es otro.'],
  ['21-inspo-competencia','Inspo competencia','Los referentes de impuestos y finanzas en México, red por red, y qué se les puede replicar.'],
  ['22-branding-heru','Branding heru','La fuente de verdad de la marca, completa: paleta, tipografía, logo, formatos y prohibiciones.'],
- ['23-plan-de-ejecucion-diario','Plan de ejecución diario','Cómo el sistema decide cada día qué se publica, lo produce, lo revisa y aprende del resultado.']
+ ['23-plan-de-ejecucion-diario','Plan de ejecución diario','Cómo el sistema decide cada día qué se publica, lo produce, lo revisa y aprende del resultado.'],
+ ['24-parrilla-semanal','Parrilla semanal por red','Un tema fijo por día, de lunes a domingo, y qué le toca a cada red ese día.']
 ];
 const COMP=[['dem','demanda',30],['ven','ventana',25],['evi','evidencia',20],['enc','encaje',15],['wa','whatsapp',10]];
 
@@ -574,7 +575,7 @@ async function traer(f){
 
 function vInvestigacion(){
   const cab=`<div class="cab"><h1>📚 Investigación</h1></div>
-    <p class="dice">Las 24 secciones del mastermind, completas. Todo lo que decide el sistema sale de aquí.</p>`;
+    <p class="dice">Las ${DOCS.length} secciones del mastermind, completas. Todo lo que decide el sistema sale de aquí.</p>`;
 
   if(DOC){
     const d=DOCS.find(x=>x[0]===DOC);
@@ -635,7 +636,7 @@ async function mostrarBusqueda(){
     ? `<p class="h2sub">${hits.reduce((a,h)=>a+h.total,0)} coincidencias en ${hits.length} secciones</p>`
       +hits.map(h=>`<div class="hit"><button class="lnk" data-doc="${h.d[0]}">${esc(h.d[1])}</button>
         <span class="cnt">${h.total}</span>${h.frags.map(f=>`<p class="frag">…${f}…</p>`).join('')}</div>`).join('')
-    : `<div class="vacio"><strong>Sin coincidencias</strong>Nada con “${esc(BUSCA)}” en las 24 secciones.</div>`;
+    : `<div class="vacio"><strong>Sin coincidencias</strong>Nada con “${esc(BUSCA)}” en las ${DOCS.length} secciones.</div>`;
 }
 
 function tabla(l, conFuente){
