@@ -618,8 +618,8 @@ const SEMANA=[
  ['Viernes','el resumen de la semana','fechas límite',
   null, ['<strong>carrusel</strong> 5+2','19–21h'], ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
   ['la pregunta','de la semana']],
- ['Sábado','humor fiscal','el que traiga el sketch',
-  ['sketch','21:00'], null, ['Short 3','D+6'], null, ['máster nativo','60–180 s, fuera de CDMX'], null],
+ ['Sábado','lo que ya funcionó · <strong>replicar</strong>','el que traiga el formato',
+  ['el formato adaptado','21:00'], null, ['Short 3','D+6'], null, ['el mismo máster, nativo','60–180 s, fuera de CDMX'], null],
  ['Domingo','la comunidad','el que traiga la pregunta',
   ['Respuesta a @usuario','21:00'], null, null, null, ['comentario en grupos','desde perfil'], null]
 ];
@@ -673,15 +673,15 @@ const FUENTES=[
  ['Jueves','noticias',
   'Lo que apareció hoy y aguanta una pieza',
   'Radar automático: 5:40 Google Trends RSS geo=MX · 5:45 doce consultas de Google News es-MX · 5:50 YouTube por categoría · 5:55 RSS de 25–35 canales mexicanos · 6:10 cruce y puntuación · 6:15 llega el correo con el top 10. Manual, 22 min, y lo único que no se puede saltar son los 6 min de TikTok Creative Center',
-  'Si a las 9:00 nada pasa el criterio, TikTok no publica ese día. El resto de la parrilla corre igual'],
+  'A las 9:00 sin candidata: cae al formato de la competencia que funcionó esta semana, que es demanda validada, no banco genérico'],
  ['Viernes','fechas límite',
   'Lo que tú misma publicaste esta semana, más lo que viene',
   'Tu propio historial de la semana + el vigía fiscal para lo que se vence la semana entrante. Cero investigación nueva',
   'Si no cambió nada fiscal, el resumen es "esto es lo que viene"'],
- ['Sábado','el que traiga el sketch',
-  'Una situación reconocible que se pueda actuar',
-  'Inspo competencia (sección 21): se replica la estructura y el ángulo de un formato que ya funcionó en el nicho, nunca el guion. Más lo que la comunidad cuenta de su propia semana',
-  'Banco de sketches ya aprobados'],
+ ['Sábado','el que traiga el formato',
+  'Un formato que ya funcionó en el nicho, con su número',
+  'Inspo competencia (sección 21) + barrido semanal de las cuentas del nicho: @todosobreconta, @Digitt, @fiscalmenterubia y los contadores independientes de TikTok. Se busca la pieza con desempeño anómalo de los últimos 7 días y se pregunta por qué funcionó',
+  'Los cinco formatos ya catalogados del tab 21. Ninguno está agotado'],
  ['Domingo','el que traiga la pregunta',
   'La duda más repetida de la semana',
   'Comentarios de lunes a sábado en las cinco redes + comunidad de WhatsApp + los comentarios en grupos de Facebook de martes y jueves',
@@ -755,6 +755,25 @@ function vParrilla(){
   <div class="redes">`+SENAL.map(r=>
     `<div class="redc"><h3>${r[0]}</h3><br><span class="sn">persigue ${r[1]}</span>
      <p>${r[3]}</p><p class="dias">${r[2]}</p></div>`).join('')+`</div>`;
+
+  h+=`<p class="nota" style="margin-top:10px"><strong>El sábado es el día de replicar lo que ya funcionó.</strong>
+    El diagnóstico más duro de toda la investigación es que <em>heru produce como contador</em>: presenta
+    como asesoría lo que el nicho gana presentando como experiencia. Eso no se arregla con una nota en
+    un documento, se arregla con un día fijo en el calendario donde <strong>la pieza nace de un formato
+    que ya tiene número</strong>, no de una idea.<br><br>
+    <strong>La regla dura, del tab 21:</strong> se replica <em>la estructura y el ángulo</em>, nunca el
+    guion. Y la pieza declara qué formato replica y por qué funcionó — si no se puede nombrar, no es
+    replicación, es coincidencia.<br><br>
+    <strong>Los cinco formatos ya catalogados</strong>, y solo el primero es humor: el <strong>sketch</strong>
+    (@todosobreconta disfrazada cobrando impuestos en dulces, 1.6 M) · <strong>"me llegó esto del SAT,
+    ¿qué hago?"</strong> con la captura real tapada · <strong>"Respuesta a @usuario"</strong>, formato
+    nativo que el tab 02 propone como el 40% de la parrilla de TikTok · <strong>el bando</strong> — Uber
+    contra DiDi, semanal contra mensual, contador contra app, uno por semana y siempre sobre operación,
+    nunca sobre el SAT · <strong>la cuenta regresiva</strong> de la fecha límite, con el calendario como
+    villano.<br><br>
+    Por eso el día ya no se llama "humor fiscal": el humor es el caso más común, no el único. Y por eso
+    el jueves, cuando el radar no saca tendencia, ya no cae al banco evergreen sino al formato de la
+    competencia de esa semana — que es demanda validada, no relleno.</p>`;
 
   h+=`<h2 class="sec">De dónde sale la información de cada día</h2>
   <p class="sub">Ningún día depende de que exista una noticia: todos tienen respaldo.</p>
