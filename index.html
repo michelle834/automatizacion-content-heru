@@ -160,6 +160,24 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background
 .frag{font-size:12.5px;color:var(--gris);margin:7px 0 0;line-height:1.5}
 mark{background:var(--cian);color:var(--negro);padding:0 2px}
 
+/* parrilla semanal */
+.sem td:first-child{white-space:nowrap}
+.sem .dia{display:block;font-weight:600}
+.sem .tem{display:block;font-size:12px;color:var(--gris);margin-top:1px}
+.sem .off{color:var(--gris2)}
+.sem strong{font-weight:600}
+h2.sec{font-family:var(--titulo);font-size:17px;margin:30px 0 4px}
+p.sub{font-size:13.5px;color:var(--gris);line-height:1.55;margin:0 0 14px;max-width:72ch}
+.redes{display:grid;gap:9px;margin:0 0 6px}
+.redc{background:var(--blanco);border:1px solid var(--linea);border-radius:10px;padding:14px 16px}
+.redc h3{font-family:var(--titulo);font-size:15px;margin:0}
+.redc .sn{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--gris);background:var(--cream);border-radius:999px;padding:2px 9px;margin:6px 0 9px}
+.redc p{margin:0;font-size:13.5px;line-height:1.6}
+.redc .dias{margin-top:9px;font-size:12.5px;color:var(--gris);border-top:1px solid var(--linea);padding-top:9px}
+.nota{background:var(--blanco);border:1px solid var(--linea);border-left:3px solid var(--cian);
+  border-radius:8px;padding:13px 16px;font-size:13.5px;line-height:1.6;margin:0 0 6px;max-width:72ch}
+
 /* lector: medida corta, que es lo que hace legible un texto largo */
 .lee{max-width:72ch;font-size:15px;line-height:1.7}
 .lee h2{font-size:21px;margin:30px 0 10px}
@@ -219,6 +237,7 @@ const SECCIONES=[
   {k:'grabacion',  e:'🎬', t:'Cola de grabación'},
   {k:'ideas',      e:'💡', t:'Ideas en el pool'},
   {k:'aprendizajes',e:'📊', t:'Aprendizajes'},
+  {k:'parrilla',   e:'📅', t:'Parrilla semanal'},
   {k:'investigacion',e:'📚', t:'Investigación'},
   {k:'conexion',   e:'⚙️', t:'Conexión'}
 ];
@@ -312,7 +331,7 @@ function pintar(){
   document.getElementById('main').innerHTML=({
     aprobar:vAprobar, programado:vProgramado, proceso:vProceso,
     grabacion:vGrabacion, ideas:vIdeas, aprendizajes:vAprendizajes,
-    investigacion:vInvestigacion, conexion:vConexion
+    parrilla:vParrilla, investigacion:vInvestigacion, conexion:vConexion
   })[SEC]();
   if(SEC==='conexion') montarConexion();
   if(SEC==='investigacion') montarInvestigacion();
@@ -573,6 +592,149 @@ async function traer(f){
   return CACHE[f]=await r.text();
 }
 
+/* ── Parrilla semanal ──────────────────────────────────────────────
+   El día manda el tema, la red manda el formato. Todo lo de aquí sale
+   de la sección 24 de Investigación; esto es la versión de consulta
+   rápida, para no abrir el documento cada lunes. */
+const SEMANA=[
+ ['Lunes','lo que se vence',
+  ['video · 20:00','solo si hay noticia'], ['carrusel 8 slides','19–21h'], null, null,
+  ['cross-post nativo','el mismo día'], ['aviso','qué se vence esta semana']],
+ ['Martes','el error caro',
+  ['video con cara','20:00'], ['<strong>Trial Reel</strong>','19:00'], null, null,
+  ['comentario en grupos','desde perfil'], null],
+ ['Miércoles','día de blog heru',
+  null, null, ['<strong>largo 12–20 min</strong>','+ embed en el blog'],
+  ['<strong>documento PDF</strong>','12 slides · 8–11h'], null, ['una cosa que no sabías','aplicada a un oficio']],
+ ['Jueves','lo que está pasando',
+  ['tendencia o respuesta','20:00'], ['<strong>Trial Reel</strong>','19:00'], ['Short 1','D+1'], null,
+  ['comentario en grupos','desde perfil'], null],
+ ['Viernes','el resumen de la semana',
+  null, ['<strong>carrusel</strong> 5+2','19–21h'], ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
+  ['la pregunta','de la semana']],
+ ['Sábado','humor fiscal',
+  ['sketch','20:00'], null, ['Short 3','D+6'], null, ['máster nativo','60–180 s, fuera de CDMX'], null],
+ ['Domingo','la comunidad',
+  ['Respuesta a @usuario','20:00'], null, null, null, ['comentario en grupos','desde perfil'], null]
+];
+const TOTALES=['4–5','2 feed + 2 trial','1 largo + 3 Shorts','2','2 + 3 comentarios','3'];
+
+const SENAL=[
+ ['TikTok','watch time','4–5 piezas · mar, jue, sáb, dom (+lun si hay noticia)',
+  'Ni tus seguidores ni tus videos buenos anteriores son factores directos del sistema de recomendación: TikTok lo dice literal. Aquí no se acumula, así que la semana no es una escalera, son cuatro o cinco tiros independientes. Y como el mercado perdió 31% de vistas por post mientras el full watch rate solo cayó 10%, lo que se rompió es el alcance de entrada, no la retención: <strong>la palanca es el hook</strong>.'],
+ ['Instagram','sends','2 de feed + 2 Trial Reels · lun, mar, jue, vie',
+  'Mosseri: watch time, likes y sends — y los sends pesan más para contenido <em>no conectado</em>. Para llegar a gente nueva la señal es que te compartan por DM. Por eso las dos piezas de feed son las dos más mandables de la semana, las dos en carrusel (9× más guardados que la imagen única), y el caption pide comentar o guardar, nunca like.'],
+ ['YouTube','sin señal publicada','1 largo + 3 Shorts · mié, jue, vie, sáb',
+  'Ningún documento oficial cuantifica el peso de sus señales. Lo que sí tiene fecha es la política del 16 de julio de 2026, cuya primera categoría es contenido genérico, repetitivo o hecho con plantilla. Por eso los tres Shorts salen separados y con hook y apertura distintos: <strong>cortar tu propio largo no penaliza, industrializarlo sin variación sí</strong>.'],
+ ['LinkedIn','long dwell + contributions','2 piezas · mié y vie',
+  'Es la única red con el modelo publicado: Feed SR tiene exactamente dos objetivos, y los dos formatos de la semana atacan uno cada uno. El documento secuestra el viewport al deslizar entre slides (ER 7.00%, el más alto del estudio). La encuesta ataca el otro: 3,418 impresiones medias contra 1,234 del carrusel, y menos del 1% la usa — <strong>votar es anónimo, comentar no</strong>.'],
+ ['Facebook','interés declarado','2 nativas + 3 comentarios · lun, mar, jue, sáb, dom',
+  'Desde enero de 2026 corre UTIS, entrenado con encuestas reales de 1 a 5 porque las heurísticas anteriores acertaban 48.3% al detectar interés genuino. El rage-bait perdió potencia estructural, así que <strong>el cierre de Facebook no pide nada</strong>. Y los ejemplos van ambientados fuera de CDMX: es la única red donde conductores y repartidores son la audiencia principal.'],
+ ['WhatsApp','ninguna · es donde se cobra todo lo demás','3 avisos · lun, mié, vie',
+  'No persigue un algoritmo, persigue una expectativa. Por eso la única regla dura es de utilidad: <strong>si una semana no hay nada útil, no se publica</strong>. Un canal que manda ruido entrena a la gente a ignorar la notificación, que es justo el activo que se está construyendo.']
+];
+
+const FUENTES=[
+ ['Lunes','Calendario fiscal + vigía fiscal (DOF/SIDOF, SAT, IMCP, PRODECON)',
+  'Digest automático diario; el marcador corre a las 6:30 y tú apruebas a las 7:30',
+  'El calendario nunca falla: siempre hay una fecha encima'],
+ ['Martes','Comentarios propios + Creator Search Insights + grupos de Facebook',
+  'Los tres mejores comentarios de la semana pasada ya están en el pool; Creator Search Insights se captura a mano',
+  'Banco de 120 ideas (sección 06), pilar mito vs realidad'],
+ ['Miércoles','Google Search Console + el blog de heru',
+  'Cada lunes se jala la tabla de oportunidades y se elige la de mayor impresiones con CTR desperdiciado. La regla: el post rankea y no existe el video',
+  'Semrush para gaps de keyword'],
+ ['Jueves','Radar de tendencias (sección 18)',
+  'Automático: 5:40 Google Trends RSS geo=MX · 5:45 Google News es-MX · 5:50 YouTube · 5:55 RSS de 25–35 canales · 6:15 llega el correo con el top 10. Manual: 22 minutos, y lo único que no se puede saltar es la captura de TikTok Creative Center',
+  'Si a las 9:00 nada pasa el criterio, el día no se fuerza: sale del banco evergreen'],
+ ['Viernes','Lo que publicaste tú esta semana + el vigía',
+  'Se arma del propio historial. Cero investigación nueva',
+  'Si no cambió nada fiscal, el resumen es "esto es lo que viene"'],
+ ['Sábado','Inspo competencia (sección 21) + comunidad',
+  'Formatos virales del nicho adaptados: se replica la estructura y el ángulo, nunca el guion',
+  'Banco de sketches ya aprobados'],
+ ['Domingo','Comentarios de la semana + comunidad de WhatsApp',
+  'Lo que la gente preguntó de lunes a sábado; los comentarios en grupos de Facebook alimentan esto',
+  'Nunca está vacío: siempre hay preguntas sin contestar']
+];
+
+const ESCALON=[['Lunes','solo si hay noticia','carrusel','',''],
+ ['Martes','video','Trial Reel','',''],
+ ['Miércoles','—','<strong>carrusel</strong>','nuevo',''],
+ ['Jueves','video','Trial Reel','',''],
+ ['Viernes','—','carrusel','',''],
+ ['Sábado','sketch','<strong>reel del sketch</strong>','nuevo',''],
+ ['Domingo','respuesta','—','','']];
+
+function celda(c){
+  if(!c) return `<td class="off">—</td>`;
+  return `<td>${c[0]}${c[1]?`<span class="tem">${c[1]}</span>`:''}</td>`;
+}
+
+function vParrilla(){
+  let h=`<div class="cab"><h1>📅 Parrilla semanal</h1></div>
+  <p class="dice">Un tema fijo por día. El día manda el tema; la red manda el formato, porque cada red persigue una señal distinta.</p>`;
+
+  h+=`<div class="tabla-wrap"><table class="sem"><thead><tr>
+    <th>Día · tema</th><th>TikTok</th><th>Instagram</th><th>YouTube</th>
+    <th>LinkedIn</th><th>Facebook</th><th>WhatsApp</th></tr></thead><tbody>`
+   + SEMANA.map(f=>`<tr><td><span class="dia">${f[0]}</span><span class="tem">${f[1]}</span></td>`
+       + f.slice(2).map(celda).join('') + `</tr>`).join('')
+   + `<tr><td><span class="dia">Total</span><span class="tem">15 piezas</span></td>`
+   + TOTALES.map(t=>`<td><strong>${t}</strong></td>`).join('')
+   + `</tr></tbody></table></div>`;
+
+  h+=`<p class="nota" style="margin-top:14px"><strong>El jueves también es el día de grabación.</strong>
+    Se graban 6 cuerpos × 5 hooks = 30 archivos, y eso sale la semana siguiente. Por eso lo que se
+    <em>publica</em> el jueves es carril rápido, nunca algo que haya que grabar ese día.</p>`;
+
+  h+=`<h2 class="sec">Por qué cada red tiene esos días</h2>
+  <p class="sub">La señal que persigue el algoritmo decide el formato, y el formato decide el día.</p>
+  <div class="redes">`+SENAL.map(r=>
+    `<div class="redc"><h3>${r[0]}</h3><br><span class="sn">persigue ${r[1]}</span>
+     <p>${r[3]}</p><p class="dias">${r[2]}</p></div>`).join('')+`</div>`;
+
+  h+=`<h2 class="sec">De dónde sale la información de cada día</h2>
+  <p class="sub">Ningún día depende de que exista una noticia: todos tienen respaldo.</p>
+  <div class="tabla-wrap"><table><thead><tr>
+    <th>Día</th><th>Fuente principal</th><th>Cómo llega</th><th>Si no hay nada</th>
+    </tr></thead><tbody>`
+   + FUENTES.map(f=>`<tr><td><strong>${f[0]}</strong></td><td>${f[1]}</td><td>${f[2]}</td><td>${f[3]}</td></tr>`).join('')
+   + `</tbody></table></div>`;
+
+  h+=`<p class="nota" style="margin-top:14px">Lo único realmente automatizable es Google —Trends y News
+    por RSS— y con reservas YouTube. TikTok Creative Center, Creator Search Insights y los audios de
+    Instagram son captura manual: no hay API, ni gratis ni pagando, y la Research API de TikTok no es
+    elegible para México. <strong>No construyas un conector a TikTok Creative Center:</strong> el riesgo
+    no es una multa, es perder la cuenta.</p>`;
+
+  h+=`<h2 class="sec">Escalón 2: presencia diaria</h2>
+  <p class="sub">Publicar más no sube el promedio, sube el techo: con 1 post semanal en TikTok la mediana
+    es 489 vistas y con 11 o más es 459, mientras el percentil 90 se cuadruplica. La frecuencia compra
+    boletos de lotería, no calidad. Por eso la presencia diaria se resuelve en Instagram —3 a 5 stories
+    al día— y no subiendo TikTok.</p>
+  <div class="tabla-wrap"><table><thead><tr>
+    <th>Día</th><th>TikTok</th><th>Instagram feed</th><th>Instagram stories</th>
+    </tr></thead><tbody>`
+   + ESCALON.map(f=>`<tr><td><strong>${f[0]}</strong></td><td>${f[1]}</td>
+       <td>${f[2]}${f[3]?` <span class="tem" style="display:inline">← ${f[3]}</span>`:''}</td>
+       <td>3–5</td></tr>`).join('')
+   + `<tr><td><strong>Total</strong></td><td><strong>4</strong></td>
+      <td><strong>5 feed + 2 trial</strong></td><td><strong>21–35</strong></td></tr>`
+   + `</tbody></table></div>`;
+
+  h+=`<p class="nota" style="margin-top:14px"><strong>Cuándo subir.</strong>
+    Instagram pasa a 5 de feed cuando los Trial Reels muestren que el hook engancha en frío
+    (sends por cada 1,000 vistas ≥ 1.3× tu línea base). TikTok sube solo cuando tu watch time mediano
+    pase de 8 segundos — hoy está en 4.08, y hasta ahí cada pieza extra diluye.
+    Las stories diarias se pueden empezar mañana: no compiten con nada.</p>`;
+
+  h+=`<p class="pie" style="margin-top:20px">El desarrollo completo, con la fuente de cada dato, está en
+    <button class="btn ghost chico" data-ir24="1">📚 Investigación → 24 · Parrilla semanal por red</button></p>`;
+
+  return h;
+}
+
 function vInvestigacion(){
   const cab=`<div class="cab"><h1>📚 Investigación</h1></div>
     <p class="dice">Las ${DOCS.length} secciones del mastermind, completas. Todo lo que decide el sistema sale de aquí.</p>`;
@@ -656,6 +818,11 @@ function tabla(l, conFuente){
 document.addEventListener('click',async e=>{
   const s=e.target.closest('[data-sec]');
   if(s){SEC=s.dataset.sec; if(SEC!=='investigacion'){DOC=null;BUSCA='';} pintar(); window.scrollTo(0,0); return;}
+  // atajo de la Parrilla al documento largo que la sustenta
+  if(e.target.closest('[data-ir24]')){
+    SEC='investigacion'; DOC='24-parrilla-semanal'; BUSCA='';
+    pintar(); window.scrollTo(0,0); return;
+  }
   const doc=e.target.closest('[data-doc]');
   if(doc){ DOC=doc.dataset.doc; pintar(); window.scrollTo(0,0); return; }
   if(e.target.id==='volver'){ DOC=null; pintar(); window.scrollTo(0,0); return; }
