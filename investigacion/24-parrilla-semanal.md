@@ -85,23 +85,40 @@ del mismo hook el mismo día**, que se canibalizan.
 
 ---
 
-### Miércoles · día de blog heru
+### Miércoles · día de blog heru · el clúster
 
 Se toma un post del blog que **ya rankea y no tiene video**, se produce la pieza
-que falta, y se incrusta de vuelta en el blog.
+que falta, se incrusta de vuelta en el blog, y **el mismo tema sale en las cinco
+redes dentro de una ventana de 48 horas**.
 
 | Red | Qué sale | Detalle |
 |---|---|---|
 | YouTube | El largo de la semana, 12–20 min con capítulos | Keyword al inicio del título; link y capítulos en las primeras dos líneas de la descripción |
 | Blog heru | El video incrustado en el post que ya rankea | Así heru ocupa dos posiciones en Google en vez de una |
 | LinkedIn | Documento PDF de 12 slides, **8:00–11:00** | Es el único día con hora y día explícitos en toda la investigación |
+| Instagram | Carrusel del mismo tema, 19:00–21:00 | Keyword en la primera línea del caption y texto alternativo manual |
+| TikTok | Corte vertical del largo, 20:00 | Hook y apertura visual distintos; keyword dicha en voz alta en los primeros 3 segundos |
+| Facebook | Cross-post nativo, al día siguiente | Cierra la ventana de 48 horas |
 | WhatsApp (Canal) | "Una cosa que no sabías", aplicada a un oficio | Calendario propio del canal (tab 17) |
 
-**Por qué miércoles.** El tab 03 fija LinkedIn en miércoles de 8 a 11. El tab 13
-pone YouTube primero en la ventana de 48 horas de publicación (YouTube → LinkedIn
-→ Instagram → TikTok → Facebook) porque es el que más tarda en indexar. Poniendo
-el largo el miércoles, la cola de esa ventana cae jueves y viernes, que es justo
-donde la parrilla tiene espacio.
+**Por qué miércoles, y por qué es un clúster y no cuatro piezas sueltas.** El tab 03
+fija LinkedIn en miércoles de 8 a 11. El tab 13 fija que cada tema de búsqueda se
+publica en las cinco redes dentro de **una ventana de 48 horas**, en este orden:
+**YouTube → LinkedIn → Instagram → TikTok → Facebook**. YouTube va primero porque
+es el que más tarda en indexar. Poniendo el largo el miércoles, la cola de esa
+ventana cae jueves, que es justo donde la parrilla tiene espacio.
+
+**Esto es lo que llena el miércoles en TikTok e Instagram.** No son piezas nuevas:
+son el mismo guion y el mismo rodaje en otro envase. La regla de producción es que
+**se graba el largo y se deriva el corto, nunca al revés** — si el corte es el largo
+con relleno, es modificación de bajo valor y además no prueba nada. Y el corte de
+TikTok se exporta del máster, **nunca del Short de YouTube**: republicar con marca
+de agua ajena es exactamente lo que apuntan las políticas de originalidad.
+
+**Lo que esto le cuesta a la semana.** Sube de 15 a 16–18 piezas, por encima de lo
+que el tab 23 declara sostenible. Se sostiene porque las dos que agrega salen del
+material ya producido. Si una semana aprieta, **lo primero que se cae es el corte de
+TikTok del miércoles**, no el largo.
 
 **Los capítulos se nombran como búsqueda, no como rótulo.** "Cómo saber si estoy
 en RESICO", no "Paso 3". Un video de 15 minutos con 10 capítulos bien nombrados
@@ -114,14 +131,16 @@ son diez entradas de búsqueda, no una.
 ### Jueves · lo que está pasando
 
 El día reservado al carril urgente. Si el radar de las 6:15 sacó una candidata
-que pasó el criterio del tab 18, sale hoy. Si no, sale del banco evergreen.
+que pasó el criterio del tab 18, sale hoy. Si no, **el día no se fuerza**: el
+jueves de TikTok es condicional, y lo demás del día sigue corriendo igual porque
+no depende de que haya tendencia.
 
 | Red | Qué sale | Detalle |
 |---|---|---|
-| TikTok | La tendencia, o "Respuesta a @usuario" del banco | Audio propio o de la Commercial Music Library, nunca perseguir el audio del momento |
+| TikTok | La tendencia | Audio propio o de la Commercial Music Library, nunca perseguir el audio del momento. **Si el radar no sacó nada, este día TikTok no publica** |
 | YouTube | Short #1 derivado del largo del miércoles (D+1) | Hook y apertura visual distintos del largo |
 | Instagram | Trial Reel #2 (misma variable del martes) | |
-| Facebook | Comentario en grupos | |
+| Facebook | Cross-post nativo del clúster + comentario en grupos | El cross-post cierra la ventana de 48 horas que abrió el largo del miércoles |
 
 **Jueves también es el día de grabación.** El carril con cámara tiene 8 días de
 ventaja: lo que se graba hoy sale la semana que viene. Un bloque de grabación = 6
@@ -215,16 +234,18 @@ el domingo nace de lo que la gente comentó de lunes a sábado.
 |---|---|---|---|---|---|---|
 | **Lun** · lo que se vence | si hay noticia | carrusel | | | cross-post | aviso |
 | **Mar** · el error caro | video | Trial Reel | | | comentario | |
-| **Mié** · día de blog | | | **largo** | **documento** | | "no sabías" |
-| **Jue** · lo que pasa | tendencia | Trial Reel | Short 1 | | comentario | |
+| **Mié** · día de blog · clúster | corte del largo | carrusel | **largo** | **documento** | | "no sabías" |
+| **Jue** · lo que pasa | tendencia (si la hay) | Trial Reel | Short 1 | | cross-post + comentario | |
 | **Vie** · el resumen | | **carrusel** | Short 2 | **encuesta** | | la pregunta |
 | **Sáb** · humor | sketch | | Short 3 | | nativo | |
 | **Dom** · la comunidad | respuesta | | | | comentario | |
-| **Total** | 4–5 | 2 + 2 trial | 1 largo + 3 Shorts | 2 | 2 + 3 comentarios | 3 |
+| **Total** | 4–6 | 3 feed + 2 trial | 1 largo + 3 Shorts | 2 | 3 + 3 comentarios | 3 |
 
-**15 piezas a la semana.** Es exactamente el volumen que el tab 23 declara
-sostenible con una persona y los agentes corriendo. No es un benchmark de mercado:
-es la capacidad real del pipeline, revisable con datos a las cuatro semanas.
+**16–18 piezas a la semana.** El tab 23 declara 15 como el volumen sostenible con
+una persona y los agentes corriendo, así que esto va ligeramente por encima. La
+diferencia son las dos piezas del clúster del miércoles, que no son producción
+nueva. No es un benchmark de mercado: es la capacidad real del pipeline, revisable
+con datos a las cuatro semanas.
 
 ---
 
@@ -236,7 +257,7 @@ el porqué, red por red.
 
 ---
 
-### TikTok · 4–5 piezas · martes, jueves, sábado, domingo (y lunes si hay noticia)
+### TikTok · 4–6 piezas · martes, miércoles, sábado y domingo fijos · lunes y jueves condicionales
 
 **Su trabajo:** descubrimiento en frío. Es la única red donde te encuentra quien no
 te conoce.
@@ -265,13 +286,18 @@ por semana en lugar de repartir temas al azar.
   el día de más ocio.
 - **Lunes solo si hay noticia que aguante cámara.** Un lunes forzado es una pieza
   mala en la red que menos perdona una pieza mala.
+- **Miércoles** entra con el clúster: el corte vertical del largo de YouTube. Es la
+  pieza más barata de la semana porque el rodaje ya existe.
+- **El jueves pasa a condicional.** Si el radar de las 6:15 no saca nada que pase el
+  criterio, ese día TikTok no publica. Así el volumen no se infla para llenar huecos.
 
 **Qué sale cada día y por qué ese día.**
 
 | Día | Pieza | Por qué aquí |
 |---|---|---|
 | Martes | El error caro | Arranca el experimento semanal de hooks: mecanismo "consecuencia" |
-| Jueves | La tendencia, o "Respuesta a @usuario" | Es el carril urgente; lo que no se pudo planear vive aquí |
+| Miércoles | El corte vertical del largo | Cierra el clúster de búsqueda; hook y apertura distintos del largo |
+| Jueves | La tendencia | Carril urgente. Si el radar no sacó nada, este día no se publica |
 | Sábado | El sketch | Ocio. El formato de mayor techo, en el día de mayor disponibilidad |
 | Domingo | "Respuesta a @usuario" | Le llega primero a quien ya interactuó: la audiencia más barata de un domingo |
 
@@ -286,7 +312,7 @@ visitas al perfil.
 
 ---
 
-### Instagram · 2 de feed + 2 Trial Reels · lunes, martes, jueves, viernes
+### Instagram · 3 de feed + 2 Trial Reels · lunes, miércoles y viernes de feed · martes y jueves de laboratorio
 
 **Su trabajo:** convertir al que ya te vio en seguidor y en guardador.
 
@@ -306,7 +332,9 @@ y pedir like las **baja 4.9%**.
 
 **Por qué esos días.**
 
-- **Lunes y viernes** son las dos de feed porque son las dos guardables.
+- **Lunes y viernes** son las dos de feed más guardables de la semana.
+- **Miércoles** entra el carrusel del clúster, con el mismo tema del largo. Es carril
+  rápido: no necesita cámara y sale del guion que ya se escribió.
 - **Martes y jueves los Trial Reels**, que es exactamente la ventana que fija el
   tab 03 (martes a jueves, 19:00). Poniendo el primero el martes, para el corte del
   viernes ya hay las 72 horas que pide el criterio de graduación.
@@ -415,7 +443,7 @@ no consejos.
 
 ---
 
-### Facebook · 2 nativas + 3 comentarios en grupos · lunes, martes, jueves, sábado, domingo
+### Facebook · 3 nativas + 3 comentarios en grupos · lunes, martes, jueves, sábado, domingo
 
 **Su trabajo:** conductores y repartidores. Es la **única red donde esa audiencia
 saca 15 sobre 15** en la matriz de encaje. En LinkedIn saca 0.
@@ -442,6 +470,9 @@ punto.
   minuto son un cuarto de lo que producen los creadores grandes y **más del 50% del
   watch time de Facebook**. El consenso de mercado de 15–30 segundos está contradicho
   por la propia plataforma: ahí está el arbitraje.
+- **Jueves, el cross-post del clúster.** Cierra la ventana de 48 horas que abrió el
+  largo del miércoles. Es el último eslabón del orden YouTube → LinkedIn → Instagram
+  → TikTok → Facebook.
 - **Martes, jueves y domingo, comentarios en grupos.** Es research, no distribución.
   Sin link. De ahí salen las preguntas que se contestan el domingo.
 
