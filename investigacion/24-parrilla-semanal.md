@@ -228,6 +228,277 @@ es la capacidad real del pipeline, revisable con datos a las cuatro semanas.
 
 ---
 
+## Justificación red por red
+
+El día decide el tema; la red decide el formato. Pero la razón por la que cada red
+tiene *esos* días y *ese* formato es la señal que persigue su algoritmo. Aquí está
+el porqué, red por red.
+
+---
+
+### TikTok · 4–5 piezas · martes, jueves, sábado, domingo (y lunes si hay noticia)
+
+**Su trabajo:** descubrimiento en frío. Es la única red donde te encuentra quien no
+te conoce.
+
+**La señal que persigue.** TikTok solo publicó una declaración oficial sobre el
+peso relativo de sus señales, el 18 de junio de 2020, y es cualitativa: *"un
+indicador fuerte de interés, como si un usuario termina de ver un video largo de
+principio a fin, recibiría mayor peso que un indicador débil"*. En la misma página
+dice algo que cambia cómo se planea la semana: **ni el número de seguidores ni
+haber tenido videos de alto rendimiento antes son factores directos** del sistema
+de recomendación.
+
+**Qué implica eso para la parrilla.** Que en TikTok no se acumula. Cada pieza
+arranca de cero, así que la semana no es una escalera: son cuatro o cinco tiros
+independientes. Y el mercado se comprimió —vistas por post −31%, alcance −29%, con
++72% más volumen publicado— mientras el *full watch rate* solo cayó −10%. Lo que se
+rompió es el alcance de entrada, no la retención. **Por eso la palanca de TikTok es
+el hook, no el cuerpo**, y por eso la parrilla corre un bloque de mecanismo de hook
+por semana en lugar de repartir temas al azar.
+
+**Por qué esos días.**
+
+- **Martes, jueves y domingo a las 20:00** vienen directo del tab 02.
+- **Sábado** lo agregué yo: el sketch es el formato con el techo de alcance más
+  alto documentado en el nicho mexicano (1.6 millones de reproducciones) y necesita
+  el día de más ocio.
+- **Lunes solo si hay noticia que aguante cámara.** Un lunes forzado es una pieza
+  mala en la red que menos perdona una pieza mala.
+
+**Qué sale cada día y por qué ese día.**
+
+| Día | Pieza | Por qué aquí |
+|---|---|---|
+| Martes | El error caro | Arranca el experimento semanal de hooks: mecanismo "consecuencia" |
+| Jueves | La tendencia, o "Respuesta a @usuario" | Es el carril urgente; lo que no se pudo planear vive aquí |
+| Sábado | El sketch | Ocio. El formato de mayor techo, en el día de mayor disponibilidad |
+| Domingo | "Respuesta a @usuario" | Le llega primero a quien ya interactuó: la audiencia más barata de un domingo |
+
+**Lo que no se hace aquí.** Nada con marca de agua ajena (bloqueante duro).
+Apertura visual distinta de las últimas cinco publicaciones. Máximo 5 hashtags. La
+URL va en el comentario fijado, nunca en el caption.
+
+**Sobre WhatsApp:** TikTok solo aporta la bio como superficie, es la peor de las
+cinco, y por eso **se mide por visitas a perfil, no por miembros**. Ahí está la
+fuga que ya se ve en los datos: entre 783 y 6,119 vistas al día contra 3 a 52
+visitas al perfil.
+
+---
+
+### Instagram · 2 de feed + 2 Trial Reels · lunes, martes, jueves, viernes
+
+**Su trabajo:** convertir al que ya te vio en seguidor y en guardador.
+
+**La señal que persigue.** Mosseri, 22 de enero de 2025: *"las tres señales que
+más importan para el ranking son watch time, likes y sends"*. Y la desagregación
+que lo cambia todo: **los sends pesan más para contenido no conectado**. Traducción
+directa: para llegar a gente nueva en Instagram la señal es que te compartan por
+DM, no que te den like.
+
+**Qué implica eso para la parrilla.** Que las dos piezas de feed de la semana
+tienen que ser las dos más *mandables* — y eso son el lunes (lo que se vence: se
+manda al socio, al hermano que también factura) y el viernes (el resumen: se manda
+porque ahorra trabajo). Los dos son carrusel, que Metricool mide con **9 veces más
+guardados que la imagen única**. Y por eso el caption pide comentar o guardar y
+nunca like: pedir comentario sube interacciones **+202.78%**, pedir guardar **+92%**,
+y pedir like las **baja 4.9%**.
+
+**Por qué esos días.**
+
+- **Lunes y viernes** son las dos de feed porque son las dos guardables.
+- **Martes y jueves los Trial Reels**, que es exactamente la ventana que fija el
+  tab 03 (martes a jueves, 19:00). Poniendo el primero el martes, para el corte del
+  viernes ya hay las 72 horas que pide el criterio de graduación.
+
+**Por qué los Trial Reels son el corazón de Instagram y no un extra.** Corren solo
+contra no seguidores —que es precisamente la superficie que heru tiene rota. Un ER
+de 9.6% con alcance plano no es un logro, es el síntoma: la cuenta está circulando
+dentro de sí misma. El Trial Reel es la única forma de probar agresivamente sin
+riesgo, porque el que falla no lo vio nadie.
+
+**Regla del experimento:** una sola variable por semana, y **nunca dos variantes
+del mismo hook el mismo día** — se canibalizan.
+
+**Sobre WhatsApp:** Instagram se lleva el **60% del esfuerzo** de comunidad porque
+es la única red con las tres superficies: bio, sticker de enlace en stories, y
+comentario → DM automático. Sticker 3–4 veces por semana; es la única cadencia
+numérica que fija la investigación.
+
+---
+
+### YouTube · 1 largo (miércoles) + 3 Shorts (jueves, viernes, sábado)
+
+**Su trabajo:** autoridad y SEO permanente. Es la única red donde la pieza no
+caduca.
+
+**La señal que persigue.** Aquí hay que ser honestos: **ningún documento oficial
+cuantifica el peso relativo de las señales de YouTube**, y el marco de Appeal /
+Engagement / Satisfaction está marcado en el tab 01 como *por confirmar*. Lo que sí
+está documentado con fecha es lo que **penaliza**: la política de contenido
+inauténtico reescrita el 16 de julio de 2026, cuya primera categoría es **contenido
+genérico, repetitivo o hecho con plantilla**.
+
+**Qué implica eso para la parrilla.** Que los tres Shorts no pueden salir juntos ni
+parecerse. Por eso van en D+1, D+3 y D+6, cada uno con hook y apertura visual
+distintos. Cortar tu propio largo no está penalizado; **industrializarlo sin
+variación, sí**. Tres Shorts idénticos del mismo largo es literalmente lo que esa
+política describe.
+
+**Por qué el largo va el miércoles.** El tab 13 fija una ventana de publicación de
+48 horas con un orden: **YouTube → LinkedIn → Instagram → TikTok → Facebook**, y
+YouTube va primero porque es el que más tarda en indexar. Poniendo el largo el
+miércoles, la cola de esa ventana cae jueves y viernes, que es justo donde la
+parrilla tiene hueco. Si el largo fuera el lunes, la cola chocaría con las piezas
+de feed.
+
+**Por qué largo y no Shorts.** Los Shorts de heru hoy son un callejón sin salida:
+sin link clicable, sin *related video*, sin comentarios que sirvan. El largo es el
+único formato que puede rankear en Google con intención fiscal y el único con CTA
+de conversión desarrollado. Y los capítulos se nombran como búsqueda, no como
+rótulo: **un video de 15 minutos con 10 capítulos bien nombrados son diez entradas
+de búsqueda, no una**.
+
+**El riesgo específico de esta categoría.** La tercera categoría de esa misma
+política son las *"personas de IA"* hablando de **finanzas, legales y salud**. El
+consejo fiscal es las dos cosas a la vez. Cara humana real o, como mínimo, voz
+humana real. Siempre. Sin excepción.
+
+**Sobre WhatsApp:** el link va arriba del pliegue en la descripción de cada largo y
+en el comentario fijado. En Shorts es nulo —las URLs no son clicables— así que no
+se gasta esfuerzo ahí.
+
+---
+
+### LinkedIn · 2 piezas · miércoles (documento) y viernes (encuesta)
+
+**Su trabajo:** alianzas, talento, prensa y el canal del contador. **No manda a la
+comunidad de WhatsApp** — esa no es su función y forzarlo desperdicia la red.
+
+**La señal que persigue.** Es la única de las cinco que publicó su modelo. **Feed
+SR**, en producción desde el 12 de febrero de 2026, tiene exactamente dos objetivos:
+**long dwell** (tiempo por encima de un umbral específico por tipo de post) y
+**contributions** (like, comentario o share). LinkedIn nunca publicó ese umbral en
+segundos; cualquier blog que diga "necesitas X segundos" lo inventó.
+
+**Qué implica eso para la parrilla.** Que los dos formatos de la semana atacan un
+objetivo cada uno.
+
+- **El documento PDF ataca el dwell por diseño.** Deslizar entre slides mantiene el
+  post dentro del viewport: un post de texto compite contra el pulgar, un documento
+  lo secuestra. Es el formato con mejor ER de todos en páginas de empresa —**7.00%**,
+  el más alto del estudio, y +14% interanual.
+- **La encuesta ataca las contributions.** 3,418 impresiones medias por post contra
+  1,234 del carrusel, con **menos del 1% de adopción**. Y hay una razón de conducta
+  detrás del número: **votar es anónimo, comentar no**. La encuesta convierte a gente
+  que jamás comentaría.
+
+**Por qué miércoles y viernes.** El miércoles de 8:00 a 11:00 es el **único día y
+hora explícitos de toda la investigación** — todo lo demás son convenciones
+nuestras. El viernes cae natural: el resultado de la encuesta del viernes es
+materia prima para el contenido de la semana siguiente.
+
+**Cómo se escribe.** La cifra al principio, la pregunta al final. Abrir con
+pregunta rinde **−34%**; primera línea con cifra, **+35%**; pregunta al final,
+**+77% de comentarios**. Las 3–5 líneas antes del "ver más" existen solo para ganar
+ese clic, que cuenta como interacción y dispara el dwell.
+
+**La contradicción de los links, resuelta.** En páginas de empresa los links **suben**
+las impresiones +51% —el mito del −60% viene de perfiles personales, no de páginas.
+Pero el tab 13 pide cero liga en el cuerpo cuando lo que quieres es que el post
+rankee en Google. Decisión: **cero liga el miércoles** (que es el día de SEO), liga
+permitida en la encuesta del viernes.
+
+**Lo que no se hace aquí.** Video, reshare y artículo: los tres rinden por debajo
+(0.86×, 0.29× y 0.69× el alcance mediano). Nada de memes. Y nada de tips — decisiones,
+no consejos.
+
+---
+
+### Facebook · 2 nativas + 3 comentarios en grupos · lunes, martes, jueves, sábado, domingo
+
+**Su trabajo:** conductores y repartidores. Es la **única red donde esa audiencia
+saca 15 sobre 15** en la matriz de encaje. En LinkedIn saca 0.
+
+**La señal que persigue.** En enero de 2026 Meta puso en producción **UTIS**, un
+modelo entrenado con **encuestas de interés real de 1 a 5**, porque sus heurísticas
+previas acertaban solo el **48.3%** al identificar interés genuino; con UTIS subió a
+**63.2%**.
+
+**Qué implica eso para la parrilla.** Que Facebook hoy pesa **interés declarado por
+encima de engagement pasivo**. Un reel que retiene pero que la gente calificaría 2
+de 5 se penaliza. **El rage-bait y el engagement-bait perdieron potencia
+estructural**, así que el cierre de Facebook no pide nada: CTA único al final y
+punto.
+
+**Por qué esos días.**
+
+- **Lunes, cross-post nativo.** Meta declara que **los posts del mismo día son más
+  del 30% de los Reels recomendados**, más del doble que hace un año. Publicar el día
+  de la noticia vale más que publicarla mejor tres días después. Y el cross-post
+  nativo es un toggle: producto de Meta, no se penaliza por originalidad, cuesta
+  cero horas.
+- **Sábado, el máster nativo de 60–180 s.** Meta (oct 2025): los reels de más de un
+  minuto son un cuarto de lo que producen los creadores grandes y **más del 50% del
+  watch time de Facebook**. El consenso de mercado de 15–30 segundos está contradicho
+  por la propia plataforma: ahí está el arbitraje.
+- **Martes, jueves y domingo, comentarios en grupos.** Es research, no distribución.
+  Sin link. De ahí salen las preguntas que se contestan el domingo.
+
+**El ajuste que casi nadie hace.** Los ejemplos de Facebook van **ambientados fuera
+de CDMX**: Torreón, Mérida, León. El tab 03 lo llama *"el error más caro y más fácil
+de evitar del plan"*. Se ajusta personaje, régimen, ciudad y dispositivo respecto a
+la versión de Instagram.
+
+**Lo que no se hace aquí.** Cero posts con link: reach rate **0.20%** contra 1.25%
+de la página. El link va al primer comentario, siempre. Nada de audio de tendencia
+de Instagram —la audiencia es mayor. Y nada descargado de TikTok.
+
+---
+
+### WhatsApp (Canal) · 3 avisos · lunes, miércoles, viernes
+
+**No es una red de alcance, es el marcador.** El KPI norte de todo el sistema son
+los miembros nuevos por semana atribuidos a contenido.
+
+**No persigue un algoritmo, persigue una expectativa.** Por eso la única regla dura
+es de utilidad: **si una semana no hay nada útil, no se publica**. Un canal que
+manda ruido entrena a la gente a ignorar la notificación, que es justo el activo
+que se está construyendo.
+
+| Día | Qué sale | Por qué |
+|---|---|---|
+| Lunes | El aviso de qué se vence | Es el único que **nunca se salta**. Es el lead magnet real: el aviso antes de la fecha |
+| Miércoles | "Una cosa que no sabías", aplicada a un oficio | Da razón para quedarse cuando no hay fecha encima |
+| Viernes | La pregunta de la semana | Abre conversación y alimenta el pool del domingo |
+
+Este calendario no lo inventé: es el del tab 17. La parrilla de redes se acomodó a
+él, no al revés — por eso el lunes del canal habla del mismo tema que el lunes de
+las redes.
+
+**Cómo se pide sin pedir un clic.** El link vive permanentemente en bio, stories y
+descripciones, así que la pieza nunca pide un clic. El mecanismo es **"comenta"**:
+el cierre es "comenta *[palabra]* y te digo dónde está", y el comentario dispara el
+DM automático de Instagram (ventana de 7 días, un solo mensaje por comentario).
+
+---
+
+### La semana en una frase por red
+
+- **TikTok** persigue *watch time*, no acumula nada, y por eso cada día es un tiro
+  independiente donde el hook es la palanca.
+- **Instagram** persigue *sends*, y por eso sus dos piezas de feed son las dos más
+  mandables de la semana.
+- **YouTube** no tiene señal publicada pero sí una penalización clara, y por eso sus
+  tres Shorts salen separados y distintos.
+- **LinkedIn** persigue *dwell* y *contributions*, y por eso sus dos piezas son
+  documento y encuesta: una por objetivo.
+- **Facebook** persigue *interés declarado*, y por eso no pide nada y publica el
+  mismo día de la noticia.
+- **WhatsApp** no persigue nada: es donde se cobra todo lo anterior.
+
+---
+
 ## Lo que la parrilla tiene que cumplir cada semana
 
 Estos son los filtros duros del tab 23. La parrilla ya está diseñada para pasarlos,
