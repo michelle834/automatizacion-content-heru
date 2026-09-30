@@ -603,12 +603,14 @@ const SEMANA=[
  ['Martes','el error caro',
   ['video con cara','20:00'], ['<strong>Trial Reel</strong>','19:00'], null, null,
   ['comentario en grupos','desde perfil'], null],
- ['Miércoles','día de blog heru',
-  null, null, ['<strong>largo 12–20 min</strong>','+ embed en el blog'],
+ ['Miércoles','día de blog heru · <strong>clúster</strong>',
+  ['corte vertical del largo','20:00'], ['carrusel del mismo tema','19–21h'],
+  ['<strong>largo 12–20 min</strong>','+ embed en el blog'],
   ['<strong>documento PDF</strong>','12 slides · 8–11h'], null, ['una cosa que no sabías','aplicada a un oficio']],
  ['Jueves','lo que está pasando',
-  ['tendencia o respuesta','20:00'], ['<strong>Trial Reel</strong>','19:00'], ['Short 1','D+1'], null,
-  ['comentario en grupos','desde perfil'], null],
+  ['la tendencia','20:00 · solo si el radar saca algo'], ['<strong>Trial Reel</strong>','19:00'],
+  ['Short 1','D+1'], null,
+  ['cross-post + comentario','cierra el clúster'], null],
  ['Viernes','el resumen de la semana',
   null, ['<strong>carrusel</strong> 5+2','19–21h'], ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
   ['la pregunta','de la semana']],
@@ -617,18 +619,18 @@ const SEMANA=[
  ['Domingo','la comunidad',
   ['Respuesta a @usuario','20:00'], null, null, null, ['comentario en grupos','desde perfil'], null]
 ];
-const TOTALES=['4–5','2 feed + 2 trial','1 largo + 3 Shorts','2','2 + 3 comentarios','3'];
+const TOTALES=['4–6','3 feed + 2 trial','1 largo + 3 Shorts','2','3 + 3 comentarios','3'];
 
 const SENAL=[
- ['TikTok','watch time','4–5 piezas · mar, jue, sáb, dom (+lun si hay noticia)',
+ ['TikTok','watch time','4–6 piezas · mar, mié, sáb, dom fijos · lun y jue condicionales',
   'Ni tus seguidores ni tus videos buenos anteriores son factores directos del sistema de recomendación: TikTok lo dice literal. Aquí no se acumula, así que la semana no es una escalera, son cuatro o cinco tiros independientes. Y como el mercado perdió 31% de vistas por post mientras el full watch rate solo cayó 10%, lo que se rompió es el alcance de entrada, no la retención: <strong>la palanca es el hook</strong>.'],
- ['Instagram','sends','2 de feed + 2 Trial Reels · lun, mar, jue, vie',
+ ['Instagram','sends','3 de feed + 2 Trial Reels · lun, mié, vie + mar y jue de laboratorio',
   'Mosseri: watch time, likes y sends — y los sends pesan más para contenido <em>no conectado</em>. Para llegar a gente nueva la señal es que te compartan por DM. Por eso las dos piezas de feed son las dos más mandables de la semana, las dos en carrusel (9× más guardados que la imagen única), y el caption pide comentar o guardar, nunca like.'],
  ['YouTube','sin señal publicada','1 largo + 3 Shorts · mié, jue, vie, sáb',
   'Ningún documento oficial cuantifica el peso de sus señales. Lo que sí tiene fecha es la política del 16 de julio de 2026, cuya primera categoría es contenido genérico, repetitivo o hecho con plantilla. Por eso los tres Shorts salen separados y con hook y apertura distintos: <strong>cortar tu propio largo no penaliza, industrializarlo sin variación sí</strong>.'],
  ['LinkedIn','long dwell + contributions','2 piezas · mié y vie',
   'Es la única red con el modelo publicado: Feed SR tiene exactamente dos objetivos, y los dos formatos de la semana atacan uno cada uno. El documento secuestra el viewport al deslizar entre slides (ER 7.00%, el más alto del estudio). La encuesta ataca el otro: 3,418 impresiones medias contra 1,234 del carrusel, y menos del 1% la usa — <strong>votar es anónimo, comentar no</strong>.'],
- ['Facebook','interés declarado','2 nativas + 3 comentarios · lun, mar, jue, sáb, dom',
+ ['Facebook','interés declarado','3 nativas + 3 comentarios · lun, mar, jue, sáb, dom',
   'Desde enero de 2026 corre UTIS, entrenado con encuestas reales de 1 a 5 porque las heurísticas anteriores acertaban 48.3% al detectar interés genuino. El rage-bait perdió potencia estructural, así que <strong>el cierre de Facebook no pide nada</strong>. Y los ejemplos van ambientados fuera de CDMX: es la única red donde conductores y repartidores son la audiencia principal.'],
  ['WhatsApp','ninguna · es donde se cobra todo lo demás','3 avisos · lun, mié, vie',
   'No persigue un algoritmo, persigue una expectativa. Por eso la única regla dura es de utilidad: <strong>si una semana no hay nada útil, no se publica</strong>. Un canal que manda ruido entrena a la gente a ignorar la notificación, que es justo el activo que se está construyendo.']
@@ -658,13 +660,13 @@ const FUENTES=[
   'Nunca está vacío: siempre hay preguntas sin contestar']
 ];
 
-const ESCALON=[['Lunes','solo si hay noticia','carrusel','',''],
- ['Martes','video','Trial Reel','',''],
- ['Miércoles','—','<strong>carrusel</strong>','nuevo',''],
- ['Jueves','video','Trial Reel','',''],
- ['Viernes','—','carrusel','',''],
- ['Sábado','sketch','<strong>reel del sketch</strong>','nuevo',''],
- ['Domingo','respuesta','—','','']];
+const ESCALON=[['Lunes','solo si hay noticia','carrusel',''],
+ ['Martes','video','Trial Reel',''],
+ ['Miércoles','corte del largo','carrusel',''],
+ ['Jueves','solo si hay tendencia','Trial Reel',''],
+ ['Viernes','—','carrusel',''],
+ ['Sábado','sketch','<strong>reel del sketch</strong>','nuevo'],
+ ['Domingo','respuesta','<strong>reel de la respuesta</strong>','nuevo']];
 
 function celda(c){
   if(!c) return `<td class="off">—</td>`;
@@ -680,11 +682,21 @@ function vParrilla(){
     <th>LinkedIn</th><th>Facebook</th><th>WhatsApp</th></tr></thead><tbody>`
    + SEMANA.map(f=>`<tr><td><span class="dia">${f[0]}</span><span class="tem">${f[1]}</span></td>`
        + f.slice(2).map(celda).join('') + `</tr>`).join('')
-   + `<tr><td><span class="dia">Total</span><span class="tem">15 piezas</span></td>`
+   + `<tr><td><span class="dia">Total</span><span class="tem">16–18 piezas</span></td>`
    + TOTALES.map(t=>`<td><strong>${t}</strong></td>`).join('')
    + `</tr></tbody></table></div>`;
 
-  h+=`<p class="nota" style="margin-top:14px"><strong>El jueves también es el día de grabación.</strong>
+  h+=`<p class="nota" style="margin-top:14px"><strong>El miércoles es el día de clúster.</strong>
+    Un solo tema —el post del blog que ya rankea y no tiene video— sale en las cinco redes dentro de
+    una ventana de 48 horas, en este orden: YouTube primero porque es el que más tarda en indexar,
+    luego LinkedIn, Instagram, TikTok y Facebook, que lo cierra el jueves. No son cinco piezas nuevas:
+    es un guion, un rodaje y cinco envases. El corte de TikTok lleva hook y apertura distintos del
+    largo y se exporta del máster, <strong>nunca del Short de YouTube</strong>.<br><br>
+    Eso sube la semana de 15 a 16–18 piezas, por encima de lo que la investigación declara sostenible
+    con una persona. Se sostiene porque las dos que agrega salen de material ya producido. Si una
+    semana aprieta, lo primero que se cae es el corte de TikTok del miércoles, no el largo.</p>`;
+
+  h+=`<p class="nota" style="margin-top:10px"><strong>El jueves también es el día de grabación.</strong>
     Se graban 6 cuerpos × 5 hooks = 30 archivos, y eso sale la semana siguiente. Por eso lo que se
     <em>publica</em> el jueves es carril rápido, nunca algo que haya que grabar ese día.</p>`;
 
@@ -711,15 +723,16 @@ function vParrilla(){
   h+=`<h2 class="sec">Escalón 2: presencia diaria</h2>
   <p class="sub">Publicar más no sube el promedio, sube el techo: con 1 post semanal en TikTok la mediana
     es 489 vistas y con 11 o más es 459, mientras el percentil 90 se cuadruplica. La frecuencia compra
-    boletos de lotería, no calidad. Por eso la presencia diaria se resuelve en Instagram —3 a 5 stories
-    al día— y no subiendo TikTok.</p>
+    boletos de lotería, no calidad. Por eso el escalón 2 <strong>no sube TikTok</strong>: agrega dos
+    piezas de feed en Instagram —sábado y domingo, derivadas del sketch y de la respuesta— y stories
+    todos los días. Con eso Instagram tiene presencia los 7 días.</p>
   <div class="tabla-wrap"><table><thead><tr>
     <th>Día</th><th>TikTok</th><th>Instagram feed</th><th>Instagram stories</th>
     </tr></thead><tbody>`
    + ESCALON.map(f=>`<tr><td><strong>${f[0]}</strong></td><td>${f[1]}</td>
        <td>${f[2]}${f[3]?` <span class="tem" style="display:inline">← ${f[3]}</span>`:''}</td>
        <td>3–5</td></tr>`).join('')
-   + `<tr><td><strong>Total</strong></td><td><strong>4</strong></td>
+   + `<tr><td><strong>Total</strong></td><td><strong>4–6</strong> (igual que la base)</td>
       <td><strong>5 feed + 2 trial</strong></td><td><strong>21–35</strong></td></tr>`
    + `</tbody></table></div>`;
 
