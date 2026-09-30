@@ -602,26 +602,26 @@ async function traer(f){
    rápida, para no abrir el documento cada lunes. */
 const SEMANA=[
  ['Lunes','lo que se vence','fechas límite',
-  ['video · 20:00','solo si hay noticia'], ['carrusel 8 slides','19–21h'], null, null,
+  ['video · 21:00','solo si hay noticia'], ['carrusel 8 slides','19–21h'], null, null,
   ['cross-post nativo','el mismo día'], ['aviso','qué se vence esta semana']],
  ['Martes','el error caro','mito vs realidad',
-  ['video con cara','20:00'], ['<strong>Trial Reel</strong>','19:00'], null, null,
+  ['video con cara','21:00'], ['<strong>Trial Reel</strong>','19:00'], null, null,
   ['comentario en grupos','desde perfil'], null],
  ['Miércoles','día de blog heru · <strong>clúster</strong>','régimen o facturación',
-  ['corte vertical del largo','20:00'], ['carrusel del mismo tema','19–21h'],
+  ['corte vertical del largo','21:00'], ['carrusel del mismo tema','19–21h'],
   ['<strong>largo 12–20 min</strong>','+ embed en el blog'],
   ['<strong>documento PDF</strong>','12 slides · 8–11h'], null, ['una cosa que no sabías','aplicada a un oficio']],
  ['Jueves','lo que está pasando','noticias',
-  ['la tendencia','20:00 · solo si el radar saca algo'], ['<strong>Trial Reel</strong>','19:00'],
+  ['la tendencia','21:00 · solo si el radar saca algo'], ['<strong>Trial Reel</strong>','19:00'],
   ['Short 1','D+1'], null,
   ['cross-post + comentario','cierra el clúster'], null],
  ['Viernes','el resumen de la semana','fechas límite',
   null, ['<strong>carrusel</strong> 5+2','19–21h'], ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
   ['la pregunta','de la semana']],
  ['Sábado','humor fiscal','el que traiga el sketch',
-  ['sketch','20:00'], null, ['Short 3','D+6'], null, ['máster nativo','60–180 s, fuera de CDMX'], null],
+  ['sketch','21:00'], null, ['Short 3','D+6'], null, ['máster nativo','60–180 s, fuera de CDMX'], null],
  ['Domingo','la comunidad','el que traiga la pregunta',
-  ['Respuesta a @usuario','20:00'], null, null, null, ['comentario en grupos','desde perfil'], null]
+  ['Respuesta a @usuario','21:00'], null, null, null, ['comentario en grupos','desde perfil'], null]
 ];
 const TOTALES=['4–6','3 feed + 2 trial','1 largo + 3 Shorts','2','3 + 3 comentarios','3'];
 
@@ -644,7 +644,7 @@ const TEMPORADAS=[
 
 const SENAL=[
  ['TikTok','watch time','4–6 piezas · mar, mié, sáb, dom fijos · lun y jue condicionales',
-  'Ni tus seguidores ni tus videos buenos anteriores son factores directos del sistema de recomendación: TikTok lo dice literal. Aquí no se acumula, así que la semana no es una escalera, son cuatro o cinco tiros independientes. Y como el mercado perdió 31% de vistas por post mientras el full watch rate solo cayó 10%, lo que se rompió es el alcance de entrada, no la retención: <strong>la palanca es el hook</strong>.'],
+  'Ni tus seguidores ni tus videos buenos anteriores son factores directos del sistema de recomendación: TikTok lo dice literal. Aquí no se acumula, así que la semana no es una escalera, son cuatro o cinco tiros independientes. Y como el mercado perdió 31% de vistas por post mientras el full watch rate solo cayó 10%, lo que se rompió es el alcance de entrada, no la retención: <strong>la palanca es el hook</strong>. <strong>Publica a las 21:00:</strong> es la hora con más seguidores en línea de las 24, 198 contra 35 a las 3 de la mañana — el único dato de nivel horario que la plataforma mide sobre esta cuenta.'],
  ['Instagram','sends','3 de feed + 2 Trial Reels · lun, mié, vie + mar y jue de laboratorio',
   'Mosseri: watch time, likes y sends — y los sends pesan más para contenido <em>no conectado</em>. Para llegar a gente nueva la señal es que te compartan por DM. Por eso las dos piezas de feed son las dos más mandables de la semana, las dos en carrusel (9× más guardados que la imagen única), y el caption pide comentar o guardar, nunca like.'],
  ['YouTube','sin señal publicada','1 largo + 3 Shorts · mié, jue, vie, sáb',
@@ -735,6 +735,20 @@ function vParrilla(){
   h+=`<p class="nota" style="margin-top:10px"><strong>El jueves también es el día de grabación.</strong>
     Se graban 6 cuerpos × 5 hooks = 30 archivos, y eso sale la semana siguiente. Por eso lo que se
     <em>publica</em> el jueves es carril rápido, nunca algo que haya que grabar ese día.</p>`;
+
+  h+=`<p class="nota" style="margin-top:10px"><strong>El horario ya no es una convención: sale de tus datos.</strong>
+    TikTok mide cuántos de tus seguidores están en línea cada hora, y sobre los últimos 30 días la curva
+    es inequívoca: <strong>198 a las 21:00</strong>, que es el máximo de las 24 horas, contra <strong>35
+    a las 03:00</strong>, que es el mínimo. Un factor de 5.7×. Por eso TikTok pasa de 20:00 a 21:00.<br><br>
+    Y el hallazgo que importa más que la hora: <strong>el plan decía 20:00 y la realidad es 15:00–17:00.</strong>
+    De 83 videos de los últimos 90 días, <strong>64 salieron entre las 9:00 y las 18:00</strong> — la mitad
+    baja de la curva — y solo 3 en la franja 21–24. Esos 3 tienen la mediana de vistas más alta de todas
+    las franjas: 4,372 contra 2,304 del global. Son tres videos, así que no prueban nada solos, pero
+    apuntan al mismo lado que la curva.<br><br>
+    <strong>Instagram se queda en 19:00–21:00 sin sustento propio.</strong> Sobre 68 publicaciones con
+    hora, las medianas de guardados por franja van de 1 a 3 y la franja 21–24 tiene una sola
+    publicación: no hay señal que permita elegir. Es la primera variable que hay que correr en Trial
+    Reels.</p>`;
 
   h+=`<h2 class="sec">Por qué cada red tiene esos días</h2>
   <p class="sub">La señal que persigue el algoritmo decide el formato, y el formato decide el día.</p>
