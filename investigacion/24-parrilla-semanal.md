@@ -283,7 +283,7 @@ por semana en lugar de repartir temas al azar.
 
 **Por qué esos días.**
 
-- **Martes, jueves y domingo a las 20:00** vienen directo del tab 02.
+- **Martes, jueves y domingo a las 21:00.** Los días vienen del tab 02; la hora ya no. Ver abajo.
 - **Sábado** lo agregué yo: el sketch es el formato con el techo de alcance más
   alto documentado en el nicho mexicano (1.6 millones de reproducciones) y necesita
   el día de más ocio.
@@ -303,6 +303,21 @@ por semana en lugar de repartir temas al azar.
 | Jueves | La tendencia | Carril urgente. Si el radar no sacó nada, este día no se publica |
 | Sábado | El sketch | Ocio. El formato de mayor techo, en el día de mayor disponibilidad |
 | Domingo | "Respuesta a @usuario" | Le llega primero a quien ya interactuó: la audiencia más barata de un domingo |
+
+**La hora, con sustento propio.** El tab 03 marcaba las 20:00 como *"nuestra convención"*. Ya
+no hace falta la convención: TikTok mide cuántos de tus seguidores están en línea cada hora y
+entrega la curva. Sobre los últimos 30 días, el máximo de las 24 horas son **198 seguidores en
+línea a las 21:00** y el mínimo son **35 a las 03:00** — un factor de 5.7×. La curva es coherente
+de punta a punta (pico de 18:00 a 23:00, valle de 02:00 a 05:00), que es exactamente la forma de
+una audiencia mexicana de noche. **Ese es el único sustento de la decisión.**
+
+El desempeño de las piezas propias *apoya* la misma conclusión pero no puede sostenerla: de 83
+videos de los últimos 90 días, **64 salieron entre las 9:00 y las 18:00** y solo **3** cayeron en
+la franja 21–24. Esos tres tienen la mediana de vistas más alta de todas las franjas —4,372 contra
+2,304 del global— pero con n=3 eso es ruido, no evidencia.
+
+**Y ahí está el hallazgo que importa más que la hora:** el plan decía 20:00 y la operación real es
+15:00–17:00. El horario no estaba mal en el papel; no se estaba ejecutando.
 
 **Lo que no se hace aquí.** Nada con marca de agua ajena (bloqueante duro).
 Apertura visual distinta de las últimas cinco publicaciones. Máximo 5 hashtags. La
@@ -341,6 +356,14 @@ y pedir like las **baja 4.9%**.
 - **Martes y jueves los Trial Reels**, que es exactamente la ventana que fija el
   tab 03 (martes a jueves, 19:00). Poniendo el primero el martes, para el corte del
   viernes ya hay las 72 horas que pide el criterio de graduación.
+
+**La hora de Instagram sigue sin sustento propio.** A diferencia de TikTok, Meta no
+entrega una curva de seguidores en línea por este conector. Y los datos propios no
+alcanzan: sobre 68 publicaciones con hora, las medianas de guardados por franja van
+de 1 a 3, y la franja 21–24 tiene **una sola** publicación. No hay señal para elegir.
+La franja 19:00–21:00 se mantiene como convención declarada, y **la hora es la
+primera variable que debe correr en Trial Reels** — es justo el tipo de pregunta que
+ese laboratorio existe para contestar.
 
 **Por qué los Trial Reels son el corazón de Instagram y no un extra.** Corren solo
 contra no seguidores —que es precisamente la superficie que heru tiene rota. Un ER
