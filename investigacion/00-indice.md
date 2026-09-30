@@ -4,7 +4,7 @@ Sep 23, 2026 · @Mich
 
 Toda la investigación en un solo lugar, en el orden en que se hizo: cómo funciona el algoritmo → qué impulsar en cada red → cómo producirlo → qué ya funcionó en nuestro tema → cómo se construye cada pieza. Es el insumo para armar el skill de automatización de redes.
 
-**Por dónde entrar.** Si solo vas a abrir un tab, que sea 23 · Plan de ejecución diario: es el motor que usa todo lo demás. Los otros veintidós son las piezas que alimenta. Su primera tabla dice exactamente qué tab entra en qué parte del motor y qué falta para conectar cada cable.
+**Por dónde entrar.** Si solo vas a abrir un tab, que sea 23 · Plan de ejecución diario: es el motor que usa todo lo demás. Los otros son las piezas que alimenta: del 1 al 22 la investigación que lo sustenta, y el 24 y el 25 la parrilla y el calendario que salen de él. Su primera tabla dice exactamente qué tab entra en qué parte del motor y qué falta para conectar cada cable.
 
 ## Qué hay en cada pestaña
 
@@ -53,6 +53,10 @@ Toda la investigación en un solo lugar, en el orden en que se hizo: cómo funci
 **22 · Branding heru** — La marca completa: paleta, tipografías, logo, formatos, voz y los datos fiscales con su artículo de ley. Es la compuerta de marca del motor.
 
 **23 · Plan de ejecución diario** — **El motor.** Cómo las nueve fuentes se vuelven una lista diaria por red, cómo se produce, quién bloquea, cómo se publica y cómo el resultado corrige la decisión de la semana siguiente.
+
+**24 · Parrilla semanal por red** — La traducción del motor a una semana que se repite: un tema y un pilar fijos por día, qué formato le toca a cada red ese día, y de dónde sale la información de cada uno. El miércoles es día de clúster: un tema en las cinco redes dentro de 48 horas.
+
+**25 · Calendario de temporadas** — Qué fechas del año merecen una pieza y cuáles no. La compuerta de una frase sin la palabra "y", las cuatro ventanas que deciden el año, y por qué el día 17 vale más que cualquier efeméride.
 
 ## Los cuatro hallazgos que lo atraviesan todo
 
