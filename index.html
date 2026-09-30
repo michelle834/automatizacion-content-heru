@@ -512,7 +512,11 @@ function md(src){
 
   const ls=src.replace(/\r/g,'').split('\n');
   let h='', i=0, enCodigo=false, buf=[];
-  const cerrarLista=()=>{ if(buf.length){ h+=`<${buf.tipo}>`+buf.join('')+`</${buf.tipo}>`; buf=[]; } };
+  // una lista numerada cortada por un párrafo se reabre más abajo: se guarda
+  // el número con el que venía en el markdown para que no vuelva a empezar en 1
+  const cerrarLista=()=>{ if(buf.length){
+    const desde = buf.tipo==='ol' && buf.inicio>1 ? ` start="${buf.inicio}"` : '';
+    h+=`<${buf.tipo}${desde}>`+buf.join('')+`</${buf.tipo}>`; buf=[]; } };
 
   while(i<ls.length){
     const l=ls[i];
@@ -544,7 +548,8 @@ function md(src){
 
     if(/^\s*([-*•])\s+/.test(l)){ if(buf.tipo!=='ul'){cerrarLista(); buf.tipo='ul';}
       buf.push(`<li>${linea(l.replace(/^\s*[-*•]\s+/,''))}</li>`); i++; continue; }
-    if(/^\s*\d+[.)]\s+/.test(l)){ if(buf.tipo!=='ol'){cerrarLista(); buf.tipo='ol';}
+    const num=/^\s*(\d+)[.)]\s+/.exec(l);
+    if(num){ if(buf.tipo!=='ol'){cerrarLista(); buf.tipo='ol'; buf.inicio=parseInt(num[1],10)||1;}
       buf.push(`<li>${linea(l.replace(/^\s*\d+[.)]\s+/,''))}</li>`); i++; continue; }
 
     if(/^>\s?/.test(l)){ cerrarLista(); h+=`<blockquote>${linea(l.replace(/^>\s?/,''))}</blockquote>`; i++; continue; }
