@@ -58,7 +58,7 @@ semana, la noticia entra aquí y desplaza al calendario a la bajada.
 búsqueda los lunes, y el tab 17 pone el aviso del canal los lunes. Ya había dos
 cosas ancladas al lunes; el tema del día se acomodó a ellas, no al revés.
 
-**Pilar:** fechas límite. **Fallback:** si no hay noticia, el calendario solo.
+**Pilar: fechas límite.** Es el pilar con más candidatos vivos en el pool, así que este día nunca se queda sin material.
 
 ---
 
@@ -81,7 +81,10 @@ viernes ya hay 72 horas de datos —que es el criterio de graduación del tab 02
 **Regla del experimento:** una sola variable por semana, y **nunca dos variantes
 del mismo hook el mismo día**, que se canibalizan.
 
-**Pilar:** mito vs realidad, o deducciones.
+**Pilar: mito vs realidad.** "El error caro" es el *ángulo*, no el pilar. Esa
+distinción importa porque el marcador filtra el pool por pilar a las 6:30: el
+ángulo es cómo se cuenta, el pilar es qué se busca. Si el día no declara pilar,
+la parrilla se llena a mano.
 
 ---
 
