@@ -274,7 +274,8 @@ const DOCS=[
  ['21-inspo-competencia','Inspo competencia','Los referentes de impuestos y finanzas en México, red por red, y qué se les puede replicar.'],
  ['22-branding-heru','Branding heru','La fuente de verdad de la marca, completa: paleta, tipografía, logo, formatos y prohibiciones.'],
  ['23-plan-de-ejecucion-diario','Plan de ejecución diario','Cómo el sistema decide cada día qué se publica, lo produce, lo revisa y aprende del resultado.'],
- ['24-parrilla-semanal','Parrilla semanal por red','Un tema fijo por día, de lunes a domingo, y qué le toca a cada red ese día.']
+ ['24-parrilla-semanal','Parrilla semanal por red','Un tema fijo por día, de lunes a domingo, y qué le toca a cada red ese día.'],
+ ['25-calendario-de-temporadas','Calendario de temporadas','Qué fechas del año merecen una pieza, cuáles no, y cómo se conecta una fecha cultural con un tema fiscal sin que se note forzado.']
 ];
 const COMP=[['dem','demanda',30],['ven','ventana',25],['evi','evidencia',20],['enc','encaje',15],['wa','whatsapp',10]];
 
@@ -624,6 +625,23 @@ const SEMANA=[
 ];
 const TOTALES=['4–6','3 feed + 2 trial','1 largo + 3 Shorts','2','3 + 3 comentarios','3'];
 
+const TEMPORADAS=[
+ ['Lun 19 de octubre','La mensual de septiembre, recorrida porque el 17 cae sábado','Lunes','listo',
+  'El carrusel ya está producido'],
+ ['31 de octubre','Halloween · el sketch de lo que de verdad da miedo','Sábado','por producir',
+  'El susto es el calendario, nunca el SAT. Referente del nicho: 1.6 M de reproducciones'],
+ ['1–2 de noviembre','Día de Muertos · las facturas que no pediste ya no vuelven','Lunes o miércoles','por producir',
+  'El único momento del año donde se puede hablar de deducciones perdidas sin sonar a regaño'],
+ ['Noviembre','Buen Fin · la factura se pide en el momento de la compra','Lunes','fecha por confirmar',
+  'De las pocas fechas culturales que da pieza útil, no chiste'],
+ ['17 de noviembre','La mensual de octubre','Lunes','serie fija',
+  'La serie "El 17" se publica los días 14, 16 y 17'],
+ ['Antes del 20 de diciembre','Aguinaldo · a quién le aplica y a quién no','Lunes','por producir',
+  'Aplica a asalariados, no a RESICO. Hay que decirlo en la primera línea'],
+ ['Todo diciembre','Cierre de año · el 31 ya no se puede agregar nada','La semana completa','prioritario',
+  '"Si solo se puede ejecutar bien un mes de todo el plan, que sea diciembre"']
+];
+
 const SENAL=[
  ['TikTok','watch time','4–6 piezas · mar, mié, sáb, dom fijos · lun y jue condicionales',
   'Ni tus seguidores ni tus videos buenos anteriores son factores directos del sistema de recomendación: TikTok lo dice literal. Aquí no se acumula, así que la semana no es una escalera, son cuatro o cinco tiros independientes. Y como el mercado perdió 31% de vistas por post mientras el full watch rate solo cayó 10%, lo que se rompió es el alcance de entrada, no la retención: <strong>la palanca es el hook</strong>.'],
@@ -745,6 +763,39 @@ function vParrilla(){
     justo los del martes y el jueves. Eso no lo arregla la parrilla, lo arregla el explorador: sus
     10–15 candidatos semanales tienen que venir sesgados a esos dos pilares. Y <em>deducciones</em>,
     con 4 candidatos, no tiene día fijo — entra de rebote por el miércoles, el sábado o el domingo.</p>`;
+
+  h+=`<h2 class="sec">Temporadas: lo que viene en 90 días</h2>
+  <p class="sub">Una temporada no crea un día nuevo: <strong>secuestra el día cuyo pilar le queda</strong>.
+    Halloween cae en el sábado de humor, el Buen Fin en el lunes de fechas límite, y abril y diciembre
+    se comen la semana entera.</p>
+  <div class="tabla-wrap"><table><thead><tr>
+    <th>Cuándo</th><th>Qué</th><th>Día</th><th>Por qué funciona</th>
+    </tr></thead><tbody>`
+   + TEMPORADAS.map(t=>`<tr><td><strong>${t[0]}</strong><br><span class="pil">${t[3]}</span></td>
+       <td>${t[1]}</td><td>${t[2]}</td><td>${t[4]}</td></tr>`).join('')
+   + `</tbody></table></div>`;
+
+  h+=`<p class="nota" style="margin-top:14px"><strong>La compuerta: una frase, sin la palabra "y".</strong>
+    El vínculo entre la fecha y heru se explica en una sola frase. Si necesitas "y" para unirlas, son
+    dos cosas pegadas con cinta. <em>"En Halloween la gente se disfraza de lo que le da miedo"</em> pasa.
+    <em>"Es fiesta patria <strong>y</strong> también hay que declarar"</em> no pasa, y por eso el 15 de
+    septiembre no lleva post. Una fecha que no pasa no se publica, aunque sea una fecha grande: el costo
+    de un post forzado no es que rinda poco, es que enseña a la audiencia que heru publica relleno.</p>`;
+
+  h+=`<p class="nota" style="margin-top:10px"><strong>"Los impuestos sí dan miedo": sí, pero girado.</strong>
+    La marca prohíbe el tono alarmista y pone al calendario como villano, no al SAT. La diferencia está
+    en quién siente el miedo: <em>inducirlo</em> —"el SAT te va a multar"— está prohibido y además lo
+    hace todo el nicho; <em>jugarlo</em> —el personaje del sketch aterrado de algo ridículamente
+    pequeño— es humor. La formulación que sí funciona: <strong>"lo que de verdad da miedo no es el SAT,
+    es darte cuenta el 16 en la noche."</strong> Y cero dinero visible: un sketch de Halloween con
+    billetes volando es justo la pieza que se lleva un shadowban.</p>`;
+
+  h+=`<p class="nota" style="margin-top:10px"><strong>No existe un "Día de los Impuestos" en México</strong>
+    —lo más cercano es el 25 de mayo, Día del Contador Público, que es del gremio, no del contribuyente.
+    Pero no hace falta inventarlo: <strong>heru ya tiene doce</strong>. El día 17 de cada mes es el día
+    de los impuestos de esta audiencia, y ya existe como serie fija, publicada los días 14, 16 y 17 con
+    la misma música y el mismo encuadre. Una efeméride sale una vez y se olvida; una serie con fecha
+    fija construye hábito.</p>`;
 
   h+=`<h2 class="sec">Escalón 2: presencia diaria</h2>
   <p class="sub">Publicar más no sube el promedio, sube el techo: con 1 post semanal en TikTok la mediana
