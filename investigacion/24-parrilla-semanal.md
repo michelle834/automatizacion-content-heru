@@ -41,24 +41,64 @@ miércoles.
 
 ## La semana
 
-### Lunes · lo que se vence
+### Lunes · replicar lo que funcionó
 
-**El villano es el calendario.** Siempre hay una fecha encima: el 17 mensual, la
-anual, una prórroga, un plazo de la RMF. Si además hay noticia fiscal del fin de
-semana, la noticia entra aquí y desplaza al calendario a la bajada.
+**El día de la réplica.** Se toma un formato que ya tiene número en el nicho y se
+adapta a heru. La pieza no nace de una idea: nace de algo que ya se midió.
 
 | Red | Qué sale | Detalle |
 |---|---|---|
+| TikTok | El formato adaptado, 21:00 | Estructura y ángulo replicados; **nunca el guion** |
+| Instagram | Carrusel o reel del mismo formato, 19:00–21:00 | |
+| Facebook | Cross-post nativo, mismo día | Meta: los posts del mismo día son >30% de los Reels recomendados |
 | WhatsApp (Canal) | El aviso de qué se vence esta semana | Es el único post del canal que **nunca se salta** (tab 17) |
-| Instagram | Carrusel de 8 slides, 19:00–21:00 | El dato completo en la slide 2, la de captura en la 7 |
-| Facebook | Cross-post nativo del reel, mismo día | Meta: los posts del mismo día son >30% de los Reels recomendados |
-| TikTok | Solo si hay noticia que aguante cámara | Si no, el lunes no va a TikTok |
 
-**Por qué el lunes.** El tab 13 pone la revisión de la tabla de oportunidades de
-búsqueda los lunes, y el tab 17 pone el aviso del canal los lunes. Ya había dos
-cosas ancladas al lunes; el tema del día se acomodó a ellas, no al revés.
+**Por qué merece un día fijo.** El diagnóstico más duro de toda la investigación es
+del tab 04: el contenido que gana aquí se presenta como experiencia, no como
+asesoría, y *"heru hoy produce como contador"*. Eso no se corrige con una nota en un
+manual — se corrige con una casilla del calendario donde la pieza está obligada a
+salir de un formato probado. Sin día fijo, la réplica es una buena intención que
+nunca le gana a la urgencia de la semana.
 
-**Pilar: fechas límite.** Es el pilar con más candidatos vivos en el pool, así que este día nunca se queda sin material.
+**Por qué el lunes.** Es el día en que el analista lee los resultados de la semana
+pasada y corre el explorador: es exactamente cuando sabes qué funcionó en el nicho
+esos siete días. Y arranca la semana con la pieza de mayor techo, no con la de
+trámite. El tab 13 ya ponía la revisión de la tabla de oportunidades los lunes y el
+tab 17 el aviso del canal, así que el lunes ya era el día de mirar hacia atrás antes
+de producir.
+
+**La regla dura, textual del tab 21:** *se replica la estructura y el ángulo, nunca
+el guion.* Y la pieza declara **qué formato replica y por qué funcionó**. Si no se
+puede nombrar, no es réplica: es coincidencia.
+
+**Los cinco formatos catalogados, y solo el primero es humor:**
+
+| Formato | Qué es | Referencia |
+|---|---|---|
+| **El sketch** | Personificar la situación, actuada | @todosobreconta disfrazada cobrando impuestos en dulces: **1.6 M de reproducciones** (Infobae, 1 nov 2024) |
+| **"Me llegó esto del SAT, ¿qué hago?"** | La captura real, tapada, y la respuesta | Formato transversal del nicho. Conecta directo con julio–agosto, la temporada de cartas invitación |
+| **"Respuesta a @usuario"** | Formato nativo de TikTok | El tab 02 lo propone como el **40%** de la parrilla de TikTok. Le llega primero a quien ya interactuó |
+| **El bando** | Uber contra DiDi, semanal contra mensual, contador contra app | Uno por semana. **Siempre sobre operación, nunca sobre el SAT** |
+| **La cuenta regresiva** | La fecha límite como reloj | El calendario de villano, que es justo lo que pide la marca |
+
+**De dónde sale cada semana.** Barrido de las cuentas del nicho —@todosobreconta,
+@Digitt (el benchmark real de heru: fintech, no despacho), @fiscalmenterubia y los
+contadores independientes de TikTok— buscando la pieza con desempeño anómalo de los
+últimos 7 días. La pregunta no es "qué publicaron" sino **"por qué funcionó esa y no
+las otras"**.
+
+**Y el jueves hereda esto como respaldo.** Cuando el radar de las 6:15 no saca
+candidata que pase el criterio, el jueves ya no cae al banco evergreen: cae al
+formato de la competencia que funcionó esa semana. Demanda validada en vez de
+relleno, y duplica la superficie de réplica sin agregar un día.
+
+**Pilar: el que traiga el formato.**
+
+**¿Y las fechas límite?** No pierden nada. Tienen el aviso del canal de WhatsApp
+todos los lunes, el resumen del viernes, y sobre todo la **serie "El 17"**, que se
+publica los días 14, 16 y 17 de cada mes y manda sobre la parrilla en esas fechas.
+Es el único pilar con una serie propia anclada a fecha, así que es el único que no
+necesita un día de la semana.
 
 ---
 
@@ -187,28 +227,34 @@ perdedores, y los tres mejores comentarios de la semana pasan al pool.
 
 ### Sábado · humor fiscal
 
-Sketch, no infografía. El caso de referencia de la investigación es
-@todosobreconta disfrazada cobrando impuestos en dulces a niños en Halloween:
-**1.6 millones de reproducciones** (Infobae, 1 nov 2024). Fue en TikTok.
+Sketch, no infografía. El caso de referencia sigue siendo @todosobreconta
+disfrazada cobrando impuestos en dulces a niños en Halloween: **1.6 millones de
+reproducciones** (Infobae, 1 nov 2024). Fue en TikTok.
 
 | Red | Qué sale | Detalle |
 |---|---|---|
-| TikTok | El sketch, 20:00 | Formato dominante del nicho: cara, subtítulos quemados, voz propia |
+| TikTok | El sketch, 21:00 | Formato dominante del nicho: cara, subtítulos quemados, voz propia |
 | Facebook | El mismo máster, nativo, 60–180 s | **Ambientado fuera de CDMX**: Torreón, Mérida, León |
-| YouTube | Short #3 (D+3 / D+6) | |
+| YouTube | Short #3 (D+6) | |
+
+**En qué se diferencia del lunes.** El lunes replica *la estructura* de lo que sea
+que haya funcionado esta semana —puede ser un bando, una carta del SAT, una cuenta
+regresiva. El sábado busca *el chiste*, venga de donde venga. Muchas veces el sábado
+será también una réplica, porque el sketch es el formato replicable de mayor techo,
+pero no está obligado a serlo.
 
 **El límite que no se cruza.** La investigación propone personificar al SAT como
-personaje cómico; la marca dice que **el villano es el calendario, no el SAT**, y
-que nunca se usa el miedo. Se resuelve así: el chiste es sobre *la situación* —la
-fecha encima, el papel que no aparece, la factura que se pidió tarde— y el SAT
-puede estar en el cuadro, pero nunca como amenaza.
+personaje cómico; la marca dice que **el villano es el calendario, no el SAT**, y que
+nunca se usa el miedo. Se resuelve así: el chiste es sobre *la situación* —la fecha
+encima, el papel que no aparece, la factura que se pidió tarde— y el SAT puede estar
+en el cuadro, pero nunca como amenaza.
 
 **Por qué Facebook el sábado y no el reel de Instagram tal cual.** El público de
 Facebook es conductores y repartidores (encaje 15 sobre 15), no el freelancer de
-Instagram. Se ajusta personaje, régimen, ciudad y dispositivo. El tab 03 llama a
-no hacerlo *"el error más caro y más fácil de evitar del plan"*.
+Instagram. Se ajusta personaje, régimen, ciudad y dispositivo. El tab 03 llama a no
+hacerlo *"el error más caro y más fácil de evitar del plan"*.
 
-**Pilar:** el que traiga el sketch. Suele ser mito vs realidad.
+**Pilar:** el que traiga el sketch.
 
 ---
 
@@ -235,14 +281,14 @@ el domingo nace de lo que la gente comentó de lunes a sábado.
 
 | | TikTok | Instagram | YouTube | LinkedIn | Facebook | WhatsApp |
 |---|---|---|---|---|---|---|
-| **Lun** · lo que se vence | si hay noticia | carrusel | | | cross-post | aviso |
+| **Lun** · replicar | el formato adaptado | carrusel o reel | | | cross-post | aviso |
 | **Mar** · el error caro | video | Trial Reel | | | comentario | |
 | **Mié** · día de blog · clúster | corte del largo | carrusel | **largo** | **documento** | | "no sabías" |
 | **Jue** · lo que pasa | tendencia (si la hay) | Trial Reel | Short 1 | | cross-post + comentario | |
 | **Vie** · el resumen | | **carrusel** | Short 2 | **encuesta** | | la pregunta |
-| **Sáb** · humor | sketch | | Short 3 | | nativo | |
+| **Sáb** · humor fiscal | sketch | | Short 3 | | nativo | |
 | **Dom** · la comunidad | respuesta | | | | comentario | |
-| **Total** | 4–6 | 3 feed + 2 trial | 1 largo + 3 Shorts | 2 | 3 + 3 comentarios | 3 |
+| **Total** | 5–6 | 3 feed + 2 trial | 1 largo + 3 Shorts | 2 | 3 + 3 comentarios | 3 |
 
 **16–18 piezas a la semana.** El tab 23 declara 15 como el volumen sostenible con
 una persona y los agentes corriendo, así que esto va ligeramente por encima. La
@@ -260,7 +306,7 @@ el porqué, red por red.
 
 ---
 
-### TikTok · 4–6 piezas · martes, miércoles, sábado y domingo fijos · lunes y jueves condicionales
+### TikTok · 5–6 piezas · lunes, martes, miércoles, sábado y domingo fijos · jueves condicional
 
 **Su trabajo:** descubrimiento en frío. Es la única red donde te encuentra quien no
 te conoce.
@@ -287,8 +333,9 @@ por semana en lugar de repartir temas al azar.
 - **Sábado** lo agregué yo: el sketch es el formato con el techo de alcance más
   alto documentado en el nicho mexicano (1.6 millones de reproducciones) y necesita
   el día de más ocio.
-- **Lunes solo si hay noticia que aguante cámara.** Un lunes forzado es una pieza
-  mala en la red que menos perdona una pieza mala.
+- **Lunes** es el día de la réplica: el formato del nicho que funcionó esta semana,
+  adaptado. Deja de ser condicional porque el material nunca falta — hay cinco
+  formatos catalogados y ninguno está agotado.
 - **Miércoles** entra con el clúster: el corte vertical del largo de YouTube. Es la
   pieza más barata de la semana porque el rodaje ya existe.
 - **El jueves pasa a condicional.** Si el radar de las 6:15 no saca nada que pase el
@@ -298,6 +345,7 @@ por semana en lugar de repartir temas al azar.
 
 | Día | Pieza | Por qué aquí |
 |---|---|---|
+| Lunes | El formato replicado | Sale de algo que ya se midió, no de una idea |
 | Martes | El error caro | Arranca el experimento semanal de hooks: mecanismo "consecuencia" |
 | Miércoles | El corte vertical del largo | Cierra el clúster de búsqueda; hook y apertura distintos del largo |
 | Jueves | La tendencia | Carril urgente. Si el radar no sacó nada, este día no se publica |
