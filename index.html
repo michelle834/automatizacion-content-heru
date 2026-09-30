@@ -165,6 +165,9 @@ mark{background:var(--cian);color:var(--negro);padding:0 2px}
 .sem .dia{display:block;font-weight:600}
 .sem .tem{display:block;font-size:12px;color:var(--gris);margin-top:1px}
 .sem .off{color:var(--gris2)}
+.sem .pil{display:inline-block;margin-top:5px;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--gris);background:var(--cream);border:1px solid var(--linea);border-radius:999px;padding:1px 8px;
+  white-space:nowrap}
 .sem strong{font-weight:600}
 h2.sec{font-family:var(--titulo);font-size:17px;margin:30px 0 4px}
 p.sub{font-size:13.5px;color:var(--gris);line-height:1.55;margin:0 0 14px;max-width:72ch}
@@ -597,26 +600,26 @@ async function traer(f){
    de la sección 24 de Investigación; esto es la versión de consulta
    rápida, para no abrir el documento cada lunes. */
 const SEMANA=[
- ['Lunes','lo que se vence',
+ ['Lunes','lo que se vence','fechas límite',
   ['video · 20:00','solo si hay noticia'], ['carrusel 8 slides','19–21h'], null, null,
   ['cross-post nativo','el mismo día'], ['aviso','qué se vence esta semana']],
- ['Martes','el error caro',
+ ['Martes','el error caro','mito vs realidad',
   ['video con cara','20:00'], ['<strong>Trial Reel</strong>','19:00'], null, null,
   ['comentario en grupos','desde perfil'], null],
- ['Miércoles','día de blog heru · <strong>clúster</strong>',
+ ['Miércoles','día de blog heru · <strong>clúster</strong>','régimen o facturación',
   ['corte vertical del largo','20:00'], ['carrusel del mismo tema','19–21h'],
   ['<strong>largo 12–20 min</strong>','+ embed en el blog'],
   ['<strong>documento PDF</strong>','12 slides · 8–11h'], null, ['una cosa que no sabías','aplicada a un oficio']],
- ['Jueves','lo que está pasando',
+ ['Jueves','lo que está pasando','noticias',
   ['la tendencia','20:00 · solo si el radar saca algo'], ['<strong>Trial Reel</strong>','19:00'],
   ['Short 1','D+1'], null,
   ['cross-post + comentario','cierra el clúster'], null],
- ['Viernes','el resumen de la semana',
+ ['Viernes','el resumen de la semana','fechas límite',
   null, ['<strong>carrusel</strong> 5+2','19–21h'], ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
   ['la pregunta','de la semana']],
- ['Sábado','humor fiscal',
+ ['Sábado','humor fiscal','el que traiga el sketch',
   ['sketch','20:00'], null, ['Short 3','D+6'], null, ['máster nativo','60–180 s, fuera de CDMX'], null],
- ['Domingo','la comunidad',
+ ['Domingo','la comunidad','el que traiga la pregunta',
   ['Respuesta a @usuario','20:00'], null, null, null, ['comentario en grupos','desde perfil'], null]
 ];
 const TOTALES=['4–6','3 feed + 2 trial','1 largo + 3 Shorts','2','3 + 3 comentarios','3'];
@@ -637,26 +640,33 @@ const SENAL=[
 ];
 
 const FUENTES=[
- ['Lunes','Calendario fiscal + vigía fiscal (DOF/SIDOF, SAT, IMCP, PRODECON)',
-  'Digest automático diario; el marcador corre a las 6:30 y tú apruebas a las 7:30',
+ ['Lunes','fechas límite',
+  'El calendario fiscal propio, y la noticia de la semana si la hay',
+  'Vigía fiscal sobre DOF/SIDOF, SAT, IMCP y PRODECON → digest automático diario → el marcador puntúa a las 6:30 → apruebas a las 7:30',
   'El calendario nunca falla: siempre hay una fecha encima'],
- ['Martes','Comentarios propios + Creator Search Insights + grupos de Facebook',
-  'Los tres mejores comentarios de la semana pasada ya están en el pool; Creator Search Insights se captura a mano',
-  'Banco de 120 ideas (sección 06), pilar mito vs realidad'],
- ['Miércoles','Google Search Console + el blog de heru',
-  'Cada lunes se jala la tabla de oportunidades y se elige la de mayor impresiones con CTR desperdiciado. La regla: el post rankea y no existe el video',
-  'Semrush para gaps de keyword'],
- ['Jueves','Radar de tendencias (sección 18)',
-  'Automático: 5:40 Google Trends RSS geo=MX · 5:45 Google News es-MX · 5:50 YouTube · 5:55 RSS de 25–35 canales · 6:15 llega el correo con el top 10. Manual: 22 minutos, y lo único que no se puede saltar es la captura de TikTok Creative Center',
-  'Si a las 9:00 nada pasa el criterio, el día no se fuerza: sale del banco evergreen'],
- ['Viernes','Lo que publicaste tú esta semana + el vigía',
-  'Se arma del propio historial. Cero investigación nueva',
+ ['Martes','mito vs realidad',
+  'Lo que la gente cree y está mal, dicho como error propio',
+  'Comentarios de IG y TikTok + comunidad de WhatsApp + Creator Search Insights de TikTok (captura manual) + grupos de Facebook. Los tres mejores comentarios de la semana pasada ya entraron al pool el viernes',
+  'Banco de 120 ideas (sección 06), filtrado por pilar'],
+ ['Miércoles','régimen o facturación',
+  'Un post del blog que ya rankea y no tiene video',
+  'Google Search Console: la tabla de oportunidades se jala cada lunes y se elige la de más impresiones con el CTR más desperdiciado. Semrush para los gaps de keyword',
+  'El siguiente de la tabla de oportunidades. Nunca está vacía'],
+ ['Jueves','noticias',
+  'Lo que apareció hoy y aguanta una pieza',
+  'Radar automático: 5:40 Google Trends RSS geo=MX · 5:45 doce consultas de Google News es-MX · 5:50 YouTube por categoría · 5:55 RSS de 25–35 canales mexicanos · 6:10 cruce y puntuación · 6:15 llega el correo con el top 10. Manual, 22 min, y lo único que no se puede saltar son los 6 min de TikTok Creative Center',
+  'Si a las 9:00 nada pasa el criterio, TikTok no publica ese día. El resto de la parrilla corre igual'],
+ ['Viernes','fechas límite',
+  'Lo que tú misma publicaste esta semana, más lo que viene',
+  'Tu propio historial de la semana + el vigía fiscal para lo que se vence la semana entrante. Cero investigación nueva',
   'Si no cambió nada fiscal, el resumen es "esto es lo que viene"'],
- ['Sábado','Inspo competencia (sección 21) + comunidad',
-  'Formatos virales del nicho adaptados: se replica la estructura y el ángulo, nunca el guion',
+ ['Sábado','el que traiga el sketch',
+  'Una situación reconocible que se pueda actuar',
+  'Inspo competencia (sección 21): se replica la estructura y el ángulo de un formato que ya funcionó en el nicho, nunca el guion. Más lo que la comunidad cuenta de su propia semana',
   'Banco de sketches ya aprobados'],
- ['Domingo','Comentarios de la semana + comunidad de WhatsApp',
-  'Lo que la gente preguntó de lunes a sábado; los comentarios en grupos de Facebook alimentan esto',
+ ['Domingo','el que traiga la pregunta',
+  'La duda más repetida de la semana',
+  'Comentarios de lunes a sábado en las cinco redes + comunidad de WhatsApp + los comentarios en grupos de Facebook de martes y jueves',
   'Nunca está vacío: siempre hay preguntas sin contestar']
 ];
 
@@ -678,15 +688,23 @@ function vParrilla(){
   <p class="dice">Un tema fijo por día. El día manda el tema; la red manda el formato, porque cada red persigue una señal distinta.</p>`;
 
   h+=`<div class="tabla-wrap"><table class="sem"><thead><tr>
-    <th>Día · tema</th><th>TikTok</th><th>Instagram</th><th>YouTube</th>
+    <th>Día · tema · pilar</th><th>TikTok</th><th>Instagram</th><th>YouTube</th>
     <th>LinkedIn</th><th>Facebook</th><th>WhatsApp</th></tr></thead><tbody>`
-   + SEMANA.map(f=>`<tr><td><span class="dia">${f[0]}</span><span class="tem">${f[1]}</span></td>`
-       + f.slice(2).map(celda).join('') + `</tr>`).join('')
+   + SEMANA.map(f=>`<tr><td><span class="dia">${f[0]}</span><span class="tem">${f[1]}</span>
+         <span class="pil">${f[2]}</span></td>`
+       + f.slice(3).map(celda).join('') + `</tr>`).join('')
    + `<tr><td><span class="dia">Total</span><span class="tem">16–18 piezas</span></td>`
    + TOTALES.map(t=>`<td><strong>${t}</strong></td>`).join('')
    + `</tr></tbody></table></div>`;
 
-  h+=`<p class="nota" style="margin-top:14px"><strong>El miércoles es el día de clúster.</strong>
+  h+=`<p class="nota" style="margin-top:14px"><strong>El pilar no es una etiqueta, es el filtro.</strong>
+    El marcador corre a las 6:30 sobre todo el pool y arma la lista del día siguiente. El pilar del día
+    es lo que le dice qué buscar: el lunes filtra <em>fechas límite</em>, el martes <em>mito vs
+    realidad</em>, y así. El tema del día —"el error caro", "lo que se vence"— es el <em>ángulo</em> con
+    el que se cuenta, no lo que se busca. Por eso los siete días mapean a un pilar: sin eso, el marcador
+    no sabe qué filtrar y la parrilla se llena a mano.</p>`;
+
+  h+=`<p class="nota" style="margin-top:10px"><strong>El miércoles es el día de clúster.</strong>
     Un solo tema —el post del blog que ya rankea y no tiene video— sale en las cinco redes dentro de
     una ventana de 48 horas, en este orden: YouTube primero porque es el que más tarda en indexar,
     luego LinkedIn, Instagram, TikTok y Facebook, que lo cierra el jueves. No son cinco piezas nuevas:
@@ -709,9 +727,10 @@ function vParrilla(){
   h+=`<h2 class="sec">De dónde sale la información de cada día</h2>
   <p class="sub">Ningún día depende de que exista una noticia: todos tienen respaldo.</p>
   <div class="tabla-wrap"><table><thead><tr>
-    <th>Día</th><th>Fuente principal</th><th>Cómo llega</th><th>Si no hay nada</th>
+    <th>Día · pilar</th><th>Qué se busca</th><th>Dónde y cómo llega</th><th>Si no hay nada</th>
     </tr></thead><tbody>`
-   + FUENTES.map(f=>`<tr><td><strong>${f[0]}</strong></td><td>${f[1]}</td><td>${f[2]}</td><td>${f[3]}</td></tr>`).join('')
+   + FUENTES.map(f=>`<tr><td><strong>${f[0]}</strong><br><span class="pil">${f[1]}</span></td>
+       <td>${f[2]}</td><td>${f[3]}</td><td>${f[4]}</td></tr>`).join('')
    + `</tbody></table></div>`;
 
   h+=`<p class="nota" style="margin-top:14px">Lo único realmente automatizable es Google —Trends y News
@@ -719,6 +738,13 @@ function vParrilla(){
     Instagram son captura manual: no hay API, ni gratis ni pagando, y la Research API de TikTok no es
     elegible para México. <strong>No construyas un conector a TikTok Creative Center:</strong> el riesgo
     no es una multa, es perder la cuenta.</p>`;
+
+  h+=`<p class="nota" style="margin-top:14px"><strong>Dónde está flaco el pool hoy.</strong>
+    Sobre las 25 ideas de la semilla: régimen 8, fechas límite 7, deducciones 4, facturación 3,
+    <strong>mito vs realidad 2</strong> y <strong>noticias 1</strong>. Los dos pilares más flacos son
+    justo los del martes y el jueves. Eso no lo arregla la parrilla, lo arregla el explorador: sus
+    10–15 candidatos semanales tienen que venir sesgados a esos dos pilares. Y <em>deducciones</em>,
+    con 4 candidatos, no tiene día fijo — entra de rebote por el miércoles, el sábado o el domingo.</p>`;
 
   h+=`<h2 class="sec">Escalón 2: presencia diaria</h2>
   <p class="sub">Publicar más no sube el promedio, sube el techo: con 1 post semanal en TikTok la mediana
