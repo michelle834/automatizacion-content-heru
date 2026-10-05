@@ -676,7 +676,7 @@ const SEMANA=[
  ['Viernes','tips que sí sirven · info curada','deducciones',
   null, null, ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
   ['los tips','de la semana']],
- ['Sábado','humor fiscal','el que traiga el sketch',
+ ['Sábado','el sketch','humor fiscal',
   ['sketch','21:00'], null, ['Short 3','D+6'], null, ['el mismo máster, nativo','60–180 s, fuera de CDMX'], null],
  ['Domingo','el resumen de la semana','fechas límite',
   ['Respuesta a @usuario','21:00'], ['<strong>carrusel</strong> 5+2','19–21h'], null, null,
@@ -781,7 +781,7 @@ const CAL_REDES = {
 
 const CAL_PILARES = {
   'deducciones':'💸','fechas límite':'⏰','régimen':'🗂️',
-  'facturación':'🧾','noticias':'📰','mito vs realidad':'🔍','variable':'🎲'
+  'facturación':'🧾','noticias':'📰','mito vs realidad':'🔍','humor fiscal':'🎭','variable':'🎲'
 };
 
 /* Parrilla por día de la semana: 0 domingo … 6 sábado */
@@ -792,7 +792,7 @@ const CAL_PARRILLA = {
   3:{tema:'blog heru · clúster', pilar:'facturación',       redes:['YouTube','LinkedIn','Instagram','TikTok','WhatsApp']},
   4:{tema:'cómo funciona cada régimen', pilar:'régimen',    redes:['TikTok','Instagram','YouTube','Facebook']},
   5:{tema:'tips que sí sirven',  pilar:'deducciones',      redes:['YouTube','LinkedIn','WhatsApp']},
-  6:{tema:'humor fiscal',        pilar:'variable',          redes:['TikTok','YouTube','Facebook']}
+  6:{tema:'el sketch',           pilar:'humor fiscal',      redes:['TikTok','YouTube','Facebook']}
 };
 
 /* Piezas ya asignadas. [red, formato, estado, nota] */
@@ -904,8 +904,8 @@ function vCalendario(){
     + `</tr></thead><tbody><tr>` + celdas + `</tr></tbody></table></div></div></div>`;
 
   h += `<p class="nota" style="margin-top:16px"><strong>Cada día se rotula con su pilar.</strong>
-    Es lo que el marcador filtra a las 6:30, así que es lo que sirve para decidir. Lunes y sábado
-    dicen <em>abierto</em> porque el pilar lo trae la pieza que gane, y van marcados con 🎲.
+    Es lo que el marcador filtra a las 6:30, así que es lo que sirve para decidir. El lunes
+    dice <em>abierto</em> porque el pilar lo trae la pieza que gane, y va marcado con 🎲.
     El ángulo —cómo se cuenta— vive en Parrilla semanal; pasando el cursor sobre el icono de
     cualquier día sale también.</p>
 
