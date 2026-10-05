@@ -47,6 +47,62 @@ a{color:var(--azul)}
 .i-gris{background:var(--gris2)} .i-ambar{background:var(--ambar)}
 .i-verde{background:var(--verde)} .i-azul{background:var(--azul)}
 
+
+/* ── Calendario del mes ─────────────────────────────────────────────── */
+.calwrap{display:grid;grid-template-columns:238px 1fr;gap:22px;align-items:start}
+.calrail .bloque{background:var(--blanco);border:1px solid var(--linea);border-radius:12px;
+  padding:14px 15px;margin-bottom:12px}
+.calrail h3{font-family:var(--titulo);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gris2);margin:0 0 9px}
+.calrail .ley{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:3px 0;color:var(--negro)}
+.calrail .ley i{width:11px;height:11px;border-radius:3px;flex:none}
+.calrail .ley span{color:var(--gris);margin-left:auto;font-size:11px}
+.calrail .pil{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:3px 0;color:var(--negro)}
+.calrail .pil b{font-size:13px;width:16px;text-align:center;flex:none}
+.calrail .chk{display:flex;gap:8px;font-size:12.5px;padding:4px 0;color:var(--negro);align-items:flex-start}
+.calrail .chk i{color:var(--azul);font-style:normal;flex:none}
+
+.calcab{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.calcab .mes{background:var(--blanco);border:1px solid var(--negro);border-radius:999px;
+  padding:6px 26px;font-family:var(--titulo);font-weight:700;font-size:13px;letter-spacing:.14em}
+.calcab .anio{margin-left:auto;background:var(--blanco);border:1px solid var(--negro);border-radius:999px;
+  padding:6px 26px;font-family:var(--titulo);font-weight:700;font-size:13px;letter-spacing:.14em}
+
+table.cal{width:100%;border-collapse:collapse;background:var(--blanco);
+  border:1.5px solid var(--negro);border-radius:12px;overflow:hidden;table-layout:fixed}
+table.cal th{font-family:var(--titulo);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--negro);padding:11px 6px;border:1px solid var(--linea);background:var(--blanco);font-weight:700}
+table.cal td{border:1px solid var(--linea);vertical-align:top;height:104px;padding:6px 6px 7px;position:relative}
+.hueco{display:flex;align-items:center;gap:3px;margin-top:4px;padding-top:4px;border-top:1px dotted var(--linea)}
+.hueco i{width:7px;height:7px;border-radius:2px;flex:none;opacity:.55}
+.hueco span{font-size:9.5px;color:var(--gris2);margin-left:3px;white-space:nowrap}
+table.cal td.off{background:#FBF8F2}
+table.cal td.hoy{background:#F2FAFF;box-shadow:inset 0 0 0 2px var(--azul)}
+table.cal td.hito{background:#FFF8EC}
+.dn{font-family:var(--titulo);font-size:13px;font-weight:700;color:var(--negro);line-height:1}
+.dn.apag{color:var(--gris2);font-weight:400}
+.dcab{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.dcab .pilic{margin-left:auto;font-size:12px;opacity:.75}
+.dtema{font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--gris2);
+  margin:-3px 0 5px;line-height:1.25}
+.cchip{display:block;border-left:4px solid var(--gris2);border-radius:3px;background:var(--cream);
+  padding:3px 5px 3px 6px;margin-bottom:3px;font-size:10.5px;line-height:1.3;color:var(--negro)}
+.cchip b{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);
+  font-weight:700}
+.cchip.vacio{background:transparent;color:var(--gris2);border-left-style:dotted}
+.cchip.vacio b{color:var(--gris2)}
+.cchip.listo{box-shadow:inset 0 0 0 1px var(--linea)}
+.cchip.publicado{background:#EAF6EC}
+.cchip.detenido{background:#FFF1E2}
+.cal-hito{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--ambar);color:#fff;border-radius:3px;padding:1px 5px;margin-bottom:4px}
+@media(max-width:1100px){.calwrap{grid-template-columns:1fr}}
+@media(max-width:760px){
+  table.cal td{height:auto;min-height:76px}
+  table.cal th{font-size:9px;letter-spacing:.04em;padding:8px 2px}
+  .cchip{font-size:9.5px}
+}
+
 /* contenido */
 .main{padding:22px 26px 70px;min-width:0}
 .cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px}
@@ -240,6 +296,7 @@ const SECCIONES=[
   {k:'grabacion',  e:'🎬', t:'Cola de grabación'},
   {k:'ideas',      e:'💡', t:'Ideas en el pool'},
   {k:'aprendizajes',e:'📊', t:'Aprendizajes'},
+  {k:'calendario', e:'📆', t:'Calendario del mes'},
   {k:'parrilla',   e:'📅', t:'Parrilla semanal'},
   {k:'investigacion',e:'📚', t:'Investigación'},
   {k:'conexion',   e:'⚙️', t:'Conexión'}
@@ -335,6 +392,7 @@ function pintar(){
   document.getElementById('main').innerHTML=({
     aprobar:vAprobar, programado:vProgramado, proceso:vProceso,
     grabacion:vGrabacion, ideas:vIdeas, aprendizajes:vAprendizajes,
+    calendario:vCalendario,
     parrilla:vParrilla, investigacion:vInvestigacion, conexion:vConexion
   })[SEC]();
   if(SEC==='conexion') montarConexion();
@@ -699,6 +757,163 @@ const ESCALON=[['Lunes','el formato adaptado','carrusel',''],
 function celda(c){
   if(!c) return `<td class="off">—</td>`;
   return `<td>${c[0]}${c[1]?`<span class="tem">${c[1]}</span>`:''}</td>`;
+}
+
+
+/* ── Calendario del mes ───────────────────────────────────────────────
+   La parrilla (SEMANA) dice qué red publica cada día de la semana.
+   El calendario aplica esa parrilla a las fechas reales de octubre y
+   encima pone las piezas ya asignadas. Para meter contenido nuevo basta
+   con agregar una línea a CAL: "día": [[red, formato, estado, nota]].
+   Estados: 'publicado' · 'listo' · 'plan' · 'detenido'.            */
+
+const CAL_MES = {anio:2026, mes:10, nombre:'OCTUBRE', primerDia:4 /* jueves */, dias:31};
+
+const CAL_REDES = {
+  TikTok:   {c:'#000000', ab:'TikTok'},
+  Instagram:{c:'#1790EC', ab:'Instagram'},
+  YouTube:  {c:'#004AAD', ab:'YouTube'},
+  LinkedIn: {c:'#15D1FE', ab:'LinkedIn'},
+  Facebook: {c:'#5DE0E6', ab:'Facebook'},
+  WhatsApp: {c:'#45BAD7', ab:'WhatsApp'}
+};
+
+const CAL_PILARES = {
+  'deducciones':'💸','fechas límite':'⏰','régimen':'🗂️',
+  'facturación':'🧾','noticias':'📰','mito vs realidad':'🔍','variable':'🎲'
+};
+
+/* Parrilla por día de la semana: 0 domingo … 6 sábado */
+const CAL_PARRILLA = {
+  0:{tema:'la comunidad',        pilar:'variable',         redes:['TikTok','Facebook']},
+  1:{tema:'replicar lo q funcionó',pilar:'variable',        redes:['TikTok','Instagram','Facebook','WhatsApp']},
+  2:{tema:'el error caro',       pilar:'mito vs realidad',  redes:['TikTok','Instagram','Facebook']},
+  3:{tema:'blog heru · clúster', pilar:'régimen',           redes:['YouTube','LinkedIn','Instagram','TikTok','WhatsApp']},
+  4:{tema:'lo que está pasando', pilar:'noticias',          redes:['TikTok','Instagram','YouTube','Facebook']},
+  5:{tema:'resumen de la semana',pilar:'fechas límite',     redes:['Instagram','YouTube','LinkedIn','WhatsApp']},
+  6:{tema:'humor fiscal',        pilar:'variable',          redes:['TikTok','YouTube','Facebook']}
+};
+
+/* Piezas ya asignadas. [red, formato, estado, nota] */
+const CAL = {
+  1:[['TikTok','video','publicado','10,397 vistas'],
+     ['Instagram','carrusel','publicado','buzón tributario'],
+     ['LinkedIn','documento','publicado','181 impr · 136 clics']],
+  2:[['TikTok','video','publicado','1,972 vistas'],
+     ['LinkedIn','encuesta','publicado','210 impresiones']],
+  3:[['TikTok','video','publicado','1,564 vistas · 55% retención'],
+     ['Instagram','imagen','publicado','']],
+  5:[['Instagram','meme','listo','P27 · mi yo de enero'],
+     ['Facebook','comentario','listo','P22 · si no facturé']],
+  6:[['Instagram','carrusel','plan','P10 · declaración mensual paso a paso']],
+  7:[['LinkedIn','documento','plan','P23 · el 38% de las facturas'],
+     ['YouTube','largo','detenido','buzón · falta la voz']],
+  8:[['','grabación','plan','bloque: 6 cuerpos × 5 hooks']],
+  9:[['LinkedIn','encuesta','plan','']],
+  16:[['Instagram','meme','listo','es 16 de mes']],
+  22:[['Instagram','meme','plan','se libera el meme del buzón (21 días)']],
+  31:[['Instagram','meme','listo','Halloween · de independiente al día']]
+};
+
+const CAL_HITOS = {
+  17:'declaración mensual de septiembre',
+  8:'bloque de grabación',
+  22:'se libera la keyword del buzón'
+};
+
+const CAL_NOTAS = [
+  'El marcador corre a las 6:30 y arma la lista del día siguiente.',
+  'Nada se publica el mismo día que se decide.',
+  'El carrusel del Buen Fin espera la lectura del DOF.'
+];
+
+const CAL_HOY = 5;
+
+function vCalendario(){
+  const M = CAL_MES, DIAS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+
+  const chip = (red,fmt,est,nota)=>{
+    const r = CAL_REDES[red];
+    const col = r ? r.c : '#7C7468';
+    const et  = r ? r.ab : 'Todas';
+    return `<span class="cchip ${est}" style="border-left-color:${col}">
+      <b>${et} · ${fmt}</b>${nota?nota:''}</span>`;
+  };
+
+  let celdas='';
+  for(let i=0;i<M.primerDia;i++) celdas+=`<td class="off"></td>`;
+
+  for(let d=1; d<=M.dias; d++){
+    const dow = (M.primerDia + d - 1) % 7;
+    const par = CAL_PARRILLA[dow];
+    const puestas = CAL[d] || [];
+    const usadas = new Set(puestas.map(p=>p[0]));
+    const clase = d===CAL_HOY ? 'hoy' : (CAL_HITOS[d] ? 'hito' : '');
+
+    let cuerpo = '';
+    if(CAL_HITOS[d]) cuerpo += `<span class="cal-hito">${CAL_HITOS[d]}</span>`;
+    cuerpo += puestas.map(p=>chip(p[0],p[1],p[2],p[3])).join('');
+    // los huecos de la parrilla se resumen en una línea, no en una pastilla cada uno
+    const libres = par.redes.filter(r=>!usadas.has(r));
+    if(libres.length) cuerpo += `<div class="hueco">`
+      + libres.map(r=>`<i style="background:${CAL_REDES[r].c}" title="${r}"></i>`).join('')
+      + `<span>${libres.length} por asignar</span></div>`;
+
+    celdas += `<td class="${clase}">
+      <div class="dcab"><span class="dn">${String(d).padStart(2,'0')}</span>
+        <span class="pilic" title="${par.pilar}">${CAL_PILARES[par.pilar]||''}</span></div>
+      <div class="dtema">${par.tema}</div>${cuerpo}</td>`;
+
+    if(dow===6) celdas+='</tr><tr>';
+  }
+  const resto = (7 - ((M.primerDia + M.dias) % 7)) % 7;
+  for(let i=0;i<resto;i++) celdas+=`<td class="off"></td>`;
+
+  const cuenta = {};
+  Object.values(CAL).flat().forEach(p=>{ if(p[0]) cuenta[p[0]]=(cuenta[p[0]]||0)+1; });
+
+  let h = `<div class="cab"><h1>📆 Calendario del mes</h1></div>
+  <p class="dice">La parrilla semanal aplicada a las fechas reales. Cada día trae su tema y su pilar;
+  dentro van las piezas conforme el marcador las asigna. Lo punteado es el hueco que la parrilla pide
+  y todavía no tiene pieza.</p>`;
+
+  h += `<div class="calwrap"><div class="calrail">
+    <div class="bloque"><h3>Redes</h3>`
+    + Object.entries(CAL_REDES).map(([n,r])=>
+        `<div class="ley"><i style="background:${r.c}"></i>${n}<span>${cuenta[n]||0}</span></div>`).join('')
+    + `</div>
+    <div class="bloque"><h3>Pilares</h3>`
+    + Object.entries(CAL_PILARES).filter(([k])=>k!=='variable').map(([n,e])=>
+        `<div class="pil"><b>${e}</b>${n}</div>`).join('')
+    + `</div>
+    <div class="bloque"><h3>Estado</h3>
+      <div class="ley"><i style="background:#EAF6EC;box-shadow:inset 0 0 0 1px var(--linea)"></i>publicado</div>
+      <div class="ley"><i style="background:var(--cream);box-shadow:inset 0 0 0 1px var(--linea)"></i>listo o planeado</div>
+      <div class="ley"><i style="background:#FFF1E2;box-shadow:inset 0 0 0 1px var(--linea)"></i>detenido</div>
+      <div class="ley"><i style="background:var(--gris2);opacity:.55"></i>por asignar · hueco de la parrilla</div>
+    </div>
+    <div class="bloque"><h3>Notas</h3>`
+    + CAL_NOTAS.map(n=>`<div class="chk"><i>✓</i>${n}</div>`).join('')
+    + `</div></div>`;
+
+  h += `<div><div class="calcab">
+      <span class="mes">${M.nombre}</span><span class="anio">${M.anio}</span></div>
+    <div class="tabla-wrap"><table class="cal"><thead><tr>`
+    + DIAS.map(d=>`<th>${d}</th>`).join('')
+    + `</tr></thead><tbody><tr>` + celdas + `</tr></tbody></table></div></div></div>`;
+
+  h += `<p class="nota" style="margin-top:16px"><strong>Cómo se llena.</strong>
+    Las piezas viven en el objeto <code>CAL</code> arriba de esta vista: una línea por día con
+    <code>[red, formato, estado, nota]</code>. Agregar una pieza es agregar una línea; el calendario
+    recalcula los huecos y los conteos solo. Los estados son
+    <code>publicado</code>, <code>listo</code>, <code>plan</code> y <code>detenido</code>.</p>`;
+
+  h += `<p class="nota" style="margin-top:10px"><strong>Los colores de red todavía no son oficiales.</strong>
+    <code>branding-heru</code> define la paleta pero no asigna un color por red. Los de aquí salen del
+    degradado oficial y del negro, sin inventar ninguno, y por eso cada pastilla también lleva el
+    nombre escrito: el color nunca es la única señal. Queda pendiente de fijar contigo.</p>`;
+
+  return h;
 }
 
 function vParrilla(){
