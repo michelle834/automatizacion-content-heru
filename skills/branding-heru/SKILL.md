@@ -25,9 +25,7 @@ Skill en construcción: se va ampliando con cada decisión de marca nueva. Si al
 
 **Para reels y video corto:** ver §8G.
 
-**Firma de correo:** ver §8H — todos la hacen en «enlace privado · herramienta Firma heru»
-
-> Los enlaces de Canva y de la herramienta de firma se quitaron de esta copia porque el repositorio es público. Viven en `ENLACES-PRIVADOS.md`, que no se sube.
+**Firma de correo:** ver §8H — todos la hacen en https://claude.ai/artifact/WhSxtxswH7Kgr2CAJ3RvWe
 
 **Manual en PDF:** `heru-branding-book-2026.pdf` (§7.8). Si esta skill cambia, regenerar el PDF para que no se desfase.
 
@@ -269,7 +267,7 @@ La cuadrícula fina tipo hoja de cuaderno es un **elemento gráfico de marca**: 
 | `heru-branding-book-2026.pdf` | Manual de marca completo (16:9) con anexos de las skills carousel, filtros, sistema de contenido y paid media |
 | `heru-iconos-glass.zip` | Set de 8 íconos glass (§8F): láminas, PNG 1024 sin fondo y SVG, claro y oscuro |
 | `heru-reels-referencia.zip` | Láminas y capturas de reels (§8G): formatos, anatomía, zona segura y errores a corregir |
-| `heru-firma-correo.png` · herramienta "Firma heru" («enlace privado · herramienta Firma heru») | Firma de correo oficial (§8H): cada persona genera su moneda GIF y copia la firma |
+| `heru-firma-correo.png` · herramienta "Firma heru" (https://claude.ai/artifact/WhSxtxswH7Kgr2CAJ3RvWe) | Firma de correo oficial (§8H): cada persona genera su moneda GIF y copia la firma |
 | `heru-cuadricula.zip` | Fondos con cuadrícula (§5.2) en 1080×1440, 1080×1350, 1080×1920, 1080×1080, 1920×1080, tile de 36 px y patrón SVG |
 
 - No existía SVG oficial: los SVG son vectorizados (sirven para digital; para imprenta grande conviene redibujarlos a mano).
@@ -294,7 +292,7 @@ Formato: **1080 × 1440 (3:4)** en todas las slides. Cada carrusel puede variar 
 
 ### 8.1 Portada — SIEMPRE este formato
 
-Esqueleto Canva: **«enlace privado · esqueleto portadas»** ("esqueleto portadas carrusel", design `DAHWC6vwUJ8`).
+Esqueleto Canva: **https://canva.link/rhxnyktnm49jhow** ("esqueleto portadas carrusel", design `DAHWC6vwUJ8`).
 
 **Imagen de fondo (regla clave):**
 - Foto a sangre completa, **oscurecida** (overlay negro ~45% detrás del texto) para que funcione como background y el texto blanco se lea.
@@ -314,7 +312,7 @@ Esqueleto Canva: **«enlace privado · esqueleto portadas»** ("esqueleto portad
 
 ### 8.2 Cuerpo — mismo look and feel siempre
 
-Esqueleto Canva con ejemplos base: **«enlace privado · esqueleto cuerpos»** ("ESQUELETO CUERPO CARRUSELES", design `DAHWC3QUb40`). Usar sus slides como bases para desarrollar cada cuerpo.
+Esqueleto Canva con ejemplos base: **https://canva.link/4m6de7br4qrtvig** ("ESQUELETO CUERPO CARRUSELES", design `DAHWC3QUb40`). Usar sus slides como bases para desarrollar cada cuerpo.
 
 **Constantes (ADN):**
 - Fondo cream `#F5EFE3` (liso, con cuadrícula o tipo hoja de cuaderno con perforaciones).
@@ -337,7 +335,7 @@ Esqueleto Canva con ejemplos base: **«enlace privado · esqueleto cuerpos»** (
 
 ### 8.3 Cierre
 
-Esqueleto Canva: **«enlace privado · esqueleto cierres»** ("esqueleto cierres de carruseles", design `DAHWC30L8Dg`).
+Esqueleto Canva: **https://canva.link/kxp1ypad7e8ws23** ("esqueleto cierres de carruseles", design `DAHWC30L8Dg`).
 
 - Fondo cream liso, logo azul arriba a la derecha, número de slide opcional.
 - Fila de íconos de IG al centro (like · comentario · compartir · guardar) en círculos gris claro.
@@ -587,7 +585,7 @@ Análisis de reels propios de @somosheru (sept 2026): `DdmsklEvRB_` (Stiven + co
 
 ## 8H. Firma de correo — cómo se debe ver
 
-**Todo el equipo hace su firma aquí:** «enlace privado · herramienta Firma heru» (herramienta "Firma heru"). Si alguien pide su firma, mandarle este enlace; no armar firmas a mano ni en Canva.
+**Todo el equipo hace su firma aquí:** https://claude.ai/artifact/WhSxtxswH7Kgr2CAJ3RvWe (herramienta "Firma heru"). Si alguien pide su firma, mandarle este enlace; no armar firmas a mano ni en Canva.
 
 **Cómo se ve (una sola firma para todo el equipo):**
 - Tabla HTML de 1 fila, compatible con Gmail.

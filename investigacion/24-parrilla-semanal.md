@@ -167,20 +167,20 @@ TikTok del miércoles**, no el largo.
 en RESICO", no "Paso 3". Un video de 15 minutos con 10 capítulos bien nombrados
 son diez entradas de búsqueda, no una.
 
-**Pilar:** régimen o facturación (el que traiga el post del blog).
+**Pilar:** facturación. El tab daba dos opciones —régimen o facturación— y se cerró
+en facturación para que el miércoles y el jueves no filtren por el mismo pilar.
 
 ---
 
-### Jueves · lo que está pasando
+### Jueves · régimen
 
-El día reservado al carril urgente. Si el radar de las 6:15 sacó una candidata
-que pasó el criterio del tab 18, sale hoy. Si no, **el día no se fuerza**: el
-jueves de TikTok es condicional, y lo demás del día sigue corriendo igual porque
-no depende de que haya tendencia.
+Cómo funciona cada régimen y cuánto se paga en cada uno. Es el pilar con más
+demanda sin cubrir del pool: tres de los cinco candidatos de Creator Search
+Insights son preguntas de régimen, y ninguno tiene video.
 
 | Red | Qué sale | Detalle |
 |---|---|---|
-| TikTok | La tendencia | Audio propio o de la Commercial Music Library, nunca perseguir el audio del momento. **Si el radar no sacó nada, este día TikTok no publica** |
+| TikTok | Video con cara, 21:00 | El dato más fuerte en el último tercio, no al principio |
 | YouTube | Short #1 derivado del largo del miércoles (D+1) | Hook y apertura visual distintos del largo |
 | Instagram | Trial Reel #2 (misma variable del martes) | |
 | Facebook | Cross-post nativo del clúster + comentario en grupos | El cross-post cierra la ventana de 48 horas que abrió el largo del miércoles |
@@ -188,40 +188,56 @@ no depende de que haya tendencia.
 **Jueves también es el día de grabación.** El carril con cámara tiene 8 días de
 ventaja: lo que se graba hoy sale la semana que viene. Un bloque de grabación = 6
 cuerpos × 5 hooks = 30 archivos. Por eso lo que se *publica* el jueves es carril
-rápido o urgente, nunca algo que haya que grabar hoy.
+rápido, nunca algo que haya que grabar hoy.
 
-**La compuerta antes de subirse a una tendencia** (tab 18, un solo NO la mata):
-¿el audio está en la Commercial Music Library o es propio? ¿el origen está libre
-de muerte, desastre o violencia? ¿el dato fiscal ya tiene respaldo citable? ¿se
-explica el vínculo con heru en una sola frase, sin la palabra "y"? ¿alguien que no
-conoce heru entiende el chiste sin que se lo expliquen?
+**Dónde está el filo, y dónde el riesgo.** Comparar regímenes es exactamente
+la frontera que marca el Centinela: *"te conviene el régimen Y"* es asesoría
+financiera, se topa en miles de vistas y expone la cuenta; *"me cambié al régimen Y
+por esta razón"* es experiencia y no tiene techo. El día se cuenta como mecánica
+—qué pide cada régimen, qué se paga, qué no se puede deducir— o como experiencia
+en primera persona. **Nunca como recomendación.**
 
-**Pilar:** noticias.
+Por lo mismo el día se nombra *cómo funciona cada régimen* y no *ahorro por
+régimen*: el nombre interno termina filtrándose a los hooks, y "ahorro" es
+palabra gatillo.
+
+**Pilar:** régimen.
 
 ---
 
-### Viernes · el resumen de la semana
+### Viernes · deducciones
 
-Lo que cambió esta semana y lo que viene la próxima. En Instagram, como pidió
-Mich, y ahí se queda: es la pieza más guardable de la parrilla.
+Info curada: lo que sí sirve de lo que se preguntó y se probó esta semana.
 
 | Red | Qué sale | Detalle |
 |---|---|---|
-| Instagram | Carrusel: 5 slides de lo que pasó + 2 de lo que viene | Cierre de guardar. Pedir guardar sube interacciones +92%; pedir like las baja 4.9% |
 | LinkedIn | **Encuesta** | 3,418 impresiones medias contra 1,234 del carrusel, y la usa menos del 1% de las cuentas |
-| WhatsApp (Canal) | La pregunta de la semana | Calendario propio del canal |
 | YouTube | Short #2 (D+3 del largo) | |
+| WhatsApp (Canal) | Los tips de la semana | Calendario propio del canal |
 
 **Por qué encuesta en LinkedIn el viernes.** Votar es anónimo, comentar no. La
 encuesta es el formato con más impresiones medias de LinkedIn y casi nadie lo usa:
 es arbitraje puro. Y el resultado de la encuesta del viernes es materia prima para
 el contenido de la semana siguiente.
 
+**El viernes se cura experiencia, no consejo.** Deducciones en formato tips es el
+que tiene el techo más bajo de la parrilla, porque cae en el diagnóstico central de
+esta investigación: heru produce como contador, listas y consejos. Dos formas que
+sí pasan la compuerta del Centinela:
+
+- **"Tres cosas que me preguntaron esta semana"** — curaduría real, sale de los
+  comentarios y de la comunidad, y de paso alimenta el pool.
+- **"Esto lo probé y sí jala"** — primera persona, con el artículo citado.
+
 **El viernes también se cierra la semana por dentro:** reporte del KPI norte
 (miembros nuevos de la comunidad de WhatsApp atribuidos a contenido), ganadores y
 perdedores, y los tres mejores comentarios de la semana pasan al pool.
 
-**Pilar:** fechas límite + noticias.
+**El viernes se quedó sin Instagram** al moverse el resumen al domingo. La cuota de
+IG está llena (3 feed + 2 trial), así que darle uno al viernes implica quitárselo a
+otro día. **Pendiente de decidir con Mich.**
+
+**Pilar:** deducciones.
 
 ---
 
@@ -258,22 +274,26 @@ hacerlo *"el error más caro y más fácil de evitar del plan"*.
 
 ---
 
-### Domingo · la pregunta de la comunidad
+### Domingo · fechas límite
 
-La duda más repetida de la semana en los comentarios y en el WhatsApp, contestada
-con el formato nativo "Respuesta a @usuario".
+El resumen de la semana: lo que cambió y lo que viene. En Instagram, como pidió
+Mich, y ahí se queda: es la pieza más guardable de la parrilla. Se movió del
+viernes al domingo para que la semana cierre con el recuento, no a media semana.
 
 | Red | Qué sale | Detalle |
 |---|---|---|
-| TikTok | "Respuesta a @usuario", 20:00 | El tab 02 propone que sea el 40% de la parrilla de TikTok |
+| Instagram | Carrusel: 5 slides de lo que pasó + 2 de lo que viene | Cierre de guardar. Pedir guardar sube interacciones +92%; pedir like las baja 4.9% |
+| TikTok | "Respuesta a @usuario", 21:00 | El tab 02 propone que sea el 40% de la parrilla de TikTok |
 | Facebook | Comentario en grupos | De ahí salen las preguntas de la semana siguiente |
+| WhatsApp (Canal) | El resumen de la semana | Calendario propio del canal |
 
-**Por qué el domingo.** El tab 02 pone el tercer slot de TikTok el domingo a las
-20:00, y este formato es el de menor costo de producción de toda la semana: la
-pregunta ya existe, el trabajo es contestarla. Cierra el ciclo: lo que se contesta
-el domingo nace de lo que la gente comentó de lunes a sábado.
+**Por qué el domingo.** El tab 02 pone el tercer slot de TikTok el domingo, y
+"Respuesta a @usuario" es el formato de menor costo de producción de toda la
+semana: la pregunta ya existe, el trabajo es contestarla. Cierra el ciclo doble:
+lo que se contesta el domingo nace de lo que la gente comentó de lunes a sábado, y
+el carrusel del resumen recoge lo que se publicó esos mismos días.
 
-**Pilar:** el que traiga la pregunta.
+**Pilar:** fechas límite.
 
 ---
 
@@ -281,13 +301,13 @@ el domingo nace de lo que la gente comentó de lunes a sábado.
 
 | | TikTok | Instagram | YouTube | LinkedIn | Facebook | WhatsApp |
 |---|---|---|---|---|---|---|
-| **Lun** · replicar | el formato adaptado | carrusel o reel | | | cross-post | aviso |
-| **Mar** · el error caro | video | Trial Reel | | | comentario | |
-| **Mié** · día de blog · clúster | corte del largo | carrusel | **largo** | **documento** | | "no sabías" |
-| **Jue** · lo que pasa | tendencia (si la hay) | Trial Reel | Short 1 | | cross-post + comentario | |
-| **Vie** · el resumen | | **carrusel** | Short 2 | **encuesta** | | la pregunta |
-| **Sáb** · humor fiscal | sketch | | Short 3 | | nativo | |
-| **Dom** · la comunidad | respuesta | | | | comentario | |
+| **Lun** · abierto | el formato adaptado | carrusel o reel | | | cross-post | aviso |
+| **Mar** · mito vs realidad | video | Trial Reel | | | comentario | |
+| **Mié** · facturación | corte del largo | carrusel | **largo** | **documento** | | "no sabías" |
+| **Jue** · régimen | video con cara | Trial Reel | Short 1 | | cross-post + comentario | |
+| **Vie** · deducciones | | | Short 2 | **encuesta** | | los tips |
+| **Sáb** · abierto | sketch | | Short 3 | | nativo | |
+| **Dom** · fechas límite | respuesta | **carrusel** | | | comentario | el resumen |
 | **Total** | 5–6 | 3 feed + 2 trial | 1 largo + 3 Shorts | 2 | 3 + 3 comentarios | 3 |
 
 **16–18 piezas a la semana.** El tab 23 declara 15 como el volumen sostenible con
@@ -306,7 +326,7 @@ el porqué, red por red.
 
 ---
 
-### TikTok · 5–6 piezas · lunes, martes, miércoles, sábado y domingo fijos · jueves condicional
+### TikTok · 5–6 piezas · lunes, martes, miércoles, jueves, sábado y domingo
 
 **Su trabajo:** descubrimiento en frío. Es la única red donde te encuentra quien no
 te conoce.
@@ -338,8 +358,11 @@ por semana en lugar de repartir temas al azar.
   formatos catalogados y ninguno está agotado.
 - **Miércoles** entra con el clúster: el corte vertical del largo de YouTube. Es la
   pieza más barata de la semana porque el rodaje ya existe.
-- **El jueves pasa a condicional.** Si el radar de las 6:15 no saca nada que pase el
-  criterio, ese día TikTok no publica. Así el volumen no se infla para llenar huecos.
+- **El carril urgente ya no tiene día propio.** Era el jueves, que ahora es régimen.
+  Como el carril urgente se salta la fila por definición, una tendencia que pase el
+  criterio del tab 18 puede entrar cualquier día. **Lo que queda abierto es que hoy
+  ningún día filtra por el pilar `noticias` en el marcador de las 6:30.** Candidatos
+  naturales: lunes o sábado, que tienen pilar abierto. Pendiente de decidir con Mich.
 
 **Qué sale cada día y por qué ese día.**
 
@@ -347,10 +370,11 @@ por semana en lugar de repartir temas al azar.
 |---|---|---|
 | Lunes | El formato replicado | Sale de algo que ya se midió, no de una idea |
 | Martes | El error caro | Arranca el experimento semanal de hooks: mecanismo "consecuencia" |
+| Viernes | Los tips curados | Cierra la semana con lo que se preguntó y se probó |
 | Miércoles | El corte vertical del largo | Cierra el clúster de búsqueda; hook y apertura distintos del largo |
-| Jueves | La tendencia | Carril urgente. Si el radar no sacó nada, este día no se publica |
+| Jueves | Cómo funciona cada régimen | El pilar con más demanda sin cubrir del pool |
 | Sábado | El sketch | Ocio. El formato de mayor techo, en el día de mayor disponibilidad |
-| Domingo | "Respuesta a @usuario" | Le llega primero a quien ya interactuó: la audiencia más barata de un domingo |
+| Domingo | El resumen + "Respuesta a @usuario" | Le llega primero a quien ya interactuó: la audiencia más barata de un domingo |
 
 **La hora, con sustento propio.** El tab 03 marcaba las 20:00 como *"nuestra convención"*. Ya
 no hace falta la convención: TikTok mide cuántos de tus seguidores están en línea cada hora y
@@ -378,7 +402,7 @@ visitas al perfil.
 
 ---
 
-### Instagram · 3 de feed + 2 Trial Reels · lunes, miércoles y viernes de feed · martes y jueves de laboratorio
+### Instagram · 3 de feed + 2 Trial Reels · lunes, miércoles y domingo de feed · martes y jueves de laboratorio
 
 **Su trabajo:** convertir al que ya te vio en seguidor y en guardador.
 
@@ -517,7 +541,7 @@ no consejos.
 
 ---
 
-### Facebook · 3 nativas + 3 comentarios en grupos · lunes, martes, jueves, sábado, domingo
+### Facebook · 3 nativas + 3 comentarios en grupos · lunes, martes, jueves, sábado y domingo
 
 **Su trabajo:** conductores y repartidores. Es la **única red donde esa audiencia
 saca 15 sobre 15** en la matriz de encaje. En LinkedIn saca 0.
