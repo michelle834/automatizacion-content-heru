@@ -270,7 +270,8 @@ Facebook es conductores y repartidores (encaje 15 sobre 15), no el freelancer de
 Instagram. Se ajusta personaje, régimen, ciudad y dispositivo. El tab 03 llama a no
 hacerlo *"el error más caro y más fácil de evitar del plan"*.
 
-**Pilar:** el que traiga el sketch.
+**Pilar:** humor fiscal. El chiste puede ser de cualquier tema, pero el día se
+filtra por este pilar, igual que los demás.
 
 ---
 
@@ -306,7 +307,7 @@ el carrusel del resumen recoge lo que se publicó esos mismos días.
 | **Mié** · facturación | corte del largo | carrusel | **largo** | **documento** | | "no sabías" |
 | **Jue** · régimen | video con cara | Trial Reel | Short 1 | | cross-post + comentario | |
 | **Vie** · deducciones | | | Short 2 | **encuesta** | | los tips |
-| **Sáb** · abierto | sketch | | Short 3 | | nativo | |
+| **Sáb** · humor fiscal | sketch | | Short 3 | | nativo | |
 | **Dom** · fechas límite | respuesta | **carrusel** | | | comentario | el resumen |
 | **Total** | 5–6 | 3 feed + 2 trial | 1 largo + 3 Shorts | 2 | 3 + 3 comentarios | 3 |
 
@@ -361,8 +362,9 @@ por semana en lugar de repartir temas al azar.
 - **El carril urgente ya no tiene día propio.** Era el jueves, que ahora es régimen.
   Como el carril urgente se salta la fila por definición, una tendencia que pase el
   criterio del tab 18 puede entrar cualquier día. **Lo que queda abierto es que hoy
-  ningún día filtra por el pilar `noticias` en el marcador de las 6:30.** Candidatos
-  naturales: lunes o sábado, que tienen pilar abierto. Pendiente de decidir con Mich.
+  ningún día filtra por el pilar `noticias` en el marcador de las 6:30.** Candidato
+  natural: el lunes, que es el único día con pilar abierto desde que el sábado pasó a
+  humor fiscal. Pendiente de decidir con Mich.
 
 **Qué sale cada día y por qué ese día.**
 

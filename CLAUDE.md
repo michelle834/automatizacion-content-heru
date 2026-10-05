@@ -57,7 +57,7 @@ Una sola página con todo inline. No hay bundler ni paso de build: se edita y se
 | Miércoles | día de blog · clúster | facturación |
 | Jueves | cómo funciona cada régimen | régimen |
 | Viernes | tips curados · se cura experiencia, no consejo | deducciones |
-| Sábado | humor fiscal | abierto |
+| Sábado | el sketch | humor fiscal |
 
 El pilar es lo que el marcador filtra a las 6:30. El ángulo es cómo se cuenta.
 **Noticias no tiene día fijo**: es el carril urgente y se salta la fila.
@@ -122,11 +122,8 @@ a un archivo del repo ni a un chat.
   degradado oficial, pero no están declarados como oficiales.
 - **El pilar `noticias` se quedó sin día.** Era el del jueves. El carril urgente se
   salta la fila, así que puede entrar cualquier día, pero ningún día lo filtra en el
-  marcador de las 6:30. Candidatos: lunes o sábado, que están abiertos.
+  marcador de las 6:30. Candidato: el lunes, el único día abierto.
 - **El viernes se quedó sin Instagram.** La cuota de IG está llena (3 feed + 2 trial);
   darle uno al viernes implica quitárselo a otro día.
-- **El pilar `noticias` se quedó sin día.** Era el del jueves. El carril urgente se
-  salta la fila, así que puede entrar cualquier día, pero ningún día lo filtra en el
-  marcador de las 6:30. Candidatos: lunes o sábado, que están abiertos.
-- **El viernes se quedó sin Instagram.** La cuota de IG está llena (3 feed + 2 trial);
-  darle uno al viernes implica quitárselo a otro día.
+- **`humor fiscal` no está en la lista `PILARES` de `marcador.gs`** ni en el desplegable
+  de la hoja. Hasta que se agregue, ninguna pieza del pool puede llevar el pilar del sábado.
