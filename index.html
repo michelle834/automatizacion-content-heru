@@ -665,21 +665,22 @@ const SEMANA=[
  ['Martes','el error caro','mito vs realidad',
   ['video con cara','21:00'], ['<strong>Trial Reel</strong>','19:00'], null, null,
   ['comentario en grupos','desde perfil'], null],
- ['Miércoles','día de blog heru · <strong>clúster</strong>','régimen o facturación',
+ ['Miércoles','día de blog heru · <strong>clúster</strong>','facturación',
   ['corte vertical del largo','21:00'], ['carrusel del mismo tema','19–21h'],
   ['<strong>largo 12–20 min</strong>','+ embed en el blog'],
   ['<strong>documento PDF</strong>','12 slides · 8–11h'], null, ['una cosa que no sabías','aplicada a un oficio']],
- ['Jueves','lo que está pasando','noticias',
-  ['la tendencia','21:00 · solo si el radar saca algo'], ['<strong>Trial Reel</strong>','19:00'],
+ ['Jueves','cómo funciona cada régimen','régimen',
+  ['video con cara','21:00'], ['<strong>Trial Reel</strong>','19:00'],
   ['Short 1','D+1'], null,
   ['cross-post + comentario','cierra el clúster'], null],
- ['Viernes','el resumen de la semana','fechas límite',
-  null, ['<strong>carrusel</strong> 5+2','19–21h'], ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
-  ['la pregunta','de la semana']],
+ ['Viernes','tips que sí sirven · info curada','deducciones',
+  null, null, ['Short 2','D+3'], ['<strong>encuesta</strong>',''], null,
+  ['los tips','de la semana']],
  ['Sábado','humor fiscal','el que traiga el sketch',
   ['sketch','21:00'], null, ['Short 3','D+6'], null, ['el mismo máster, nativo','60–180 s, fuera de CDMX'], null],
- ['Domingo','la comunidad','el que traiga la pregunta',
-  ['Respuesta a @usuario','21:00'], null, null, null, ['comentario en grupos','desde perfil'], null]
+ ['Domingo','el resumen de la semana','fechas límite',
+  ['Respuesta a @usuario','21:00'], ['<strong>carrusel</strong> 5+2','19–21h'], null, null,
+  ['comentario en grupos','desde perfil'], ['el resumen','de la semana']]
 ];
 const TOTALES=['5–6','3 feed + 2 trial','1 largo + 3 Shorts','2','3 + 3 comentarios','3'];
 
@@ -785,12 +786,12 @@ const CAL_PILARES = {
 
 /* Parrilla por día de la semana: 0 domingo … 6 sábado */
 const CAL_PARRILLA = {
-  0:{tema:'la comunidad',        pilar:'variable',         redes:['TikTok','Facebook']},
+  0:{tema:'el resumen de la semana', pilar:'fechas límite', redes:['Instagram','TikTok','Facebook','WhatsApp']},
   1:{tema:'replicar lo q funcionó',pilar:'variable',        redes:['TikTok','Instagram','Facebook','WhatsApp']},
   2:{tema:'el error caro',       pilar:'mito vs realidad',  redes:['TikTok','Instagram','Facebook']},
-  3:{tema:'blog heru · clúster', pilar:'régimen',           redes:['YouTube','LinkedIn','Instagram','TikTok','WhatsApp']},
-  4:{tema:'lo que está pasando', pilar:'noticias',          redes:['TikTok','Instagram','YouTube','Facebook']},
-  5:{tema:'resumen de la semana',pilar:'fechas límite',     redes:['Instagram','YouTube','LinkedIn','WhatsApp']},
+  3:{tema:'blog heru · clúster', pilar:'facturación',       redes:['YouTube','LinkedIn','Instagram','TikTok','WhatsApp']},
+  4:{tema:'cómo funciona cada régimen', pilar:'régimen',    redes:['TikTok','Instagram','YouTube','Facebook']},
+  5:{tema:'tips que sí sirven',  pilar:'deducciones',      redes:['YouTube','LinkedIn','WhatsApp']},
   6:{tema:'humor fiscal',        pilar:'variable',          redes:['TikTok','YouTube','Facebook']}
 };
 
@@ -861,8 +862,8 @@ function vCalendario(){
 
     celdas += `<td class="${clase}">
       <div class="dcab"><span class="dn">${String(d).padStart(2,'0')}</span>
-        <span class="pilic" title="${par.pilar}">${CAL_PILARES[par.pilar]||''}</span></div>
-      <div class="dtema">${par.tema}</div>${cuerpo}</td>`;
+        <span class="pilic" title="pilar: ${par.pilar} · ángulo: ${par.tema}">${CAL_PILARES[par.pilar]||''}</span></div>
+      <div class="dtema">${par.pilar==='variable' ? 'abierto' : par.pilar}</div>${cuerpo}</td>`;
 
     if(dow===6) celdas+='</tr><tr>';
   }
@@ -902,7 +903,13 @@ function vCalendario(){
     + DIAS.map(d=>`<th>${d}</th>`).join('')
     + `</tr></thead><tbody><tr>` + celdas + `</tr></tbody></table></div></div></div>`;
 
-  h += `<p class="nota" style="margin-top:16px"><strong>Cómo se llena.</strong>
+  h += `<p class="nota" style="margin-top:16px"><strong>Cada día se rotula con su pilar.</strong>
+    Es lo que el marcador filtra a las 6:30, así que es lo que sirve para decidir. Lunes y sábado
+    dicen <em>abierto</em> porque el pilar lo trae la pieza que gane, y van marcados con 🎲.
+    El ángulo —cómo se cuenta— vive en Parrilla semanal; pasando el cursor sobre el icono de
+    cualquier día sale también.</p>
+
+  <p class="nota" style="margin-top:10px"><strong>Cómo se llena.</strong>
     Las piezas viven en el objeto <code>CAL</code> arriba de esta vista: una línea por día con
     <code>[red, formato, estado, nota]</code>. Agregar una pieza es agregar una línea; el calendario
     recalcula los huecos y los conteos solo. Los estados son
