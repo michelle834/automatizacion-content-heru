@@ -28,11 +28,31 @@ Las aprobaciones van al revés: la página manda un POST a Apps Script, que escr
 | Archivo | Qué es |
 |---|---|
 | `index.html` | El tablero completo: una sola página, sin build, sin dependencias |
+| `metricas/index.html` | El Content Dash. Vive aquí desde el 16 de octubre; antes estaba suelto en Cloudflare Pages. Lee la hoja de métricas en vivo por gviz, no `datos.json` |
 | `datos.json` | Foto del pool. **Lo escribe el workflow, no se edita a mano** |
 | `investigacion/*.md` | 26 tabs de investigación. El 24 es la parrilla semanal, el 22 el branding |
 | `skills/*/SKILL.md` | Las 16 skills de heru, sincronizadas con las de la cuenta. Si Claude Code ya las carga desde la cuenta, esas mandan; esta copia existe para que el repo se entienda solo y para revisar cambios en el diff |
 | `pool-semilla.csv` | Semilla del pool, 25 candidatos |
 | `marcador.gs` · `api.gs` | Código de Apps Script, no corre aquí |
+
+## El Content Dash en /metricas/
+
+Se fusionó con este tablero el 16 de octubre. Son **dos páginas en un repo**, no una
+sola página: comparten menú y diseño, pero cada una carga sus datos por su lado.
+
+- El tablero lee `datos.json`, que el workflow commitea cada hora.
+- El dash lee la hoja de métricas **en vivo** desde el navegador, con gviz.
+
+De ahí sale la entrada `📈 Métricas ↗` del menú lateral (una sección con `href` no es
+una vista: manda a otra página del repo) y el enlace de regreso en el encabezado del dash.
+
+**La hoja de métricas es pública** (`anyone → reader`), y tiene que serlo mientras el
+dash la lea desde el navegador del visitante. Si algún día hay que cerrarla, el camino
+es que el dash también lea un snapshot commiteado, como el tablero.
+
+Lo que **no** entró en esta fusión, y existe en una copia del 8 de octubre: las vistas
+`wa_funnel`, `aprendizajes`, `experimentos`, `post_pilar` y el diagnóstico `?todo=1`.
+Las seis pestañas que les corresponden en el Sheet existen pero están vacías.
 
 ## Cómo está hecho index.html
 
