@@ -1153,7 +1153,14 @@ function mTT(w){
   const P=(DATA.vids||[]).filter(v=>inWd(mPostDate(v.video_create_datetime,false),w));
   const S=(DATA.series||[]).filter(r=>inW(r.date,w)).sort((a,b)=>mDay(a.date).localeCompare(mDay(b.date)));
   const views=P.map(v=>num(v.video_views_count));
-  const __P=__own(P);const __ix=P.map((v,i)=>i).filter(i=>!/^collab/i.test(String((P[i]&&(P[i].media_id||P[i].video_id))||'')));const tv=__ix.reduce((s,i)=>s+views[i],0);
+  /* El ER va sobre ALCANCE (personas), no sobre vistas, igual que en Instagram.
+     En TikTok una vista cuenta cada reproducción: 106,922 vistas salieron de
+     69,875 personas, o sea 1.53 vistas por persona. Medir sobre vistas castiga
+     al número sin que nadie haya interactuado menos.
+     Los posts de ayer y hoy todavía no traen alcance (TikTok lo entrega 24-48h
+     después), así que para esos se usa su vista como respaldo. */
+  const bases=P.map(v=>num(v.video_reach)>0?num(v.video_reach):num(v.video_views_count));
+  const __P=__own(P);const __ix=P.map((v,i)=>i).filter(i=>!/^collab/i.test(String((P[i]&&(P[i].media_id||P[i].video_id))||'')));const tv=__ix.reduce((s,i)=>s+bases[i],0);
   const teng=__P.reduce((s,v)=>s+num(v.video_likes)+num(v.video_comments)+num(v.video_shares)+num(v.video_favorites),0);
   const folS=(DATA.series||[]).filter(r=>num(r.total_followers_count)>0).sort((a,b)=>mDay(a.date).localeCompare(mDay(b.date)));
   const folLast=num((DATA.totals||{}).total_followers_count)|| (folS.length?num(folS[folS.length-1].total_followers_count):0);
@@ -1162,8 +1169,13 @@ function mTT(w){
   return {net:"tt",P,S,n:P.length,avgViews:avg(views),er:tv>0?teng/tv*100:0,
     /* Retención = solo VIDEOS. Los carruseles (video_duration=0) no tienen 'vio el video completo'
        y meterlos al promedio hunde el número sin que signifique nada. */
-    watchPct:avg(P.filter(v=>num(v.video_duration)>0).map(v=>num(v.video_full_watched_rate)*100)),
-    nVid:P.filter(v=>num(v.video_duration)>0).length,
+    /* Videos y carruseles juntos. TikTok reporta duración 0 en los carruseles,
+       así que el filtro viejo (duration>0) los tiraba a todos. Y va ponderado
+       por vistas, no promedio simple: si no, un carrusel de 200 vistas pesa
+       igual que uno de 33,000 y el número se infla. */
+    watchPct:(function(){var tot=0,acum=0;P.forEach(function(v){var n=num(v.video_views_count);
+      if(n>0){tot+=n;acum+=num(v.video_full_watched_rate)*n;}});return tot?acum/tot*100:0;})(),
+    nVid:P.length,
     watchSec:__med(__ttSecs(P)),
     folLast, gW};
 }
@@ -1338,7 +1350,7 @@ function mRenderKPIs(nets,w){
     if(net==="tt"){
       const __B=__ttBands(), __sec=m.watchSec||0;
       const __c=__sec>=__B.p75?"var(--pos)":(__sec>=__B.p25?"var(--amber)":"var(--neg)");
-      watch = mKpiCard("Retención (vieron completo)", pct(m.watchPct), `solo videos · n=${m.nVid||0}`)
+      watch = mKpiCard("Retención (vieron completo)", pct(m.watchPct), `videos y carruseles · n=${m.nVid||0}`)
             + mKpiCard("Seg. vistos (mediana)", `<span style="color:${__c}">${__sec?__sec.toFixed(1)+"s":"—"}</span>`, `tu banda ${__B.p25.toFixed(1)}s \u2013 ${__B.p75.toFixed(1)}s`);
     } else {
       watch = mKpiCard("Tiempo visto · reels", (m.watchSec?m.watchSec.toFixed(1)+"s":"—"));
@@ -1364,7 +1376,7 @@ function mRenderKPIs(nets,w){
       <div class="grid">
         ${mKpiCard("Vistas totales", pf(totalV), (net==="ig"&&totalV!==__kr.val?`periodo: org ${pf(__igPropio)} \u00b7 pauta ${pf(__igPauta)} \u00b7 colabs ${pf(__igColabs)}<br>`:"")+__krSub)}
         ${mKpiCard("Vistas promedio / post", pf(m.avgViews), net==="ig"?"solo tus posts, sin pauta":"")}
-        ${mKpiCard("Engagement rate (propio)", `<span style="color:${erColor}">${pct(m.er)}</span>`, net==="ig"?"sobre alcance":"sobre vistas")}
+        ${mKpiCard("Engagement rate (propio)", `<span style="color:${erColor}">${pct(m.er)}</span>`, (net==="ig"||net==="tt")?"sobre alcance":"sobre vistas")}
         ${watch}
       </div>
     </div>`;
