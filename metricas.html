@@ -260,7 +260,7 @@ h1,h2,h3,.big,.kpi,.num{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
 </head>
 <body>
 <div class="nivel1">
-  <a class="n1-marca" href="index.html">heru</a>
+  <a class="n1-marca" href="index.html?bv=1" title="Ver la bienvenida">heru</a>
   <nav class="n1-tabs">
     <a class="n1 on" href="metricas.html"><span>📊</span>Métricas</a>
     <a class="n1" href="index.html"><span>🧠</span>Cerebro</a>
@@ -1281,7 +1281,7 @@ function mScore(net){
   const P=(isIG?(DATA.ig_media||[]):(DATA.vids||[]));
   const S=(isIG?(DATA.ig_series||[]):(DATA.series||[]));
   // engagement rate sobre todos los posts
-  const __P=__own(P);const tv=__P.reduce((s,v)=>s+(isIG?(num(v.media_reach)>0?num(v.media_reach):num(v.media_views)):num(v.video_views_count)),0);
+  const __P=__own(P);const tv=__P.reduce((s,v)=>s+(isIG?(num(v.media_reach)>0?num(v.media_reach):num(v.media_views)):(num(v.video_reach)>0?num(v.video_reach):num(v.video_views_count))),0);
   const teng=__P.reduce((s,v)=>s+(isIG?(num(v.media_engagement)||(num(v.media_like_count)+num(v.media_comments_count)+num(v.media_shares)+num(v.media_saved)))
                                     :(num(v.video_likes)+num(v.video_comments)+num(v.video_shares)+num(v.video_favorites))),0);
   const er=tv>0?teng/tv*100:0;
@@ -1664,8 +1664,8 @@ function mRenderBest(nets,w){
     }
     let arr;
     if(net==="tt"){
-      arr=m.P.map(v=>{const views=num(v.video_views_count),eng=num(v.video_likes)+num(v.video_comments)+num(v.video_shares)+num(v.video_favorites);
-        return {cap:(v.video_caption||"(sin texto)").replace(/\s+/g," ").trim(),url:v.video_share_url,pilar:pillarOf(v.video_caption),views,er:views>0?eng/views*100:0,watch:num(v.video_full_watched_rate)*100,nf:num(v.video_new_followers)};});
+      arr=m.P.map(v=>{const views=num(v.video_views_count),base=num(v.video_reach)>0?num(v.video_reach):views,eng=num(v.video_likes)+num(v.video_comments)+num(v.video_shares)+num(v.video_favorites);
+        return {cap:(v.video_caption||"(sin texto)").replace(/\s+/g," ").trim(),url:v.video_share_url,pilar:pillarOf(v.video_caption),views,er:base>0?eng/base*100:0,watch:num(v.video_full_watched_rate)*100,nf:num(v.video_new_followers)};});
     } else {
       arr=m.P.map(v=>{const views=num(v.media_views),reach=num(v.media_reach),base=views>0?views:reach,eng=num(v.media_engagement)||(num(v.media_like_count)+num(v.media_comments_count)+num(v.media_shares)+num(v.media_saved));
         return {cap:(v.media_caption||"(sin texto)").replace(/\s+/g," ").trim(),url:v.media_permalink,pilar:pillarOf(v.media_caption),views,er:base>0?eng/base*100:0,watch:num(v.media_reel_avg_watch_time)/1000,nf:num(v.media_follows)};});

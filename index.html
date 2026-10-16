@@ -338,7 +338,7 @@ body{background:var(--sup)}
 </head>
 <body>
 <div class="nivel1">
-  <a class="n1-marca" href="index.html">heru</a>
+  <a class="n1-marca" href="index.html" title="Ver la bienvenida">heru</a>
   <nav class="n1-tabs">
     <a class="n1" href="metricas.html"><span>📊</span>Métricas</a>
     <a class="n1 on" href="index.html"><span>🧠</span>Cerebro</a>
@@ -1305,7 +1305,7 @@ cargar();
 #bienvenida{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;
   justify-content:flex-end;background:linear-gradient(90deg,#5DE0E6 0%,#004AAD 100%);
   opacity:1;transition:opacity .55s ease}
-#bienvenida.fuera{opacity:0;pointer-events:none}
+#bienvenida.fuera{opacity:0;pointer-events:none;visibility:hidden}
 /* el bloque va del 50% hacia el azul oscuro: sobre el cian el blanco no contrasta */
 #bienvenida .bv-in{text-align:left;padding:0 24px;margin-right:11vw;max-width:640px;
   animation:bvSube .7s cubic-bezier(.2,.7,.3,1) both}
@@ -1333,15 +1333,51 @@ cargar();
 (function(){
   var b=document.getElementById('bienvenida');
   if(!b) return;
+  var piezas=[b.querySelector('.bv-in'),b.querySelector('.bv-sub')];
+  var t=null;
+
+  function cerrar(){ clearTimeout(t); b.classList.add('fuera'); }
+
+  /* la deja lista otra vez: reinicia las animaciones y la vuelve a mostrar */
+  function mostrar(){
+    clearTimeout(t);
+    piezas.forEach(function(p){ if(p){ p.style.animation='none'; } });
+    void b.offsetWidth;                                   /* fuerza el reflow */
+    piezas.forEach(function(p){ if(p){ p.style.animation=''; } });
+    b.classList.remove('fuera');
+    t=setTimeout(cerrar,1900);
+  }
+  window.heruBienvenida=mostrar;
+
+  b.addEventListener('click',cerrar);
+  document.addEventListener('keydown',function(){
+    if(!b.classList.contains('fuera')) cerrar();
+  });
+
+  /* el logo de arriba la vuelve a lanzar, sin recargar la página */
+  var marca=document.querySelector('.nivel1 .n1-marca');
+  if(marca){
+    marca.setAttribute('title','Ver la bienvenida');
+    marca.addEventListener('click',function(e){ e.preventDefault(); mostrar(); });
+  }
+
+  /* al entrar va una vez por sesión; con ?bv=1 (el logo desde Métricas) va siempre */
+  var forzar=/[?&]bv=1/.test(location.search);
   var yaLaVio=false;
   try{ yaLaVio=sessionStorage.getItem('heru_bv')==='1'; }catch(e){}
-  if(yaLaVio){ b.remove(); return; }           /* solo al entrar, no al ir y venir */
-  try{ sessionStorage.setItem('heru_bv','1'); }catch(e){}
-  function cerrar(){ b.classList.add('fuera'); setTimeout(function(){ b.remove(); },600); }
-  var t=setTimeout(cerrar,1900);
-  function saltar(){ clearTimeout(t); cerrar(); }
-  b.addEventListener('click',saltar);
-  document.addEventListener('keydown',saltar,{once:true});
+
+  if(forzar||!yaLaVio){
+    try{ sessionStorage.setItem('heru_bv','1'); }catch(e){}
+    t=setTimeout(cerrar,1900);
+    if(forzar){
+      try{ history.replaceState(null,'',location.pathname+location.hash); }catch(e){}
+    }
+  }else{
+    b.style.transition='none';                 /* sin parpadeo al no tocar */
+    b.classList.add('fuera');
+    void b.offsetWidth;
+    b.style.transition='';
+  }
 })();
 </script>
 </body>
