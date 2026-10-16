@@ -3,11 +3,19 @@
 Tablero desde donde se ve, se aprueba, se exporta y se analiza el contenido orgánico
 de heru. Corre solo: no depende de que esta computadora esté prendida.
 
-**Repo:** `michelle834/automatizacion-content-heru` — se llamaba `centro-heru` y se
-renombró. GitHub redirige el nombre viejo, así que un `git remote` con la URL antigua
-sigue funcionando y no avisa. El sitio en vivo es
-https://michelle834.github.io/automatizacion-content-heru/ ; la ruta `/centro-heru/`
-ya no responde.
+**Repo:** `michelle834/content-dash-auto` — es el tercer nombre. Fue `centro-heru`,
+luego `automatizacion-content-heru`, y desde el 16 de octubre este.
+
+GitHub redirige los nombres viejos para `git`, así que un `git remote` con la URL
+antigua sigue funcionando y no avisa. **Las rutas viejas de Pages no redirigen:**
+`/centro-heru/` y `/automatizacion-content-heru/` ya no responden. Cada rename rompe
+la liga publicada, y ya van dos veces.
+
+El sitio en vivo es https://michelle834.github.io/content-dash-auto/
+
+Si se vuelve a renombrar, la liga se rompe otra vez. La forma de que deje de pasar es
+un dominio propio (un `CNAME` con algo como `dash.heru.app`): ahí el nombre del repo
+deja de aparecer en la URL. Hoy no hay `CNAME` en el repo.
 
 ## Arquitectura
 
